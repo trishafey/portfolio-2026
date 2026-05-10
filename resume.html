@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-437LB5DVLY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-437LB5DVLY');
+</script>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Resume — Trisha Fey</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&family=Newsreader:ital,wght@0,300;0,400;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/cs-shared.css" />
+<style>
+  body { background: var(--paper); }
+
+  .res {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: clamp(40px, 6vw, 80px) var(--gutter) 120px;
+  }
+
+  /* ===== Header ===== */
+  .res-head {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: clamp(40px, 6vw, 96px);
+    align-items: end;
+    padding: clamp(40px, 6vw, 80px) 0 clamp(36px, 4.5vw, 56px);
+    border-bottom: 1px solid var(--line);
+  }
+  .res-head__lead { display: flex; flex-direction: column; gap: 18px; }
+  .res-head__eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .res-head__name {
+    font-size: clamp(48px, 7vw, 96px);
+    line-height: 0.96;
+    letter-spacing: -0.04em;
+    font-weight: 300;
+    margin: 0;
+  }
+  .res-head__name em {
+    font-family: "Newsreader", Georgia, serif;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--accent);
+  }
+  .res-head__title {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--ink);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-top: 8px;
+  }
+
+  .res-head__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    font-size: 14px;
+    color: var(--ink-2);
+    line-height: 1.5;
+    padding-bottom: 6px;
+  }
+  .res-head__meta-row {
+    display: grid;
+    grid-template-columns: 88px 1fr;
+    gap: 16px;
+    align-items: baseline;
+  }
+  .res-head__meta-row dt {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin: 0;
+  }
+  .res-head__meta-row dd {
+    margin: 0;
+    color: var(--ink);
+  }
+  .res-head__meta-row a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+
+  .res-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+  }
+  .res-actions .btn {
+    padding: 11px 18px;
+    font-size: 13.5px;
+    border-radius: 999px;
+  }
+  .res-actions .btn--ghost {
+    background: transparent;
+    color: var(--ink);
+    border-color: var(--line);
+  }
+  .res-actions .btn--ghost:hover { border-color: var(--ink); background: var(--ink); color: #fff; }
+
+  /* ===== Section ===== */
+  .res-sec {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: clamp(28px, 5vw, 80px);
+    padding: clamp(36px, 5vw, 64px) 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .res-sec:last-of-type { border-bottom: none; }
+  .res-sec__label {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding-top: 4px;
+  }
+  .res-sec__label-num {
+    display: block;
+    color: var(--ink);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+
+  /* ===== Job ===== */
+  .res-job + .res-job {
+    margin-top: clamp(36px, 4.5vw, 56px);
+    padding-top: clamp(28px, 3.6vw, 44px);
+    border-top: 1px solid var(--line-2);
+  }
+  .res-job__head {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: baseline;
+    margin-bottom: 6px;
+  }
+  .res-job__role {
+    font-size: clamp(22px, 2.4vw, 28px);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    font-weight: 500;
+    color: var(--ink);
+    margin: 0;
+  }
+  .res-job__role em {
+    font-family: "Newsreader", Georgia, serif;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--accent);
+  }
+  .res-job__dates {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+  .res-job__company {
+    font-size: 14px;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+    margin: 0 0 18px;
+  }
+  .res-job__company strong { color: var(--ink-2); font-weight: 500; }
+
+  .res-job__bullets {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .res-job__bullets li {
+    position: relative;
+    padding-left: 22px;
+    font-size: 15.5px;
+    line-height: 1.6;
+    color: var(--ink-2);
+    max-width: 72ch;
+  }
+  .res-job__bullets li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0.7em;
+    width: 8px; height: 1.5px;
+    background: var(--accent);
+  }
+  .res-job__bullets li strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .res-job__recog {
+    margin-top: 18px;
+    padding: 14px 18px;
+    border-left: 2px solid var(--accent);
+    background: color-mix(in oklab, var(--accent) 6%, transparent);
+    font-size: 14px;
+    color: var(--ink);
+    line-height: 1.55;
+  }
+  .res-job__recog-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  /* ===== Skills ===== */
+  .res-skills { display: flex; flex-direction: column; gap: clamp(24px, 3vw, 36px); }
+  .res-skill__group { display: grid; grid-template-columns: 140px 1fr; gap: 20px; }
+  .res-skill__group h4 {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    color: var(--muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin: 6px 0 0;
+  }
+  .res-skill__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .res-skill__chips li {
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 6px 12px;
+    font-size: 13px;
+    color: var(--ink-2);
+    background: var(--paper);
+    transition: border-color .15s, color .15s;
+  }
+  .res-skill__chips li:hover { border-color: var(--ink); color: var(--ink); }
+  .res-skill__chips li[data-strong="true"] {
+    background: var(--ink);
+    color: #fff;
+    border-color: var(--ink);
+  }
+
+  /* ===== Education ===== */
+  .res-edu {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: baseline;
+  }
+  .res-edu__school {
+    font-size: 20px;
+    letter-spacing: -0.015em;
+    margin: 0 0 4px;
+    font-weight: 500;
+  }
+  .res-edu__major { color: var(--muted); font-size: 14px; }
+  .res-edu__year {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+  }
+
+  /* ===== Mobile ===== */
+  @media (max-width: 820px) {
+    .res-head { grid-template-columns: 1fr; gap: 28px; }
+    .res-sec { grid-template-columns: 1fr; gap: 18px; }
+    .res-skill__group { grid-template-columns: 1fr; gap: 10px; }
+    .res-job__head { grid-template-columns: 1fr; }
+    .res-job__dates { order: -1; }
+  }
+
+  /* ===== Print ===== */
+  @media print {
+    .nav, .home-foot, .res-actions { display: none !important; }
+    body { font-size: 11pt; }
+    .res { padding: 0; max-width: none; }
+    .res-head { padding-top: 0; }
+    .res-sec { padding: 18pt 0; break-inside: avoid; }
+    .res-job { break-inside: avoid; }
+    .res-job__bullets li { font-size: 10.5pt; }
+    a { color: inherit !important; text-decoration: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a class="nav__logo" href="index.html"><img class="nav__logo-mark" src="assets/tf-logo.svg" alt="Trisha Fey" /></a>
+  <div class="nav__links">
+    <a href="index.html">Home</a>
+    <a href="work.html">Work</a>
+    <a href="resume.html" class="active">Resume</a>
+    <a href="mailto:trisha@trishafeydesigns.com">Contact</a>
+  </div>
+</nav>
+
+<main class="res">
+
+  <!-- ============ HEADER ============ -->
+  <header class="res-head">
+    <div class="res-head__lead">
+      <span class="res-head__eyebrow">Resume · 2026</span>
+      <h1 class="res-head__name">Trisha <em>Fey</em></h1>
+      <div class="res-head__title">Product Designer · UX / Product / AI</div>
+      <div class="res-actions">
+        <a class="btn" href="resume-print.html#print" target="_blank" rel="noopener">
+          Download PDF
+          <svg class="arrow" viewBox="0 0 16 16" fill="none"><path d="M8 2v9m0 0l3.5-3.5M8 11L4.5 7.5M3 13.5h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn btn--ghost" href="resume-print.html" target="_blank" rel="noopener">View one-pager</a>
+        <a class="btn btn--ghost" href="work.html">See work</a>
+      </div>
+    </div>
+    <dl class="res-head__meta">
+      <div class="res-head__meta-row"><dt>Location</dt><dd>New York City, NY</dd></div>
+      <div class="res-head__meta-row"><dt>Email</dt><dd><a href="mailto:trisha@trishafeydesigns.com">trisha@trishafeydesigns.com</a></dd></div>
+      <div class="res-head__meta-row"><dt>Phone</dt><dd>646-662-8344</dd></div>
+      <div class="res-head__meta-row"><dt>LinkedIn</dt><dd><a href="https://linkedin.com/in/TrishaFey" target="_blank" rel="noopener">linkedin.com/in/TrishaFey</a></dd></div>
+      <div class="res-head__meta-row"><dt>Web</dt><dd><a href="https://trishafeydesigns.com" target="_blank" rel="noopener">trishafeydesigns.com</a></dd></div>
+    </dl>
+  </header>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section class="res-sec">
+    <div class="res-sec__label"><span class="res-sec__label-num">01</span>Experience</div>
+    <div>
+
+      <article class="res-job">
+        <div class="res-job__head">
+          <h3 class="res-job__role">Sr. UX Designer · <em>Rocket Mortgage</em></h3>
+          <div class="res-job__dates">Jul 2021 – Present</div>
+        </div>
+        <p class="res-job__company"><strong>Rocket Companies</strong> · Mortgage, title &amp; closing platforms</p>
+        <ul class="res-job__bullets">
+          <li>Led <strong>0→1 and future-state AI platform concepts</strong> for complex, multi-system workflows (title, notarization, post-close), including agentic AI prototypes adopted as visionary benchmarks for company direction.</li>
+          <li>Designed and shipped <strong>foundational internal tools and workflows</strong> across Nova, Salesforce, and Title systems — translating ambiguous, high-stakes processes into scalable, intuitive platform experiences.</li>
+          <li>Owned end-to-end <strong>redesign of Clear Sign</strong>, a Remote Online Notarization platform, delivering a mobile-first, accessible experience and introducing reusable system-level patterns.</li>
+          <li>Partnered closely with engineering, product, and data teams to define problem spaces, map workflows, and identify automation opportunities before execution.</li>
+          <li>Built <strong>high-fidelity prototypes and technical proofs of concept</strong> to de-risk complexity, guide product direction, and align cross-functional teams; mentored junior designers and promoted UX best practices across teams.</li>
+        </ul>
+        <div class="res-job__recog">
+          <span class="res-job__recog-label">Recognition</span>
+          Nominated for the 2024 "Rockie" Award for Innovation in Technology, for AI-driven platform and workflow design.
+        </div>
+      </article>
+
+      <article class="res-job">
+        <div class="res-job__head">
+          <h3 class="res-job__role">UX Designer · <em>BGRS</em></h3>
+          <div class="res-job__dates">May 2020 – Jun 2021</div>
+        </div>
+        <p class="res-job__company"><strong>BGRS (now SIRVA)</strong> · Global employee relocation</p>
+        <ul class="res-job__bullets">
+          <li>Redesigned <strong>employee relocation dashboards</strong> for multiple user roles.</li>
+          <li>Conducted user research and contributed to personas, user flows, IA, and journey mapping.</li>
+          <li>Created a <strong>WCAG-compliant design system</strong> by partnering with external accessibility specialists.</li>
+          <li>Collaborated closely with Agile teams (BAs, PMs, Engineering).</li>
+        </ul>
+      </article>
+
+      <article class="res-job">
+        <div class="res-job__head">
+          <h3 class="res-job__role">Digital &amp; UX Designer · <em>Hostopia</em></h3>
+          <div class="res-job__dates">Sept 2015 – May 2020</div>
+        </div>
+        <p class="res-job__company"><strong>Hostopia</strong> · White-label SMB digital products</p>
+        <ul class="res-job__bullets">
+          <li>Led <strong>end-to-end UX/UI</strong> for responsive web and product experiences.</li>
+          <li>Conducted user research and translated insights into flows, IA, and interaction design.</li>
+          <li>Delivered digital experiences supporting SMB e-commerce and platform tools, as well as <strong>white-label wholesale digital products and services</strong>.</li>
+        </ul>
+      </article>
+
+      <article class="res-job">
+        <div class="res-job__head">
+          <h3 class="res-job__role">Graphic Designer · <em>The Look Company</em></h3>
+          <div class="res-job__dates">May 2015 – Jul 2015</div>
+        </div>
+        <p class="res-job__company"><strong>The Look Company</strong> · Large-format brand &amp; signage</p>
+        <ul class="res-job__bullets">
+          <li><strong>FIFA branding</strong> &amp; application across all stadiums in Canada.</li>
+          <li>Research, concept development, file creation, and brand implementation for stadium signage and large-scale prints.</li>
+        </ul>
+      </article>
+
+      <article class="res-job">
+        <div class="res-job__head">
+          <h3 class="res-job__role">Designer · <em>Trisha Fey Designs</em></h3>
+          <div class="res-job__dates">2012 – Present</div>
+        </div>
+        <p class="res-job__company"><strong>Independent practice</strong> · Brand · Web · Print</p>
+        <ul class="res-job__bullets">
+          <li>Specialize in <strong>full-spectrum brand development</strong>, including marketing, web design, and print collateral.</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============ EDUCATION ============ -->
+  <section class="res-sec">
+    <div class="res-sec__label"><span class="res-sec__label-num">02</span>Education</div>
+    <div class="res-edu">
+      <div>
+        <h3 class="res-edu__school">Humber College</h3>
+        <span class="res-edu__major">Major · Advertising and Graphic Design</span>
+      </div>
+      <div class="res-edu__year">2015</div>
+    </div>
+  </section>
+
+  <!-- ============ TOOLS & SKILLS ============ -->
+  <section class="res-sec">
+    <div class="res-sec__label"><span class="res-sec__label-num">03</span>Tools &amp; skills</div>
+    <div class="res-skills">
+
+      <div class="res-skill__group">
+        <h4>Tools</h4>
+        <ul class="res-skill__chips">
+          <li data-strong="true">Figma</li>
+          <li>Adobe XD</li>
+          <li>Photoshop</li>
+          <li>Illustrator</li>
+          <li>InDesign</li>
+          <li>Sketch</li>
+          <li>InVision</li>
+          <li>Jira</li>
+          <li>Confluence</li>
+          <li>Miro</li>
+          <li>Lucid</li>
+          <li>Pendo</li>
+          <li>Google Analytics</li>
+          <li>UserTesting</li>
+          <li>Atlassian</li>
+        </ul>
+      </div>
+
+      <div class="res-skill__group">
+        <h4>Core</h4>
+        <ul class="res-skill__chips">
+          <li data-strong="true">Product design</li>
+          <li data-strong="true">Platform UX</li>
+          <li>Systems thinking</li>
+          <li>Internal tools</li>
+          <li>Dashboards</li>
+          <li>Design systems</li>
+          <li>User research</li>
+          <li>Journey mapping</li>
+          <li>Workflows</li>
+          <li>Prototyping</li>
+          <li>Interaction design</li>
+          <li>Accessibility</li>
+          <li>Cross-functional leadership</li>
+        </ul>
+      </div>
+
+      <div class="res-skill__group">
+        <h4>AI &amp; emerging</h4>
+        <ul class="res-skill__chips">
+          <li data-strong="true">AI-powered workflows</li>
+          <li data-strong="true">Agentic AI concepts</li>
+          <li>Design for AI copilots</li>
+          <li>Conversational UI</li>
+          <li>Multimodal interfaces</li>
+          <li>Natural language interaction</li>
+          <li>Generative AI prototyping</li>
+          <li>Real-time AI assistance</li>
+          <li>Ethical AI &amp; user trust</li>
+          <li>AI-integrated user research</li>
+          <li>Prompt engineering</li>
+          <li>Chatbot UX</li>
+          <li>Voice &amp; text interface design</li>
+          <li>AI-driven personalization</li>
+          <li>Low-code / no-code prototyping</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="home-foot">
+  <div class="home-foot__top">
+    <div class="home-foot__big">
+      Looking for the <em>right</em> team.
+    </div>
+    <div class="home-foot__col">
+      <h4>Site</h4>
+      <a href="index.html">Home</a>
+      <a href="work.html">Work</a>
+      <a href="resume.html">Resume</a>
+    </div>
+    <div class="home-foot__col">
+      <h4>Elsewhere</h4>
+      <a href="https://www.linkedin.com/in/trishafey" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="resume-print.html" target="_blank" rel="noopener">One-page PDF</a>
+    </div>
+    <div class="home-foot__col">
+      <h4>Reach me</h4>
+      <a href="mailto:trisha@trishafeydesigns.com">trisha@trishafeydesigns.com</a>
+    </div>
+  </div>
+  <div class="home-foot__bottom">
+    <span>© 2026 Trisha Fey</span>
+    <span>Last updated April 2026</span>
+  </div>
+</footer>
+
+<style>
+  /* Footer styles — mirror index.html */
+  .home-foot {
+    border-top: 1px solid var(--line);
+    padding: 60px var(--gutter) 40px;
+  }
+  .home-foot__top {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+  }
+  .home-foot__big {
+    font-size: clamp(36px, 5vw, 64px);
+    letter-spacing: -0.03em;
+    line-height: 1.02;
+    font-weight: 400;
+  }
+  .home-foot__big em {
+    font-family: "Newsreader", Georgia, serif;
+    font-style: italic;
+    color: var(--accent);
+  }
+  .home-foot__col h4 {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+    margin-bottom: 14px;
+    font-weight: 500;
+  }
+  .home-foot__col a {
+    display: block;
+    color: var(--ink-2);
+    padding: 4px 0;
+    font-size: 15px;
+    transition: color .15s, transform .15s;
+  }
+  .home-foot__col a:hover { color: var(--ink); transform: translateX(3px); }
+  .home-foot__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    border-top: 1px solid var(--line);
+    padding-top: 24px;
+  }
+  @media (max-width: 880px) {
+    .home-foot__top { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 540px) {
+    .home-foot__top { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script>
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+</script>
+
+</body>
+</html>
