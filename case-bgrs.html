@@ -1,0 +1,1220 @@
+<!doctype html>
+<html lang="en">
+<head>
+  
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-437LB5DVLY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-437LB5DVLY');
+</script>
+  
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BGRS — Trisha Fey</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&family=Newsreader:ital,wght@0,300;0,400;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/cs-shared.css" />
+<link rel="stylesheet" href="css/case-study.css" />
+<style>
+  body.cs { --accent: #0D7B7B; --accent-tint: #dff0ee; --accent-tint-2: #b6dcd6; }
+
+  /* metric / quote — match Nova/Clear Sign default */
+  body[data-metric-style="underline"] .cs-feature__metric {
+    display: block;
+    margin-top: 18px;
+    padding: 0 0 0 18px;
+    background: none; border: none; border-radius: 0;
+    border-left: 2px solid var(--accent);
+    color: var(--ink-2);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+  body[data-metric-style="underline"] .cs-feature__metric strong {
+    font-family: var(--font-mono);
+    font-size: 14px; font-weight: 500;
+    color: var(--ink);
+  }
+
+  /* ================= ACCESSIBILITY CALLOUT (recurring inline tag) =====
+     Used wherever Fable / WCAG AA work was relevant. */
+  .a11y-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 14px;
+    padding: 6px 12px 6px 10px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--paper);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--ink-2);
+  }
+  .a11y-pill::before {
+    content: "";
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-tint);
+  }
+  .a11y-pill strong { color: var(--ink); font-weight: 500; }
+
+  /* ================= ACCESSIBILITY SECTION (between summary + features) */
+  .cs-a11y {
+    padding: clamp(80px, 10vw, 120px) var(--gutter);
+    background: var(--paper-2);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .cs-a11y__head {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 60px;
+    align-items: end;
+    margin-bottom: 64px;
+  }
+  .cs-a11y__num {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+  }
+  .cs-a11y__title {
+    font-size: clamp(32px, 4.6vw, 60px);
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    font-weight: 400;
+    margin: 14px 0 0;
+    max-width: 18ch;
+  }
+  .cs-a11y__title em {
+    font-style: italic;
+    font-family: "Newsreader", Georgia, serif;
+    font-weight: 300;
+    color: var(--accent);
+  }
+  .cs-a11y__lede {
+    font-size: 18px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    max-width: 56ch;
+  }
+  .cs-a11y__grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .cs-a11y__partner {
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 32px;
+    background: var(--paper);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .cs-a11y__partner-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--line);
+  }
+  .cs-a11y__partner-mark {
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    background: var(--accent);
+    color: #fff;
+    display: grid;
+    place-items: center;
+    font-family: "Newsreader", Georgia, serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 26px;
+  }
+  .cs-a11y__partner-name {
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+  .cs-a11y__partner-meta {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+  .cs-a11y__partner p {
+    font-size: 15.5px;
+    line-height: 1.6;
+    color: var(--ink-2);
+    margin: 0;
+  }
+  .cs-a11y__criteria {
+    display: grid;
+    gap: 0;
+  }
+  .cs-a11y__criteria h3 {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+    margin: 0 0 18px;
+    font-weight: 500;
+  }
+  .cs-a11y__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-top: 1px solid var(--line);
+  }
+  .cs-a11y__list dt {
+    grid-column: 1 / -1;
+    border-bottom: 1px solid var(--line);
+    padding: 18px 0 16px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 18px;
+    align-items: baseline;
+  }
+  .cs-a11y__list dt strong {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .cs-a11y__list dt span {
+    font-size: 16px;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .cs-a11y__metric {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+  }
+  .cs-a11y__metric strong {
+    font-family: "Newsreader", Georgia, serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 32px;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+    text-transform: none;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* ================= PROTOTYPE VIDEO SECTION ===================== */
+  .cs-proto {
+    padding: clamp(90px, 11vw, 140px) var(--gutter);
+    background: var(--ink);
+    color: #fff;
+  }
+  .cs-proto__head {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 60px;
+    align-items: end;
+    margin-bottom: 56px;
+  }
+  .cs-proto__num {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: rgba(255,255,255,0.5);
+  }
+  .cs-proto__title {
+    font-size: clamp(32px, 4.6vw, 60px);
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    font-weight: 400;
+    margin: 14px 0 0;
+    max-width: 18ch;
+    color: #fff;
+  }
+  .cs-proto__title em {
+    font-style: italic;
+    font-family: "Newsreader", Georgia, serif;
+    font-weight: 300;
+    color: var(--accent-tint-2);
+  }
+  .cs-proto__lede {
+    font-size: 18px;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.7);
+    max-width: 56ch;
+  }
+  .cs-proto__player {
+    position: relative;
+    aspect-ratio: 8 / 5; /* 1.60 : 1 — matches the source video so nothing is cropped */
+    border-radius: 18px;
+    overflow: hidden;
+    background: #0a0a0a;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 40px 90px -30px rgba(0,0,0,0.6);
+  }
+  .cs-proto__player .ph {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(120% 80% at 50% 0%, rgba(13,123,123,0.25), transparent 60%),
+      linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
+  }
+  .cs-proto__player .ph__label {
+    color: rgba(255,255,255,0.45) !important;
+    background: transparent !important;
+    border-color: rgba(255,255,255,0.15) !important;
+  }
+  .cs-proto__overlay {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    pointer-events: none;
+  }
+  .cs-proto__play {
+    width: 92px; height: 92px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: grid;
+    place-items: center;
+    color: #fff;
+    box-shadow: 0 20px 50px -10px rgba(13,123,123,0.6);
+    pointer-events: auto;
+    cursor: pointer;
+    border: none;
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .cs-proto__play:hover { transform: scale(1.06); box-shadow: 0 24px 60px -10px rgba(13,123,123,0.8); }
+  .cs-proto__play svg { width: 32px; height: 32px; margin-left: 4px; }
+  .cs-proto__chrome {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: linear-gradient(0deg, rgba(0,0,0,0.7), transparent);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: rgba(255,255,255,0.7);
+  }
+  .cs-proto__chrome-bar {
+    flex: 1;
+    height: 3px;
+    border-radius: 2px;
+    background: rgba(255,255,255,0.15);
+    position: relative;
+    overflow: hidden;
+  }
+  .cs-proto__chrome-bar::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    width: var(--progress, 0%);
+    background: var(--accent);
+    transition: width .18s linear;
+  }
+  /* Video fills the player frame; contain so nothing crops even if the source's
+     ratio drifts a hair from the 8:5 (1.60:1) player */
+  .cs-proto__video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #000;
+    display: block;
+  }
+  /* Hide overlay + chrome once playback has started */
+  .cs-proto__player.is-playing .cs-proto__overlay { opacity: 0; pointer-events: none; }
+  .cs-proto__overlay { transition: opacity .25s ease; }
+  .cs-proto__meta {
+    margin-top: 28px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .cs-proto__meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .cs-proto__meta-item h4 {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: rgba(255,255,255,0.5);
+    margin: 0;
+    font-weight: 500;
+  }
+  .cs-proto__meta-item p {
+    margin: 0;
+    font-size: 15px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.55;
+  }
+
+  @media (max-width: 800px) {
+    .cs-a11y__head, .cs-proto__head { grid-template-columns: 1fr; gap: 28px; }
+    .cs-a11y__grid { grid-template-columns: 1fr; gap: 32px; }
+    .cs-proto__meta { grid-template-columns: 1fr; gap: 18px; }
+  }
+
+  /* Hero image fill */
+  .cs-hero__media .cs-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  /* Full-bleed break images fill */
+  .cs-break > .cs-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  /* Carousel slide image fill (before/after + multi) */
+  .ba-car__slide > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+  }
+  /* Multi-mode tags are written to .ba-car__tag textContent — suppress the
+     inherited After/Before pseudo */
+  .ba-car[data-mode="multi"] .ba-car__tag::before { content: none; }
+
+  /* 12-up screen gallery (4 × 3) with click-to-expand */
+  .cs-gallery--grid12 .cs-gallery__grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .cs-shot {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 0;
+    margin: 0;
+    cursor: zoom-in;
+    display: block;
+    transition: transform .25s cubic-bezier(.2,.7,.2,1), box-shadow .25s;
+  }
+  .cs-shot:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 40px -22px rgba(0,0,0,0.25);
+  }
+  .cs-shot:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  .cs-shot img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+  }
+  @media (max-width: 1000px) {
+    .cs-gallery--grid12 .cs-gallery__grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 700px) {
+    .cs-gallery--grid12 .cs-gallery__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* Wireframes gallery (4 across) — sits in the design + research narrative */
+  .cs-wireframes {
+    padding: clamp(60px, 8vw, 100px) var(--gutter);
+    background: var(--paper-2);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .cs-wireframes__head {
+    max-width: 1200px;
+    margin: 0 auto 32px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 60px;
+    align-items: end;
+  }
+  .cs-wireframes__num {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+  }
+  .cs-wireframes__title {
+    font-size: clamp(28px, 3.6vw, 44px);
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+    font-weight: 400;
+    margin: 14px 0 0;
+    max-width: 18ch;
+  }
+  .cs-wireframes__title em {
+    font-style: italic;
+    font-family: "Newsreader", Georgia, serif;
+    font-weight: 300;
+    color: var(--accent);
+  }
+  .cs-wireframes__lede {
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    max-width: 56ch;
+  }
+  .cs-wireframes__grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  @media (max-width: 1000px) {
+    .cs-wireframes__head { grid-template-columns: 1fr; gap: 24px; }
+    .cs-wireframes__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* Lightbox */
+  .cs-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: rgba(14, 14, 14, 0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(20px, 5vw, 60px);
+    opacity: 0;
+    transition: opacity .25s ease;
+  }
+  .cs-lightbox[hidden] { display: none; }
+  .cs-lightbox.is-open { opacity: 1; }
+  .cs-lightbox__img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 40px 80px -20px rgba(0,0,0,0.6);
+    display: block;
+  }
+  .cs-lightbox__close,
+  .cs-lightbox__nav {
+    position: absolute;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.18);
+    color: #f4f1ec;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background .2s, border-color .2s, transform .2s;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+  .cs-lightbox__close {
+    top: 24px; right: 24px;
+    width: 44px; height: 44px;
+    font-size: 28px;
+    line-height: 1;
+    display: grid; place-items: center;
+    padding: 0;
+  }
+  .cs-lightbox__nav {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 52px; height: 52px;
+    font-size: 28px;
+    line-height: 1;
+    display: grid; place-items: center;
+    padding: 0;
+    font-family: var(--font-sans);
+  }
+  .cs-lightbox__nav--prev { left: 24px; }
+  .cs-lightbox__nav--next { right: 24px; }
+  .cs-lightbox__close:hover,
+  .cs-lightbox__nav:hover {
+    background: rgba(255,255,255,0.18);
+    border-color: rgba(255,255,255,0.35);
+  }
+  .cs-lightbox__nav:hover { transform: translateY(-50%) scale(1.05); }
+  @media (max-width: 600px) {
+    .cs-lightbox__nav { width: 42px; height: 42px; font-size: 22px; }
+    .cs-lightbox__nav--prev { left: 12px; }
+    .cs-lightbox__nav--next { right: 12px; }
+    .cs-lightbox__close { top: 12px; right: 12px; width: 38px; height: 38px; font-size: 24px; }
+  }
+</style>
+<!-- Hotjar Tracking Code for http://trishafeydesigns.com/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:2054169,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+</head>
+<body class="cs" data-metric-style="underline">
+
+<nav class="nav" id="nav">
+  <a class="nav__logo" href="index.html"><img class="nav__logo-mark" src="assets/tf-logo.svg" alt="Trisha Fey" /></a>
+  <div class="nav__links">
+    <a href="index.html">Home</a>
+    <a href="work.html" class="active">Work</a>
+  <a href="mailto:trisha@trishafeydesigns.com">Contact</a>
+  </div>
+</nav>
+
+<header class="cs-hero" id="hero">
+  <div class="cs-hero__crumbs"><a href="work.html">Work</a><span>/</span><span>BGRS</span></div>
+  <h1 class="cs-hero__title">Relocation,<br/><em>without the chaos.</em></h1>
+  <p class="cs-hero__sub">A centralized, task-driven dashboard that transforms a fragmented, email-heavy relocation process into a structured, trackable, and collaborative experience — designed inclusively to WCAG AA in partnership with Fable.</p>
+  <div class="cs-hero__media"><img class="cs-img" src="https://assets.trishafeydesigns.com/bgrs/hero.png" alt="BGRS ReloAccess — relocation dashboard with departure milestone, tasks, itinerary, and overall progress" /></div>
+</header>
+
+<section class="cs-info">
+  <div class="cs-info__grid">
+    <div class="cs-info__item"><h4>Year</h4><p>2020</p></div>
+    <div class="cs-info__item"><h4>Role</h4><p>Sr. UX Designer · Lead</p></div>
+    <div class="cs-info__item"><h4>Client</h4><p>BGRS (now SIRVA)</p></div>
+    <div class="cs-info__item"><h4>Platform</h4><p>Enterprise web · responsive</p></div>
+    <div class="cs-info__item cs-info__item--wide"><h4>About the client</h4><p>BGRS (now SIRVA) provides global employee relocation services and software, supporting organizations — including government clients — in managing complex relocation workflows.</p></div>
+    <div class="cs-info__item cs-info__item--wide"><h4>Team &amp; partners</h4><p>Product, engineering, and stakeholder leads at BGRS, with accessibility research and validation in partnership with <strong>Fable</strong> — testing alongside real users of assistive technology.</p></div>
+  </div>
+</section>
+
+<section class="cs-logos">
+  <div class="cs-logos__label">Partners &amp; integrations</div>
+  <div class="cs-logos__track-wrap"><div class="cs-logos__track">
+    <div class="cs-logo"><strong>BGRS</strong></div>
+    <div class="cs-logo"><strong>Fable</strong></div>
+    <div class="cs-logo"><strong>WCAG&nbsp;AA</strong></div>
+    <div class="cs-logo"><strong>SAP</strong></div>
+    <div class="cs-logo"><strong>Workday</strong></div>
+    <div class="cs-logo"><strong>SIRVA</strong></div>
+    <div class="cs-logo"><strong>BGRS</strong></div>
+    <div class="cs-logo"><strong>Fable</strong></div>
+    <div class="cs-logo"><strong>WCAG&nbsp;AA</strong></div>
+    <div class="cs-logo"><strong>SAP</strong></div>
+    <div class="cs-logo"><strong>Workday</strong></div>
+    <div class="cs-logo"><strong>SIRVA</strong></div>
+  </div></div>
+</section>
+
+<section class="cs-overview">
+  <div class="cs-overview__inner">
+    <div class="cs-overview__label">Overview — 01</div>
+    <p class="cs-overview__body">Relocation is almost always a tedious and overwhelming process. The BGRS dashboard supports employees, consultants, and clients through every step — coordinating tasks, timelines, and communication across multiple stakeholders. The existing experience was underutilized, hard to navigate, and heavily reliant on email, with users abandoning the platform entirely. The redesign created a centralized, intuitive system that users would actually adopt — <em>shifting relocation management from scattered communication to a structured, self-serve experience.</em></p>
+  </div>
+</section>
+
+<!-- SCREEN GALLERY (4 × 3) -->
+<section class="cs-gallery cs-gallery--grid12" id="screens">
+  <div class="cs-gallery__head">
+    <h2 class="cs-gallery__title">Screens</h2>
+    <span class="cs-gallery__meta">12 selected</span>
+  </div>
+  <div class="cs-gallery__grid" id="bgrsGrid">
+    <button class="cs-shot" type="button" data-src="https://assets.trishafeydesigns.com/bgrs/screen-1.png" aria-label="Expand screen 01"><img src="https://assets.trishafeydesigns.com/bgrs/screen-1.png" alt="BGRS — screen 01" loading="lazy" /></button>
+    <button class="cs-shot" type="button" data-src="https://assets.trishafeydesigns.com/bgrs/screen-2.png" aria-label="Expand screen 02"><img src="https://assets.trishafeydesigns.com/bgrs/screen-2.png" alt="BGRS — screen 02" loading="lazy" /></button>
+    <button class="cs-shot" type="button" data-src="https://assets.trishafeydesigns.com/bgrs/screen-3.png" aria-label="Expand screen 03"><img src="https://assets.trishafeydesigns.com/bgrs/screen-3.png" alt="BGRS — screen 03" loading="lazy" /></button>
+    <button class="cs-shot" type="button" data-src="https://assets.trishafeydesigns.com/bgrs/screen-4.png" aria-label="Expand screen 04"><img src="https://assets.trishafeydesigns.com/bgrs/screen-4.png" alt="BGRS — screen 04" loading="lazy" /></button>
+    <button class="cs-shot" type="button" data-src="https://assets.trishafeydesigns.com/bgrs/screen-5.png" aria-label="Expand screen 05"><img src="https://assets.trishafeydesigns.com/bgrs/screen-5.png" alt="BGRS — screen 05" loading="lazy" /></button>
+    <button class="cs-shot" type="button" data-src="https://assets.trishafeydesigns.com/bgrs/screen-6.png" aria-label="Expand screen 06"><img src="https://assets.trishafeydesigns.com/bgrs/screen-6.png" alt="BGRS — screen 06" loading="lazy" /></button>
+    <button class="cs-shot" type="button" data-src="https://assets.trishafeydesigns.com/bgrs/screen-7.png" aria-label="Expand screen 07"><img src="https://assets.trishafeydesigns.com/bgrs/screen-7.png" alt="BGRS — screen 07" loading="lazy" /></button>
+    <button class="cs-shot" type="button" data-src="https://assets.trishafeydesigns.com/bgrs/screen-8.png" aria-label="Expand screen 08"><img src="https://assets.trishafeydesigns.com/bgrs/screen-8.png" alt="BGRS — screen 08" loading="lazy" /></button>
+    <button class="cs-shot" type="button" data-src="https://assets.trishafeydesigns.com/bgrs/screen-9.png" aria-label="Expand screen 09"><img src="https://assets.trishafeydesigns.com/bgrs/screen-9.png" alt="BGRS — screen 09" loading="lazy" /></button>
+    <button class="cs-shot" type="button" data-src="https://assets.trishafeydesigns.com/bgrs/screen-10.png" aria-label="Expand screen 10"><img src="https://assets.trishafeydesigns.com/bgrs/screen-10.png" alt="BGRS — screen 10" loading="lazy" /></button>
+    <button class="cs-shot" type="button" data-src="https://assets.trishafeydesigns.com/bgrs/screen-11.png" aria-label="Expand screen 11"><img src="https://assets.trishafeydesigns.com/bgrs/screen-11.png" alt="BGRS — screen 11" loading="lazy" /></button>
+    <button class="cs-shot" type="button" data-src="https://assets.trishafeydesigns.com/bgrs/screen-12.png" aria-label="Expand screen 12"><img src="https://assets.trishafeydesigns.com/bgrs/screen-12.png" alt="BGRS — screen 12" loading="lazy" /></button>
+  </div>
+</section>
+
+<section class="cs-summary">
+  <div class="cs-summary__inner">
+    <div class="cs-summary__label">Summary — 02</div>
+    <h2 class="h1" style="max-width:18ch;letter-spacing:-0.03em;font-weight:400;">The <em style="font-family:Newsreader,Georgia,serif;font-style:italic;color:var(--accent);font-weight:300;">friction</em> we set out to remove.</h2>
+    <div class="cs-summary__grid">
+      <div class="cs-summary__block">
+        <h3 data-num="2.1">Key pain points</h3>
+        <ul>
+          <li>Users abandoning the platform and defaulting to email</li>
+          <li>Poor task visibility and tracking</li>
+          <li>Confusing task classifications — reminders, milestones, system tasks</li>
+          <li>Overwhelming and outdated UI — described as "a static PowerPoint"</li>
+          <li>Lack of centralized communication across stakeholders</li>
+          <li>Accessibility barriers for users on assistive technology</li>
+        </ul>
+        <div style="margin-top:16px;font-size:14px;color:var(--ink-2);line-height:1.55;">
+          <strong style="color:var(--ink);font-weight:500;">Result:</strong> low adoption, missed tasks, and fragmented communication — leading to relocation delays.
+        </div>
+      </div>
+      <div class="cs-summary__block">
+        <h3 data-num="2.2">The problem</h3>
+        <p>Relocation is a multi-step, high-stress process with many stakeholders, deadlines, and dependencies. Instead of simplifying it, the existing dashboard added confusion, lacked clarity, and failed to become a source of truth. Users resorted to email — and that broke the system entirely.</p>
+      </div>
+      <div class="cs-summary__block">
+        <h3 data-num="2.3">My role</h3>
+        <p>Lead UX Designer — Research → Strategy → Execution. I led the redesign end-to-end: user interviews, accessibility testing with Fable, UX strategy, and detailed design. I collaborated with product, engineering, and stakeholders to align on priorities, define MVP scope, and ensure usability across a global audience.</p>
+      </div>
+      <div class="cs-summary__block">
+        <h3 data-num="2.4">Objective</h3>
+        <p>Re-establish the dashboard as the primary workspace for relocation management — increase platform adoption, centralize communication and tasks, simplify task management, and improve accessibility across a global user base.</p>
+        <p style="margin-top:12px;font-size:14px;color:var(--muted);"><em style="font-family:Newsreader,Georgia,serif;">Instead of asking</em> "How do we improve the dashboard?" — we asked, "How do we make this the one place users actually want to work in?"</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cs-break"><img class="cs-img" src="https://assets.trishafeydesigns.com/bgrs/break-1.png" alt="BGRS — full-bleed flow overview" /></div>
+
+<!-- ACCESSIBILITY · prominent partner section before features -->
+<section class="cs-a11y" id="accessibility">
+  <header class="cs-a11y__head">
+    <div>
+      <div class="cs-a11y__num">Accessibility — 03</div>
+      <h2 class="cs-a11y__title">Built with <em>real users</em> on assistive tech.</h2>
+    </div>
+    <p class="cs-a11y__lede">
+      BGRS relocates employees of nearly every demographic, globally — so accessibility wasn't a finish-line check, it was a foundation. We partnered with <strong>Fable</strong>, who connected us with users of assistive technology — screen readers, voice control, switch devices — to test, learn, and validate the experience as we built it.
+    </p>
+  </header>
+
+  <div class="cs-a11y__grid">
+    <div class="cs-a11y__partner">
+      <div class="cs-a11y__partner-header">
+        <div class="cs-a11y__partner-mark" aria-hidden="true">F</div>
+        <div>
+          <div class="cs-a11y__partner-name">Fable Tech Labs</div>
+          <div class="cs-a11y__partner-meta">Accessibility research partner</div>
+        </div>
+      </div>
+      <p>Through Fable, we ran sessions with people who use assistive technology day-to-day. They shared lived experience that no audit can surface: how a screen reader flows through a complex task list, where voice control fails on tightly-packed UI, why our heading hierarchy made a calendar view unnavigable. We took those notes back into design and engineering — and tested again.</p>
+      <p>The partnership reshaped how I think about accessibility. It's not a constraint to design around — it's a sharper lens that exposes UX problems for <em>everyone.</em></p>
+      <span class="a11y-pill"><strong>WCAG AA</strong> · designed and validated</span>
+    </div>
+
+    <div class="cs-a11y__criteria">
+      <h3>What we paid attention to</h3>
+      <dl class="cs-a11y__list">
+        <dt><strong>01</strong><span>Color &amp; contrast across the full UI — including state, focus, and disabled treatments</span></dt>
+        <dt><strong>02</strong><span>Type sizing and minimum hit areas tuned to mobile and assistive input</span></dt>
+        <dt><strong>03</strong><span>Semantic structure — H1 / H2 / H3 hierarchy that screen readers can navigate</span></dt>
+        <dt><strong>04</strong><span>ARIA labels, roles, and live regions for tasks, milestones, and notifications</span></dt>
+        <dt><strong>05</strong><span>Keyboard-first flows for every primary action — tested with switch users</span></dt>
+        <dt><strong>06</strong><span>Voice-control compatibility on dense list and calendar views</span></dt>
+      </dl>
+      <div class="cs-a11y__metric">
+        <strong>WCAG AA</strong>
+        validated with real assistive-technology users across 6 device + tool combinations
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cs-features">
+  <header class="cs-features__head">
+    <div class="cs-features__label">Features &amp; updates — 04</div>
+    <h2 class="cs-features__title">Three moves that brought<br/><em>users back</em> from email.</h2>
+  </header>
+
+  <article class="cs-feature">
+    <div class="cs-feature__copy">
+      <div class="cs-feature__num">F · 01</div>
+      <h3 class="cs-feature__title">Navigation system redesign</h3>
+      <div class="cs-feature__row">
+        <h4>Pain point</h4>
+        <p>Users struggled to find key information — the existing structure was flat, inconsistent, and not built around how relocation actually flows.</p>
+      </div>
+      <div class="cs-feature__row">
+        <h4>Solution</h4>
+        <p>Introduced a hybrid navigation model — a top bar for global wayfinding and a side nav for task-based organization — with a clearer hierarchy and screen-reader-friendly heading structure validated with Fable.</p>
+      </div>
+      <div class="cs-feature__metric">
+        ↓ Time to find key pages (observed in testing) · ↑ <strong>navigation success rate</strong> · ↑ user-reported ease of use
+      </div>
+      <span class="a11y-pill"><strong>A11y</strong> · keyboard order &amp; landmarks audited with Fable</span>
+    </div>
+    <div class="cs-feature__media">
+      <div class="ba-car" data-state="after">
+        <div class="ba-car__frame">
+          <span class="ba-car__tag"></span>
+          <div class="ba-car__slide ba-car__slide--after"><img src="https://assets.trishafeydesigns.com/bgrs/feature-1-navigation-system-design-after.png" alt="After — top + side hybrid navigation" loading="lazy" /></div>
+          <div class="ba-car__slide ba-car__slide--before"><img src="https://assets.trishafeydesigns.com/bgrs/feature-1-navigation-system-design-before.png" alt="Before — flat navigation with hidden depth" loading="lazy" /></div>
+        </div>
+        <div class="ba-car__controls">
+          <button class="ba-car__toggle" type="button">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="label-after">See before</span>
+            <span class="label-before">See after</span>
+          </button>
+          <div class="ba-car__dots"><span></span><span></span></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="cs-feature">
+    <div class="cs-feature__copy">
+      <div class="cs-feature__num">F · 02</div>
+      <h3 class="cs-feature__title">Home dashboard redesign</h3>
+      <div class="cs-feature__row">
+        <h4>Pain point</h4>
+        <p>The dashboard was cluttered, outdated, and not actionable — users described it as "a static PowerPoint."</p>
+      </div>
+      <div class="cs-feature__row">
+        <h4>Solution</h4>
+        <p>Removed low-value widgets and surfaced the things people actually came back for: tasks, milestones, and itinerary. Introduced a horizontal scroll for milestones and tasks, and let relocating individuals add flight and address details to a printable, emailable itinerary — turning the dashboard into an all-in-one project + trip management tool.</p>
+      </div>
+      <div class="cs-feature__metric">
+        ↑ Engagement with dashboard · ↓ <strong>cognitive load</strong> · ↑ interaction with key modules (tasks, itinerary)
+      </div>
+    </div>
+    <div class="cs-feature__media">
+      <div class="ba-car" data-state="after">
+        <div class="ba-car__frame">
+          <span class="ba-car__tag"></span>
+          <div class="ba-car__slide ba-car__slide--after"><img src="https://assets.trishafeydesigns.com/bgrs/feature-2-home-dashboard-redesign-after.png" alt="After — redesigned home dashboard with tasks, milestones, and itinerary" loading="lazy" /></div>
+          <div class="ba-car__slide ba-car__slide--before"><img src="https://assets.trishafeydesigns.com/bgrs/feature-2-home-dashboard-redesign-before.png" alt="Before — original home dashboard with widget overload" loading="lazy" /></div>
+        </div>
+        <div class="ba-car__controls">
+          <button class="ba-car__toggle" type="button">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="label-after">See before</span>
+            <span class="label-before">See after</span>
+          </button>
+          <div class="ba-car__dots"><span></span><span></span></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="cs-feature">
+    <div class="cs-feature__copy">
+      <div class="cs-feature__num">F · 03</div>
+      <h3 class="cs-feature__title">Calendar &amp; list views</h3>
+      <div class="cs-feature__row">
+        <h4>Pain point</h4>
+        <p>Users relied on email, causing fragmented communication and lost information. Multiple task types — reminders, milestones, system tasks — left people confused and unable to track progress, with no visibility into upcoming deadlines.</p>
+      </div>
+      <div class="cs-feature__row">
+        <h4>Solution</h4>
+        <p>Introduced a new calendar view for a high-level overview of the relocation timeline. Unified everything into a simplified to-do list with clear ownership, status, and actions, and enabled task-level commenting directly in the platform — pulling the conversation out of email and back into the workflow.</p>
+      </div>
+      <div class="cs-feature__metric">
+        ↑ Task completion · ↓ missed tasks · ↑ <strong>visibility into deadlines</strong> · ↓ reliance on email · ↑ communication traceability
+      </div>
+      <span class="a11y-pill"><strong>A11y</strong> · calendar tested for screen reader &amp; keyboard nav</span>
+    </div>
+    <div class="cs-feature__media">
+      <div class="ba-car" data-mode="multi" data-active="0" data-current-tag="Calendar View">
+        <div class="ba-car__frame">
+          <span class="ba-car__tag"></span>
+          <div class="ba-car__slide is-active" data-tag="Calendar View"><img src="https://assets.trishafeydesigns.com/bgrs/feature-3-calander-1.png" alt="Calendar view — relocation timeline overview" loading="lazy" /></div>
+          <div class="ba-car__slide" data-tag="Task View"><img src="https://assets.trishafeydesigns.com/bgrs/feature-3-tasks-2.png" alt="Task view — unified to-do list" loading="lazy" /></div>
+          <div class="ba-car__slide" data-tag="Task Details"><img src="https://assets.trishafeydesigns.com/bgrs/feature-3-tasks-panel-3.png" alt="Task details panel — task detail with comments" loading="lazy" /></div>
+        </div>
+        <div class="ba-car__controls">
+          <div class="ba-car__nav">
+            <button class="ba-car__prev" type="button" aria-label="Previous">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M10 13L5 8l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="ba-car__next" type="button" aria-label="Next">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+          <div class="ba-car__count"><strong class="ba-car__current">01</strong> / 03</div>
+          <div class="ba-car__dots">
+            <button class="is-active" data-go="0" aria-label="Slide 1"></button>
+            <button data-go="1" aria-label="Slide 2"></button>
+            <button data-go="2" aria-label="Slide 3"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+</section>
+
+<div class="cs-break cs-break--tall"><img class="cs-img" src="https://assets.trishafeydesigns.com/bgrs/break-2.png" alt="BGRS — design system overview" /></div>
+
+<section class="cs-section">
+  <header class="cs-section__head">
+    <div class="cs-section__num">05 · Design &amp; research</div>
+    <h2 class="cs-section__title">A research-driven redesign to <em>recover adoption.</em></h2>
+  </header>
+  <div class="cs-process">
+    <div class="cs-process__step"><h4>01 — Discovery</h4><p>User interviews, accessibility testing with Fable, and competitive analysis across the global mobility space.</p></div>
+    <div class="cs-process__step"><h4>02 — Synthesis</h4><p>Identified the core issue: users were abandoning the platform because it lacked clarity and usefulness.</p></div>
+    <div class="cs-process__step"><h4>03 — Prototyping</h4><p>Designed task-driven workflows and simplified UI through wireframes and high-fidelity prototypes.</p></div>
+    <div class="cs-process__step"><h4>04 — Validation</h4><p>Tested with employees, consultants, and assistive-technology users to validate usability and adoption.</p></div>
+  </div>
+  <div class="cs-detail-grid">
+    <div class="cs-detail">
+      <h4>Research &amp; discovery</h4>
+      <h3>Email had quietly become the product.</h3>
+      <p>Preliminary research, user interviews, and an extensive competitive study showed we were lagging in nearly every dimension. Tasks had multiple confusing classifications — reminders, personal reminders, milestones, system tasks. With Fable, interviews with users on assistive tech surfaced parallel pain points around contrast, structure, and keyboard flow.</p>
+    </div>
+    <div class="cs-detail">
+      <h4>Design &amp; prototyping</h4>
+      <h3>Built around tasks, not features.</h3>
+      <p>Focused on simplifying task structures, creating one centralized experience, and designing for accessibility from the ground up — not retrofitting it later. WCAG AA was a target from sketch one.</p>
+    </div>
+    <div class="cs-detail">
+      <h4>User testing feedback</h4>
+      <h3>Clarity, completion, and trust.</h3>
+      <p>Testing showed increased usability and clarity, improved task completion, and a stronger preference for the platform over email. Validation with people with disabilities confirmed the experiences were accessible across screen readers, voice control, and keyboard-only navigation.</p>
+    </div>
+    <div class="cs-detail">
+      <h4>Tone &amp; voice</h4>
+      <h3>Calm, direct, supportive.</h3>
+      <p>Relocation is stressful. Microcopy was rewritten to feel like a competent guide — never bureaucratic, never apologetic — with clear, descriptive labels that read well aloud as well as on screen.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WIREFRAMES — early sketches that informed the redesign -->
+<section class="cs-wireframes" id="wireframes">
+  <header class="cs-wireframes__head">
+    <div>
+      <div class="cs-wireframes__num">Wireframes</div>
+      <h2 class="cs-wireframes__title">From sketch to <em>system.</em></h2>
+    </div>
+    <p class="cs-wireframes__lede">Early wireframes for the dashboard redesign — used to align stakeholders on the new task-driven model before high-fidelity design and assistive-technology testing.</p>
+  </header>
+  <div class="cs-wireframes__grid">
+    <button class="cs-shot" type="button" data-src="https://assets.trishafeydesigns.com/bgrs/wireframe-1.jpeg" aria-label="Expand wireframe 01"><img src="https://assets.trishafeydesigns.com/bgrs/wireframe-1.jpeg" alt="BGRS — wireframe 01" loading="lazy" /></button>
+    <button class="cs-shot" type="button" data-src="https://assets.trishafeydesigns.com/bgrs/wireframe-2.jpeg" aria-label="Expand wireframe 02"><img src="https://assets.trishafeydesigns.com/bgrs/wireframe-2.jpeg" alt="BGRS — wireframe 02" loading="lazy" /></button>
+    <button class="cs-shot" type="button" data-src="https://assets.trishafeydesigns.com/bgrs/wireframe-3.jpeg" aria-label="Expand wireframe 03"><img src="https://assets.trishafeydesigns.com/bgrs/wireframe-3.jpeg" alt="BGRS — wireframe 03" loading="lazy" /></button>
+    <button class="cs-shot" type="button" data-src="https://assets.trishafeydesigns.com/bgrs/wireframe-4.jpeg" aria-label="Expand wireframe 04"><img src="https://assets.trishafeydesigns.com/bgrs/wireframe-4.jpeg" alt="BGRS — wireframe 04" loading="lazy" /></button>
+  </div>
+</section>
+
+<div class="cs-break"><img class="cs-img" src="https://assets.trishafeydesigns.com/bgrs/break-3.png" alt="BGRS — FigJam research synthesis" /></div>
+
+<section class="cs-section cs-section--alt">
+  <header class="cs-section__head">
+    <div class="cs-section__num">06 · Challenges</div>
+    <h2 class="cs-section__title">Key <em>challenges</em> and solutions.</h2>
+  </header>
+  <div class="cs-challenges">
+    <div class="cs-challenge">
+      <div class="cs-challenge__num">CH · 01</div>
+      <h3 class="cs-challenge__title">Driving adoption in a broken system.</h3>
+      <div class="cs-challenge__body">
+        <p>The entire UI and UX needed an overhaul. Through preliminary research we identified employees' top goals and rebuilt the experience around them.</p>
+        <span class="cs-challenge__solution">→ Rebuilt the experience around tasks and communication to make the platform useful again.</span>
+      </div>
+    </div>
+    <div class="cs-challenge">
+      <div class="cs-challenge__num">CH · 02</div>
+      <h3 class="cs-challenge__title">Wide global user base.</h3>
+      <div class="cs-challenge__body">
+        <p>BGRS relocates employees of every age, language, and ability. A one-size design didn't fit anyone well.</p>
+        <span class="cs-challenge__solution">→ Designed for different ages, languages, and accessibility needs — validated with real users on assistive tech.</span>
+      </div>
+    </div>
+    <div class="cs-challenge">
+      <div class="cs-challenge__num">CH · 03</div>
+      <h3 class="cs-challenge__title">Overcomplicated task system.</h3>
+      <div class="cs-challenge__body">
+        <p>Reminders, personal reminders, milestones, system tasks — users couldn't tell them apart, let alone act on them.</p>
+        <span class="cs-challenge__solution">→ Simplified into a clear, unified task structure with consistent ownership, status, and actions.</span>
+      </div>
+    </div>
+    <div class="cs-challenge">
+      <div class="cs-challenge__num">CH · 04</div>
+      <h3 class="cs-challenge__title">Accessibility compliance.</h3>
+      <div class="cs-challenge__body">
+        <p>The legacy product couldn't be trusted on assistive technology. We paid close attention to colour, contrast, text sizes, clickable areas, proper semantic coding (H1 / H2 / H3), and ARIA labeling — testing with Fable's assistive-tech users.</p>
+        <span class="cs-challenge__solution">→ Designed and tested to WCAG AA standards with real users on screen readers, voice control, and switch devices.</span>
+      </div>
+    </div>
+    <div class="cs-challenge">
+      <div class="cs-challenge__num">CH · 05</div>
+      <h3 class="cs-challenge__title">Merging old + new systems.</h3>
+      <div class="cs-challenge__body">
+        <p>Some legacy components couldn't be replaced overnight. We had to evolve the experience without breaking the contract with existing users and integrations.</p>
+        <span class="cs-challenge__solution">→ Balanced legacy constraints with modern UX improvements, rolling out in phases.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROTOTYPE VIDEO SECTION -->
+<section class="cs-proto" id="prototype">
+  <header class="cs-proto__head">
+    <div>
+      <div class="cs-proto__num">Prototype — 07</div>
+      <h2 class="cs-proto__title">Walkthrough <em>of the new flow.</em></h2>
+    </div>
+    <p class="cs-proto__lede">
+      A clickable Figma prototype of the redesigned dashboard — from sign-in through task completion, calendar view, and itinerary export. Recorded as part of stakeholder review and assistive-technology testing rounds.
+    </p>
+  </header>
+  <div class="cs-proto__player" id="protoPlayer">
+    <video class="cs-proto__video" id="protoVideo" preload="metadata" playsinline
+           src="https://assets.trishafeydesigns.com/bgrs/video-bgrs-dashboard-walkthrough.mov"
+           poster="assets/bgrs/break-2.png"></video>
+    <div class="cs-proto__overlay">
+      <button class="cs-proto__play" type="button" aria-label="Play prototype walkthrough">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4l14 8-14 8V4z"/></svg>
+      </button>
+    </div>
+    <div class="cs-proto__chrome">
+      <span class="cs-proto__time">00:00</span>
+      <div class="cs-proto__chrome-bar" id="protoBar"></div>
+      <span class="cs-proto__duration">02:34</span>
+    </div>
+  </div>
+  <div class="cs-proto__meta">
+    <div class="cs-proto__meta-item">
+      <h4>Length</h4>
+      <p>2:34 — narrated walkthrough of the primary flow</p>
+    </div>
+    <div class="cs-proto__meta-item">
+      <h4>Tool</h4>
+      <p>Figma prototype, recorded for stakeholder + Fable review</p>
+    </div>
+    <div class="cs-proto__meta-item">
+      <h4>Covers</h4>
+      <p>Sign-in → home → tasks → calendar → itinerary</p>
+    </div>
+  </div>
+</section>
+
+<section class="cs-section">
+  <header class="cs-section__head">
+    <div class="cs-section__num">08 · Results &amp; impact</div>
+    <h2 class="cs-section__title">What <em>shipped,</em> and what moved.</h2>
+  </header>
+  <div class="cs-detail-grid" style="margin-bottom:56px;">
+    <div class="cs-detail">
+      <h4>MVP scope</h4>
+      <h3>Four anchors, shipped together.</h3>
+      <p>Simplified task system · home dashboard redesign · list + calendar views · centralized communication. Each piece reinforced the others — adoption, clarity, and trust moved as a system, not as features.</p>
+    </div>
+    <div class="cs-detail">
+      <h4>Rollout</h4>
+      <h3>Validated through testing + stakeholder feedback.</h3>
+      <p>Phased rollout with Fable accessibility validation gating each release. Stakeholder reviews confirmed measurable improvements in task completion, communication traceability, and platform adoption among employees and consultants.</p>
+    </div>
+  </div>
+  <div class="cs-metrics">
+    <div class="cs-metrics__item"><div class="cs-metrics__num">↑</div><div class="cs-metrics__label">Platform adoption — users returning from email</div></div>
+    <div class="cs-metrics__item"><div class="cs-metrics__num">↓</div><div class="cs-metrics__label">Missed tasks &amp; communication gaps</div></div>
+    <div class="cs-metrics__item"><div class="cs-metrics__num">↑</div><div class="cs-metrics__label">Task completion &amp; visibility</div></div>
+    <div class="cs-metrics__item"><div class="cs-metrics__num">AA</div><div class="cs-metrics__label">WCAG compliance — validated with Fable</div></div>
+  </div>
+</section>
+
+<div class="cs-break"><img class="cs-img" src="https://assets.trishafeydesigns.com/bgrs/break-4.png" alt="BGRS — full-bleed break" /></div>
+
+<section class="cs-section cs-section--alt">
+  <header class="cs-section__head">
+    <div class="cs-section__num">09 · Learnings</div>
+    <h2 class="cs-section__title">What I'm <em>taking</em> with me.</h2>
+  </header>
+  <div class="cs-detail-grid">
+    <div class="cs-detail"><h4>Learning · 01</h4><h3>Adoption is everything.</h3><p>If users don't use the system, nothing else matters. Every other metric flows from adoption — measure that first, design for it relentlessly.</p></div>
+    <div class="cs-detail"><h4>Learning · 02</h4><h3>Simplicity drives engagement.</h3><p>Reducing complexity had the biggest single impact on behavior. Cutting task types and consolidating views moved adoption more than any new feature did.</p></div>
+    <div class="cs-detail"><h4>Learning · 03</h4><h3>Accessibility improves UX for everyone.</h3><p>Designing inclusively benefits all users — not just edge cases. Working with Fable changed how I run sessions, write copy, and review prototypes on every project since.</p></div>
+    <div class="cs-detail"><h4>Learning · 04</h4><h3>Centralization creates trust.</h3><p>When everything lives in one place — tasks, comments, milestones, itinerary — users rely on it. Trust is earned by reducing the number of tabs they have to keep open.</p></div>
+  </div>
+  <div class="cs-detail-grid" style="margin-top:48px;">
+    <div class="cs-detail" style="grid-column: 1 / -1;">
+      <h4>Next steps</h4>
+      <h3>Where this goes.</h3>
+      <p>Expand the dashboard for consultants and clients · further reduce reliance on email workflows · enhance task automation and notifications · continue accessibility validation as new modules ship.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="cs-foot">
+  <div class="cs-foot__head">
+    <h3 class="cs-foot__title">Keep <em>looking.</em></h3>
+    <a class="cs-foot__cta" href="work.html">All projects
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H5M13 3V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+  <div class="cs-foot__grid">
+    <a class="cs-tile" href="case-nova.html" data-accent="nova"><div class="cs-tile__media"><img src="https://assets.trishafeydesigns.com/tiles/nova.png" alt="Nova AI — Rocket Close order workspace preview" loading="lazy" /></div><div class="cs-tile__body"><span class="cs-tile__title">Nova AI</span><span class="cs-tile__year">2026</span><span class="cs-tile__sub">Rocket Mortgage · AI closing</span></div></a>
+    <a class="cs-tile" href="case-clearsign.html" data-accent="clearsign"><div class="cs-tile__media"><img src="https://assets.trishafeydesigns.com/tiles/clearsign.png" alt="Clear Sign — Check-In Complete preview" loading="lazy" /></div><div class="cs-tile__body"><span class="cs-tile__title">Clear Sign</span><span class="cs-tile__year">2024</span><span class="cs-tile__sub">Document signing</span></div></a>
+    <a class="cs-tile" href="case-promopages.html" data-accent="promopages"><div class="cs-tile__media"><img src="https://assets.trishafeydesigns.com/tiles/promopages.png" alt="PromoPages — font selection wizard preview" loading="lazy" /></div><div class="cs-tile__body"><span class="cs-tile__title">PromoPages</span><span class="cs-tile__year">2019</span><span class="cs-tile__sub">Marketing · Landing builder</span></div></a>
+  </div>
+  <div class="cs-foot__bottom"><span>© 2026 Trisha Fey</span><span><a href="index.html" style="color:inherit;">↑ Back to top</a></span></div>
+</footer>
+
+<!-- Lightbox shared by the screens grid and wireframes gallery -->
+<div class="cs-lightbox" id="csLightbox" role="dialog" aria-modal="true" aria-label="Image preview" hidden>
+  <button class="cs-lightbox__close" type="button" aria-label="Close">&times;</button>
+  <button class="cs-lightbox__nav cs-lightbox__nav--prev" type="button" aria-label="Previous">‹</button>
+  <img class="cs-lightbox__img" alt="" />
+  <button class="cs-lightbox__nav cs-lightbox__nav--next" type="button" aria-label="Next">›</button>
+</div>
+
+<script>
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Prototype walkthrough video
+  (function protoVideo() {
+    const player = document.getElementById('protoPlayer');
+    const video = document.getElementById('protoVideo');
+    const playBtn = document.querySelector('.cs-proto__play');
+    const bar = document.getElementById('protoBar');
+    const timeEl = document.querySelector('.cs-proto__time');
+    const durEl = document.querySelector('.cs-proto__duration');
+    if (!player || !video || !playBtn || !bar) return;
+
+    const fmt = (s) => {
+      if (!isFinite(s)) return '00:00';
+      const m = Math.floor(s / 60);
+      const sec = Math.floor(s % 60);
+      return `${String(m).padStart(2,'0')}:${String(sec).padStart(2,'0')}`;
+    };
+
+    playBtn.addEventListener('click', () => {
+      player.classList.add('is-playing');
+      video.controls = true;
+      video.play();
+    });
+    video.addEventListener('pause', () => {
+      if (video.currentTime === 0) player.classList.remove('is-playing');
+    });
+    video.addEventListener('ended', () => {
+      player.classList.remove('is-playing');
+      video.controls = false;
+    });
+    video.addEventListener('timeupdate', () => {
+      const pct = (video.currentTime / (video.duration || 1)) * 100;
+      bar.style.setProperty('--progress', `${pct}%`);
+      if (timeEl) timeEl.textContent = fmt(video.currentTime);
+    });
+    video.addEventListener('loadedmetadata', () => {
+      if (durEl) durEl.textContent = fmt(video.duration);
+    });
+  })();
+
+  // Before / after toggle — F·01 navigation, F·02 home dashboard
+  document.querySelectorAll('.ba-car').forEach((car) => {
+    const btn = car.querySelector('.ba-car__toggle');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      const showingBefore = car.getAttribute('data-state') === 'before';
+      car.setAttribute('data-state', showingBefore ? 'after' : 'before');
+    });
+  });
+
+  // Multi-slide carousel — F·03 calendar / task / task details
+  document.querySelectorAll('.ba-car[data-mode="multi"]').forEach((car) => {
+    const slides = [...car.querySelectorAll('.ba-car__slide')];
+    const dots = [...car.querySelectorAll('.ba-car__dots button')];
+    const tagEl = car.querySelector('.ba-car__tag');
+    const currentEl = car.querySelector('.ba-car__current');
+    const total = slides.length;
+    let idx = 0;
+    const pad = (n) => String(n + 1).padStart(2, '0');
+    const go = (i) => {
+      idx = ((i % total) + total) % total;
+      slides.forEach((s, k) => s.classList.toggle('is-active', k === idx));
+      dots.forEach((d, k) => d.classList.toggle('is-active', k === idx));
+      const tag = slides[idx].dataset.tag || '';
+      if (tagEl) tagEl.textContent = tag;
+      if (tag) car.dataset.currentTag = tag;
+      if (currentEl) currentEl.textContent = pad(idx);
+      car.dataset.active = idx;
+    };
+    car.querySelector('.ba-car__prev')?.addEventListener('click', () => go(idx - 1));
+    car.querySelector('.ba-car__next')?.addEventListener('click', () => go(idx + 1));
+    dots.forEach((d) => d.addEventListener('click', () => go(+d.dataset.go)));
+    go(0);
+  });
+
+  /* ===== Screens + wireframes lightbox ===== */
+  (function lightbox() {
+    const lb = document.getElementById('csLightbox');
+    if (!lb) return;
+    const lbImg = lb.querySelector('.cs-lightbox__img');
+    const closeBtn = lb.querySelector('.cs-lightbox__close');
+    const prevBtn = lb.querySelector('.cs-lightbox__nav--prev');
+    const nextBtn = lb.querySelector('.cs-lightbox__nav--next');
+    const shots = Array.from(document.querySelectorAll('.cs-shot[data-src]'));
+    let idx = 0;
+
+    function show(i) {
+      idx = (i + shots.length) % shots.length;
+      const shot = shots[idx];
+      lbImg.src = shot.dataset.src;
+      const inner = shot.querySelector('img');
+      lbImg.alt = inner ? inner.alt : '';
+    }
+    function open(i) {
+      show(i);
+      lb.hidden = false;
+      requestAnimationFrame(() => lb.classList.add('is-open'));
+      document.body.style.overflow = 'hidden';
+    }
+    function close() {
+      lb.classList.remove('is-open');
+      setTimeout(() => { lb.hidden = true; lbImg.src = ''; }, 200);
+      document.body.style.overflow = '';
+    }
+    shots.forEach((shot, i) => shot.addEventListener('click', () => open(i)));
+    closeBtn.addEventListener('click', close);
+    prevBtn.addEventListener('click', () => show(idx - 1));
+    nextBtn.addEventListener('click', () => show(idx + 1));
+    lb.addEventListener('click', (e) => { if (e.target === lb) close(); });
+    document.addEventListener('keydown', (e) => {
+      if (lb.hidden) return;
+      if (e.key === 'Escape') close();
+      else if (e.key === 'ArrowLeft') show(idx - 1);
+      else if (e.key === 'ArrowRight') show(idx + 1);
+    });
+  })();
+</script>
+
+</body>
+</html>

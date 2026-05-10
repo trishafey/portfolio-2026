@@ -1,0 +1,1206 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-437LB5DVLY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-437LB5DVLY');
+</script>
+  
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nova AI — Trisha Fey</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&family=Newsreader:ital,wght@0,300;0,400;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/cs-shared.css" />
+<link rel="stylesheet" href="css/case-study.css" />
+<style>
+  /* No before/after for this page — single feature screen layout */
+  .cs-feature__media .single {
+    aspect-ratio: 16 / 10;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    background: var(--paper-2);
+  }
+  .cs-feature__media .single .ph { position: absolute; inset: 0; }
+
+  /* ============================================================
+     METRIC / QUOTE STYLE OPTIONS — toggle via [data-metric-style]
+     on <body>. Three options:
+       "underline"  — minimal, typographic, accent underline + caret
+       "ledger"     — left-rule ledger entry, mono number, neutral
+       "card"       — clean off-white card, big serif number, no chip
+  ============================================================ */
+
+  /* --- Real image fill (replaces .ph placeholder) --- */
+  .cs-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  /* Feature single — give it a positioned, aspect-rationed container */
+  .cs-feature__media .single {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--paper);
+    border: 1px solid var(--line);
+  }
+  .cs-feature__media .single .cs-img {
+    object-fit: cover;
+    object-position: top center;
+  }
+  /* Full-bleed break — when an SVG is used, contain it on tinted backdrop */
+  .cs-break img.cs-img--contain {
+    object-fit: contain;
+    padding: 24px;
+  }
+  .cs-logos .cs-logo {
+    width: 96px;
+    height: 96px;
+    min-width: 96px;
+    padding: 8px;
+    border-radius: 12px;
+  }
+  .cs-logos__track {
+    gap: 40px;
+    animation-name: logoScrollNova;
+  }
+  /* Match the shared keyframes' offset (= gap / 2) so the duplicated track loops seamlessly */
+  @keyframes logoScrollNova {
+    from { transform: translateX(0); }
+    to   { transform: translateX(calc(-50% - 20px)); }
+  }
+  .cs-logo img {
+    height: 100%;
+    width: 100%;
+    display: block;
+    object-fit: contain;
+    opacity: 0.9;
+    transition: opacity .25s ease;
+  }
+  .cs-logo:hover img { opacity: 1; }
+  .cs-gallery__item--screen {
+    background: var(--paper);
+    border: 1px solid var(--line);
+  }
+  .cs-gallery__item--screen .cs-img {
+    object-position: top center;
+  }
+
+  /* --- Inline feature metric (replaces the pill) --- */
+  body[data-metric-style="underline"] .cs-feature__metric {
+    display: block;
+    margin-top: 18px;
+    padding: 0 0 0 18px;
+    background: none;
+    border: none;
+    border-radius: 0;
+    border-left: 2px solid var(--accent);
+    color: var(--ink-2);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+  body[data-metric-style="underline"] .cs-feature__metric strong {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: 0;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 1px;
+  }
+
+  body[data-metric-style="ledger"] .cs-feature__metric {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 14px;
+    align-items: baseline;
+    margin-top: 18px;
+    padding: 14px 0 0;
+    background: none;
+    border: none;
+    border-top: 1px solid var(--line);
+    border-radius: 0;
+    color: var(--ink-2);
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 1.5;
+    font-family: var(--font-mono);
+    letter-spacing: 0.02em;
+  }
+  body[data-metric-style="ledger"] .cs-feature__metric::before {
+    content: "Result";
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    align-self: center;
+    padding: 4px 8px;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+  }
+  body[data-metric-style="ledger"] .cs-feature__metric strong {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--ink);
+    font-weight: 500;
+    letter-spacing: 0;
+  }
+
+  body[data-metric-style="card"] .cs-feature__metric {
+    display: block;
+    margin-top: 18px;
+    padding: 16px 20px;
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    color: var(--ink-2);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+  body[data-metric-style="card"] .cs-feature__metric strong {
+    font-family: "Newsreader", Georgia, serif;
+    font-style: italic;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+
+  /* --- Results & Impact metrics grid --- */
+  body[data-metric-style="underline"] .cs-metrics {
+    grid-template-columns: 1fr;
+    gap: 0;
+    max-width: 900px;
+  }
+  body[data-metric-style="underline"] .cs-metrics__item {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.6fr) 1fr;
+    gap: 32px;
+    align-items: baseline;
+    padding: 28px 0;
+    border: none;
+    border-top: 1px solid var(--line);
+    border-radius: 0;
+    background: none;
+  }
+  body[data-metric-style="underline"] .cs-metrics__item:last-child { border-bottom: 1px solid var(--line); }
+  body[data-metric-style="underline"] .cs-metrics__num {
+    font-family: "Newsreader", Georgia, serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(40px, 5vw, 64px);
+    line-height: 1;
+    color: var(--ink);
+    letter-spacing: -0.03em;
+    margin: 0;
+  }
+  body[data-metric-style="underline"] .cs-metrics__label {
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--ink-2);
+    max-width: 36ch;
+    border-left: 2px solid var(--accent);
+    padding-left: 18px;
+  }
+
+  body[data-metric-style="ledger"] .cs-metrics {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    max-width: 1200px;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--line);
+  }
+  body[data-metric-style="ledger"] .cs-metrics__item {
+    background: none;
+    border: none;
+    border-right: 1px solid var(--line);
+    border-radius: 0;
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  body[data-metric-style="ledger"] .cs-metrics__item:last-child { border-right: none; }
+  body[data-metric-style="ledger"] .cs-metrics__item::before {
+    content: counter(metric, decimal-leading-zero);
+    counter-increment: metric;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  body[data-metric-style="ledger"] .cs-metrics {
+    counter-reset: metric;
+  }
+  body[data-metric-style="ledger"] .cs-metrics__num {
+    font-family: var(--font-mono);
+    font-size: clamp(28px, 3.4vw, 40px);
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    margin: 0;
+    line-height: 1.05;
+  }
+  body[data-metric-style="ledger"] .cs-metrics__label {
+    font-size: 13px;
+    color: var(--ink-2);
+    line-height: 1.5;
+    margin-top: auto;
+  }
+
+  body[data-metric-style="card"] .cs-metrics {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  body[data-metric-style="card"] .cs-metrics__item {
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  body[data-metric-style="card"] .cs-metrics__num {
+    font-family: "Newsreader", Georgia, serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(40px, 5vw, 64px);
+    line-height: 1;
+    color: var(--ink);
+    letter-spacing: -0.03em;
+    margin: 0;
+  }
+  body[data-metric-style="card"] .cs-metrics__label {
+    font-size: 14px;
+    color: var(--ink-2);
+    line-height: 1.5;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    width: 100%;
+  }
+
+  @media (max-width: 800px) {
+    body[data-metric-style="ledger"] .cs-metrics,
+    body[data-metric-style="card"] .cs-metrics { grid-template-columns: 1fr 1fr; }
+    body[data-metric-style="underline"] .cs-metrics__item { grid-template-columns: 1fr; gap: 12px; }
+  }
+
+  /* Boundaries grid */
+  .cs-boundaries {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .cs-boundary {
+    padding: 28px 30px;
+    border-radius: 14px;
+    border: 1px solid var(--line);
+    background: var(--paper);
+  }
+  .cs-boundary--do { border-color: color-mix(in oklab, var(--accent) 30%, var(--line)); }
+  .cs-boundary h4 {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+    margin: 0 0 6px;
+    font-weight: 500;
+  }
+  .cs-boundary--do h4 { color: var(--accent); }
+  .cs-boundary h3 {
+    font-size: 19px;
+    letter-spacing: -0.015em;
+    margin: 0 0 16px;
+    font-weight: 500;
+  }
+  .cs-boundary ul { list-style: none; margin: 0; padding: 0; }
+  .cs-boundary li {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    padding: 8px 0 8px 22px;
+    position: relative;
+    border-top: 1px solid var(--line);
+  }
+  .cs-boundary li:first-child { border-top: none; }
+  .cs-boundary li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 16px;
+    width: 12px; height: 1px;
+    background: var(--accent);
+  }
+  @media (max-width: 800px) {
+    .cs-boundaries { grid-template-columns: 1fr; }
+  }
+
+  /* Full-bleed Nova workspace break — dark backdrop behind the contained SVG */
+  .cs-break:has(> img.cs-img--contain[src$="break-nova-workspace.svg"]) {
+    background: #232323;
+  }
+
+  /* Design-tool screenshots: full-width, natural height, no backdrop */
+  .cs-break--screenshot {
+    background: transparent;
+    border: none;
+    aspect-ratio: auto;
+    padding: 0;
+  }
+  .cs-break--screenshot > img {
+    position: static;
+    inset: auto;
+    width: 100%;
+    height: auto;
+    display: block;
+    padding: 0;
+    object-fit: initial;
+  }
+
+  /* Mini case studies — image pane hidden for now (may add real media later) */
+  .cs-mini__body { grid-template-columns: 1fr; }
+  .cs-mini__media { display: none; }
+</style>
+<!-- Hotjar Tracking Code for http://trishafeydesigns.com/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:2054169,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+</head>
+<body class="cs" data-metric-style="underline">
+
+<nav class="nav" id="nav">
+  <a class="nav__logo" href="index.html"><img class="nav__logo-mark" src="assets/tf-logo.svg" alt="Trisha Fey" /></a>
+  <div class="nav__links">
+    <a href="index.html">Home</a>
+    <a href="work.html" class="active">Work</a>
+  <a href="mailto:trisha@trishafeydesigns.com">Contact</a>
+  </div>
+</nav>
+
+<!-- 1. HERO ====================================================== -->
+<header class="cs-hero" id="hero" data-variant="default">
+  <div class="cs-hero__crumbs">
+    <a href="work.html">Work</a>
+    <span>/</span>
+    <span>Nova AI</span>
+  </div>
+  <h1 class="cs-hero__title">
+    Nova AI<br/>
+    <em>operating,</em> intelligently.
+  </h1>
+  <p class="cs-hero__sub">
+    An AI-assisted workspace for Rocket Close that combines automation and human judgment — completing what it can, and guiding teams through complex workflows with clarity, structure, and confidence.
+  </p>
+  <div class="cs-hero__media">
+    <img class="cs-img" src="https://assets.trishafeydesigns.com/nova/hero.png" alt="Nova AI · Rocket order workspace with vendor scheduling chat" />
+  </div>
+</header>
+
+<!-- 2. INFO STRIP ====================================================== -->
+<section class="cs-info">
+  <div class="cs-info__grid">
+    <div class="cs-info__item">
+      <h4>Year</h4>
+      <p>2026</p>
+    </div>
+    <div class="cs-info__item">
+      <h4>Role</h4>
+      <p>Sr. UX Designer · 0→1 Lead</p>
+    </div>
+    <div class="cs-info__item">
+      <h4>Client</h4>
+      <p>Rocket Close &amp; Rocket Mortgage</p>
+    </div>
+    <div class="cs-info__item">
+      <h4>Platform</h4>
+      <p>Internal web workspace</p>
+    </div>
+    <div class="cs-info__item cs-info__item--wide">
+      <h4>About the client</h4>
+      <p>Rocket Close is a subsidiary of Rocket Companies that manages the title services and closing of the mortgage process.</p>
+    </div>
+    <div class="cs-info__item cs-info__item--wide">
+      <h4>Team</h4>
+      <p>UX leadership (Brandon, Director); partner designer (Lauren); and 3 months of daily cross-functional war rooms with architects, developers, analysts, and partner teams. I owned end-to-end UX from 0→1 concept through high-fidelity prototypes and validation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3. LOGOS STRIP ====================================================== -->
+<section class="cs-logos">
+  <div class="cs-logos__label">Rocket Companies ecosystem</div>
+  <div class="cs-logos__track-wrap">
+    <div class="cs-logos__track">
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket.jpg" alt="Rocket" /></div>
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket-mortgage.jpg" alt="Rocket Mortgage" /></div>
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket-close.jpg" alt="Rocket Close" /></div>
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket-homes.jpg" alt="Rocket Homes" /></div>
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket-money.jpg" alt="Rocket Money" /></div>
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket-pro.jpg" alt="Rocket Pro" /></div>
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket-loans.jpg" alt="Rocket Loans" /></div>
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket-redfin.jpg" alt="Redfin powered by Rocket" /></div>
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket-companies.jpg" alt="Rocket Companies" /></div>
+      <!-- duplicated for marquee -->
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket.jpg" alt="" /></div>
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket-mortgage.jpg" alt="" /></div>
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket-close.jpg" alt="" /></div>
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket-homes.jpg" alt="" /></div>
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket-money.jpg" alt="" /></div>
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket-pro.jpg" alt="" /></div>
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket-loans.jpg" alt="" /></div>
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket-redfin.jpg" alt="" /></div>
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket-companies.jpg" alt="" /></div>
+       <!-- duplicated for marquee -->
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket.jpg" alt="" /></div>
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket-mortgage.jpg" alt="" /></div>
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket-close.jpg" alt="" /></div>
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket-homes.jpg" alt="" /></div>
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket-money.jpg" alt="" /></div>
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket-pro.jpg" alt="" /></div>
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket-loans.jpg" alt="" /></div>
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket-redfin.jpg" alt="" /></div>
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket-companies.jpg" alt="" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. OVERVIEW ====================================================== -->
+<section class="cs-overview" id="overview">
+  <div class="cs-overview__inner">
+    <div class="cs-overview__label">Overview — 01</div>
+    <p class="cs-overview__body">
+      Nova AI is an internal, AI-assisted workspace designed to support complex, judgment-heavy workflows across Rocket Close. It follows a <em>dual-path</em> model: fully automating tasks across systems when possible, and introducing a human only when judgment, exceptions, or time constraints require it. At that moment, Nova shifts from operator to guide — <em>replacing fragmented systems and manual processes with a single, guided experience</em> that brings together data from Atlas, Salesforce, and vendor tools into one place. It summarizes what's been done, surfaces key context, and presents clear next steps so decisions can be made quickly and confidently.
+    </p>
+  </div>
+</section>
+
+<!-- 5. IMAGE GALLERY ====================================================== -->
+<section class="cs-gallery" id="screens">
+  <div class="cs-gallery__head">
+    <h2 class="cs-gallery__title">Screens</h2>
+    <span class="cs-gallery__meta">05 selected</span>
+  </div>
+  <div class="cs-gallery__grid">
+    <div class="cs-gallery__item cs-gallery__item--a cs-gallery__item--screen"><img class="cs-img" src="https://assets.trishafeydesigns.com/nova/screen-1-workspace.png" alt="Nova workspace overview" /></div>
+    <div class="cs-gallery__item cs-gallery__item--b cs-gallery__item--screen"><img class="cs-img" src="https://assets.trishafeydesigns.com/nova/screen-2-decision-panel.png" alt="Decision panel" /></div>
+    <div class="cs-gallery__item cs-gallery__item--c cs-gallery__item--screen"><img class="cs-img" src="https://assets.trishafeydesigns.com/nova/screen-3-change-handling.png" alt="Change handling" /></div>
+    <div class="cs-gallery__item cs-gallery__item--d cs-gallery__item--screen"><img class="cs-img" src="https://assets.trishafeydesigns.com/nova/screen-4-vendor-cards.png" alt="Smart vendor cards" /></div>
+    <div class="cs-gallery__item cs-gallery__item--e cs-gallery__item--screen"><img class="cs-img" src="https://assets.trishafeydesigns.com/nova/screen-5-holding-queue.png" alt="Ranked holding queue" /></div>
+  </div>
+</section>
+
+<!-- 6. SUMMARY ====================================================== -->
+<section class="cs-summary" id="summary">
+  <div class="cs-summary__inner">
+    <div class="cs-summary__label">Summary — 02</div>
+    <h2 class="h1" style="max-width: 18ch; letter-spacing: -0.03em; font-weight: 400;">
+      Where the <em style="font-family:Newsreader,Georgia,serif;font-style:italic;color:var(--accent);font-weight:300;">friction</em> was, and what we set out to remove.
+    </h2>
+    <div class="cs-summary__grid">
+      <div class="cs-summary__block">
+        <h3 data-num="2.1">Key pain points</h3>
+        <ul>
+          <li>Team members relied on 3–5 systems (Atlas, Salesforce, vendor tools) to complete a single task</li>
+          <li>Vendor scheduling required manual outreach, tracking, and follow-ups across tools</li>
+          <li>Workflows and decision-making were largely undocumented, relying on training and tribal knowledge to navigate edge cases</li>
+          <li>Long, unstructured documents required manual review to extract key information</li>
+        </ul>
+        <p style="margin-top:18px;font-style:italic;color:var(--muted);">Result: high cognitive load, slower throughput, and workflows that didn't scale — especially in scenarios involving ambiguity and risk.</p>
+      </div>
+      <div class="cs-summary__block">
+        <h3 data-num="2.2">The problem</h3>
+        <p>Scheduling and assignment are high-volume, time-sensitive workflows — but they rely on fragmented systems, manual coordination, and undocumented decision-making.</p><br>
+        <p>Team members were forced to gather context, track outreach, and make judgment calls across multiple tools, often under tight deadlines. This led to inefficiencies, inconsistent outcomes, and unnecessary cognitive load.</p>
+      </div>
+      <div class="cs-summary__block">
+        <h3 data-num="2.3">My role</h3>
+        <p><strong>Lead UX Designer — 0→1 concept → execution.</strong> Nova AI began as a 0→1 concept co-created with UX leadership. I now lead the vision, strategy, and design execution.</p><br>
+        <p>I owned end-to-end UX: defining the product direction, establishing human–AI interaction principles, and designing the system across research, workflows, conversation design, and prototyping. In the early stages, there was no PM or PO — I partnered directly with leadership to shape the product, then drove it forward through high-fidelity prototypes to align teams and secure executive buy-in.</p>
+      </div>
+      <div class="cs-summary__block">
+        <h3 data-num="2.4">Objective</h3>
+        <p>Reduce time and effort required to complete scheduling and assignment tasks — while increasing consistency, visibility, and confidence in decision-making.</p><br>
+        <p>Design a system that could automate where possible, guide where needed, and scale across workflows without compromising accuracy or operational constraints. Surface only what matters, make reasoning transparent, and preserve human judgment in high-stakes workflows.</p>
+        <p style="margin-top:14px;font-style:italic;color:var(--ink);">Instead of asking "How do we help users read documents faster?" we asked: <em style="font-family:Newsreader,Georgia,serif;color:var(--accent);">what if they didn't have to read them at all?</em></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. FULL-WIDTH BREAK ====================================================== -->
+<div class="cs-break">
+  <img class="cs-img cs-img--contain" src="https://assets.trishafeydesigns.com/nova/break-nova-workspace.svg" alt="Nova workspace overview" />
+</div>
+
+<!-- 8. MINI CASE STUDIES (collapsible) ====================================================== -->
+<section class="cs-minis" id="minis">
+  <div class="cs-minis__head">
+    <div class="cs-minis__label">Mini case studies — 03</div>
+    <h2 class="cs-minis__title">Two <em>workflows,</em> reimagined.</h2>
+  </div>
+
+  <div class="cs-minis__list">
+
+    <!-- Mini 1 — Scheduling & assignment (now first, open by default) -->
+    <details class="cs-mini" id="mini-1">
+      <summary class="cs-mini__summary">
+        <span class="cs-mini__num">MC · 01</span>
+        <span class="cs-mini__title">
+          Scheduling &amp; assignment, reimagined
+          <small>From manual coordination to guided decision systems</small>
+        </span>
+        <span class="cs-mini__caret" aria-hidden="true">
+          <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </span>
+      </summary>
+      <div class="cs-mini__body">
+        <div class="cs-mini__copy">
+          <div class="cs-mini__row">
+            <h4>Context</h4>
+            <p>Scheduling notaries and appraisers is a high-frequency, high-variability workflow involving vendor availability, pricing negotiation, time constraints, client dependencies, and exception handling. Today it requires calling multiple vendors, tracking responses manually, juggling tradeoffs in real time, and switching between Atlas, email, notes, and internal tools.</p>
+          </div>
+          <div class="cs-mini__row">
+            <h4>Problem</h4>
+            <p>Team members spend significant time coordinating outreach, tracking vendor responses, and evaluating tradeoffs (fee vs. time vs. experience). The process is inconsistent, mentally taxing, difficult to scale, and highly dependent on individual judgment.</p>
+          </div>
+          <div class="cs-mini__row">
+            <h4>Reframe</h4>
+            <p>Instead of asking <em>"How do we help users schedule faster?"</em> we asked <em>"How do we structure decision-making so users don't have to manage complexity themselves?"</em></p>
+          </div>
+          <div class="cs-mini__row">
+            <h4>Solution — a decision-guided scheduling system</h4>
+            <ul>
+              <li><strong>Pre-work by AI (agentic layer)</strong> — before a task reaches a human, AI attempts outreach (call, text, email), logs all attempts, identifies viable vendors, and prepares context</li>
+              <li><strong>Decision workspace (human-in-the-loop)</strong> — when the TM enters Nova, they see the order summary, what's already been attempted, and the next best vendor; one clear action at a time</li>
+              <li><strong>Change handling</strong> — when a vendor requests a fee, experience, or time change, Nova evaluates against thresholds and either auto-accepts, escalates, or moves the vendor to fallback</li>
+              <li><strong>Ranked fallback (holding queue)</strong> — instead of a dead end, Nova presents ranked fallback options based on impact (low → fee, medium → experience, high → time / due date). Users no longer track options manually or re-evaluate everything</li>
+            </ul>
+          </div>
+          <div class="cs-mini__row">
+            <h4>Outcome</h4>
+            <ul>
+              <li>↓ Reduced vendor coordination time (estimated from testing + SME input)</li>
+              <li>↓ Fewer system hops (Atlas, Salesforce, email)</li>
+              <li>↑ Higher confidence in decisions and consistency across team members</li>
+              <li>↑ Strong positive sentiment: <em>"This will make my life so much easier" · "I love this" · "This is so cool"</em></li>
+            </ul>
+          </div>
+          <div class="cs-mini__principle">
+            <strong>Key insight from testing</strong>
+            Users didn't just want automation — they wanted structured decision support. When ideal options are exhausted, shift from search → decision.
+          </div>
+        </div>
+        <div class="cs-mini__media">
+          <div class="ph"><span class="ph__label">Scheduling &amp; assignment workspace</span></div>
+        </div>
+      </div>
+    </details>
+
+    <!-- Mini 2 — Document scanning (now second, collapsed by default) -->
+    <details class="cs-mini" id="mini-2">
+      <summary class="cs-mini__summary">
+        <span class="cs-mini__num">MC · 02</span>
+        <span class="cs-mini__title">
+          Eliminating document scanning
+          <small>Identity judgment in large documents</small>
+        </span>
+        <span class="cs-mini__caret" aria-hidden="true">
+          <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </span>
+      </summary>
+      <div class="cs-mini__body">
+        <div class="cs-mini__copy">
+          <div class="cs-mini__row">
+            <h4>Research &amp; insight</h4>
+            <p>In a common scenario, a team member must identify the correct individual from a judgment or public record document containing hundreds of repeated names — for example, a document referencing "John Smith" dozens of times across many pages. Today this means scanning page by page, comparing attributes (birthdate, SSN fragments, addresses, middle initials), holding partial matches in memory, and spending hours verifying identity. It's cognitively expensive, error-prone, and poorly suited to human pattern-matching at scale.</p>
+          </div>
+          <div class="cs-mini__row">
+            <h4>Problem</h4>
+            <p>Team members were acting as human parsers of unstructured data — manually scanning large documents, comparing fragmented attributes, and holding partial matches in memory before making a decision. In identity matching workflows, this could take 30–90 minutes per file, with high cognitive load and risk of error.</p>
+          </div>
+          <div class="cs-mini__row">
+            <h4>Insight</h4>
+            <p>Through shadowing and journey mapping, we found the core problem wasn't speed — it was <em>who does the first pass of reasoning</em>. Humans were doing work that machines are fundamentally better at: pattern matching at scale, cross-referencing large datasets, and filtering ambiguity.</p>
+          </div>
+          <div class="cs-mini__row">
+            <h4>Solution</h4>
+            <p>Nova AI reverses the workflow. Instead of <em>human investigates → then decides,</em> we designed <em>AI investigates → human decides.</em> Nova parses entire documents instantly, identifies candidate matches, cross-references known attributes, and surfaces only decision-ready insights. Each result includes confidence level, matching attributes, missing data, and plain-language reasoning.</p>
+          </div>
+          <div class="cs-mini__row">
+            <h4>Outcome</h4>
+            <ul>
+              <li>↓ ~70–90% reduction in document scanning time (estimated from shadowing sessions)</li>
+              <li>↓ Significant reduction in cognitive load (qualitative feedback)</li>
+              <li>↑ Faster, more confident decision-making</li>
+              <li>↓ Reduced reliance on training and memory</li>
+            </ul>
+          </div>
+          <div class="cs-mini__principle">
+            <strong>Design principle</strong>
+            Shift humans from information gatherers → to decision-makers.
+          </div>
+        </div>
+        <div class="cs-mini__media">
+          <div class="ph"><span class="ph__label">Document-less decision screen</span></div>
+        </div>
+      </div>
+    </details>
+
+  </div>
+</section>
+
+<!-- 9. FEATURE HIGHLIGHTS ====================================================== -->
+<section class="cs-features" id="features">
+  <header class="cs-features__head">
+    <div class="cs-features__label">Features — 04</div>
+    <h2 class="cs-features__title">
+      Eleven moves that <em>changed</em><br/>
+      how the work gets done.
+    </h2>
+  </header>
+
+  <article class="cs-feature">
+    <div class="cs-feature__copy">
+      <div class="cs-feature__num">F · 01</div>
+      <h3 class="cs-feature__title">AI pre-investigation layer</h3>
+      <div class="cs-feature__row">
+        <h4>Pain point</h4>
+        <p>Team members spend time gathering and verifying information before they can act.</p>
+      </div>
+      <div class="cs-feature__row">
+        <h4>Solution</h4>
+        <p>Nova performs investigation upfront — aggregating data, checking sources, and surfacing only what's needed before the task reaches the user.</p>
+      </div>
+      <div class="cs-feature__metric">
+        ↓ <strong>70–90%</strong> reduction in time gathering information (estimated from shadowing) · fewer manual document lookups per task
+      </div>
+    </div>
+    <div class="cs-feature__media">
+      <div class="single"><img class="cs-img" src="https://assets.trishafeydesigns.com/nova/feature-ai-pre-investigation.png" alt="AI pre-investigation" /></div>
+    </div>
+  </article>
+
+  <article class="cs-feature">
+    <div class="cs-feature__copy">
+      <div class="cs-feature__num">F · 02</div>
+      <h3 class="cs-feature__title">Decision-based task model</h3>
+      <div class="cs-feature__row">
+        <h4>Pain point</h4>
+        <p>Users must figure out what to do next in complex, ambiguous workflows.</p>
+      </div>
+      <div class="cs-feature__row">
+        <h4>Solution</h4>
+        <p>Tasks are framed as clear decisions, guiding users step-by-step instead of requiring them to manage the workflow themselves.</p>
+      </div>
+      <div class="cs-feature__metric">
+        ↓ Time to decision · ↑ decision confidence — <em>"I didn't have to think about what to do next."</em>
+      </div>
+    </div>
+    <div class="cs-feature__media">
+      <div class="single"><img class="cs-img" src="https://assets.trishafeydesigns.com/nova/feature-decision-based-task.png" alt="Decision-based task" /></div>
+    </div>
+  </article>
+
+  <article class="cs-feature">
+    <div class="cs-feature__copy">
+      <div class="cs-feature__num">F · 03</div>
+      <h3 class="cs-feature__title">Unified AI workspace (3-panel layout)</h3>
+      <div class="cs-feature__row">
+        <h4>Pain point</h4>
+        <p>Work is fragmented across multiple systems (Atlas, Salesforce, email, etc.), requiring constant context switching.</p>
+      </div>
+      <div class="cs-feature__row">
+        <h4>Solution</h4>
+        <p>Nova consolidates tasks, context, and actions into a single workspace — reducing system hopping and cognitive load.</p>
+      </div>
+      <div class="cs-feature__metric">
+        Reduced reliance on <strong>3–5</strong> complex systems per task → <strong>1</strong> workspace
+      </div>
+    </div>
+    <div class="cs-feature__media">
+      <div class="single"><img class="cs-img" src="https://assets.trishafeydesigns.com/nova/feature-3-panel-workspace.png" alt="3-panel workspace" /></div>
+    </div>
+  </article>
+
+  <article class="cs-feature">
+    <div class="cs-feature__copy">
+      <div class="cs-feature__num">F · 04</div>
+      <h3 class="cs-feature__title">Structured summary &amp; context layer</h3>
+      <div class="cs-feature__row">
+        <h4>Pain point</h4>
+        <p>Critical information is buried across tools, requiring users to search, scroll, and remember details.</p>
+      </div>
+      <div class="cs-feature__row">
+        <h4>Solution</h4>
+        <p>Nova surfaces a structured, decision-ready summary — key details, requirements, and prior actions in one place. Users wanted important info "upfront without scrolling."</p>
+      </div>
+      <div class="cs-feature__metric">
+        ↓ Time to first action · ↓ scrolling and searching · ↑ ability to act immediately
+      </div>
+    </div>
+    <div class="cs-feature__media">
+      <div class="single"><img class="cs-img" src="https://assets.trishafeydesigns.com/nova/feature-structured-summary.png" alt="Structured summary" /></div>
+    </div>
+  </article>
+
+  <article class="cs-feature">
+    <div class="cs-feature__copy">
+      <div class="cs-feature__num">F · 05</div>
+      <h3 class="cs-feature__title">Smart vendor cards</h3>
+      <div class="cs-feature__row">
+        <h4>Pain point</h4>
+        <p>Users lack key information when selecting vendors, leading to delays or poor decisions.</p>
+      </div>
+      <div class="cs-feature__row">
+        <h4>Solution</h4>
+        <p>Vendor cards provide relevant details — availability, requirements, history, and (future state) performance — to enable faster, more confident selection.</p>
+      </div>
+      <div class="cs-feature__metric">
+        ↓ Decision hesitation · ↓ need to open external systems · ↑ first-call success likelihood (directional)
+      </div>
+    </div>
+    <div class="cs-feature__media">
+      <div class="single"><img class="cs-img" src="https://assets.trishafeydesigns.com/nova/feature-smart-vendor-cards.png" alt="Smart vendor cards" /></div>
+    </div>
+  </article>
+
+  <article class="cs-feature">
+    <div class="cs-feature__copy">
+      <div class="cs-feature__num">F · 06</div>
+      <h3 class="cs-feature__title">Dynamic change handling system</h3>
+      <div class="cs-feature__row">
+        <h4>Pain point</h4>
+        <p>Handling changes (fee, experience, time) is inconsistent and requires manual judgment each time.</p>
+      </div>
+      <div class="cs-feature__row">
+        <h4>Solution</h4>
+        <p>Nova standardizes change handling with guided flows — different logic paths for fee, experience, and time/due date — helping users evaluate and act with clarity.</p>
+      </div>
+      <div class="cs-feature__metric">
+        ↑ Standardization across workflows · ↑ speed in handling edge cases
+      </div>
+    </div>
+    <div class="cs-feature__media">
+      <div class="single"><img class="cs-img" src="https://assets.trishafeydesigns.com/nova/feature-change-handling-flow.png" alt="Change handling flow" /></div>
+    </div>
+  </article>
+
+  <article class="cs-feature">
+    <div class="cs-feature__copy">
+      <div class="cs-feature__num">F · 07</div>
+      <h3 class="cs-feature__title">Threshold-based automation</h3>
+      <div class="cs-feature__row">
+        <h4>Pain point</h4>
+        <p>Users must manually determine when approvals are needed, slowing down workflows.</p>
+      </div>
+      <div class="cs-feature__row">
+        <h4>Solution</h4>
+        <p>Nova evaluates thresholds automatically — auto-accepting small changes, routing larger ones for approval or fallback. Especially strong for notaries (~2 min approvals); appraiser approvals (hours-long) are an automation opportunity.</p>
+      </div>
+      <div class="cs-feature__metric">
+        ↓ Approval delays · ↓ unnecessary escalation · ↑ auto-resolution of low-impact changes
+      </div>
+    </div>
+    <div class="cs-feature__media">
+      <div class="single"><img class="cs-img" src="https://assets.trishafeydesigns.com/nova/feature-threshold-automation.png" alt="Threshold automation" /></div>
+    </div>
+  </article>
+
+  <article class="cs-feature">
+    <div class="cs-feature__copy">
+      <div class="cs-feature__num">F · 08</div>
+      <h3 class="cs-feature__title">Ranked fallback system (holding queue)</h3>
+      <div class="cs-feature__row">
+        <h4>Pain point</h4>
+        <p>When ideal options fail, users must remember and re-evaluate all previous attempts manually.</p>
+      </div>
+      <div class="cs-feature__row">
+        <h4>Solution</h4>
+        <p>Nova saves and ranks fallback options by impact, allowing users to quickly choose the best alternative. The holding queue concept was understood and well received in testing.</p>
+      </div>
+      <div class="cs-feature__metric">
+        ↓ Time re-evaluating previous vendors · ↑ faster fallback decisions · ↑ understanding of tradeoffs
+      </div>
+    </div>
+    <div class="cs-feature__media">
+      <div class="single"><img class="cs-img" src="https://assets.trishafeydesigns.com/nova/feature-ranked-holding-queue.png" alt="Ranked holding queue" /></div>
+    </div>
+  </article>
+
+  <article class="cs-feature">
+    <div class="cs-feature__copy">
+      <div class="cs-feature__num">F · 09</div>
+      <h3 class="cs-feature__title">Transparent AI reasoning</h3>
+      <div class="cs-feature__row">
+        <h4>Pain point</h4>
+        <p>Users don't trust AI when they can't understand how decisions are made.</p>
+      </div>
+      <div class="cs-feature__row">
+        <h4>Solution</h4>
+        <p>Nova explains its recommendations — showing reasoning, confidence, what was checked, and what's uncertain. From testing: <em>"Trust depends on completeness of information."</em></p>
+      </div>
+      <div class="cs-feature__metric">
+        ↑ Trust in system recommendations · ↓ need to verify manually · ↑ willingness to follow AI suggestions
+      </div>
+    </div>
+    <div class="cs-feature__media">
+      <div class="single"><img class="cs-img" src="https://assets.trishafeydesigns.com/nova/feature-transparent-reasoning.png" alt="Transparent reasoning" /></div>
+    </div>
+  </article>
+
+  <article class="cs-feature">
+    <div class="cs-feature__copy">
+      <div class="cs-feature__num">F · 10</div>
+      <h3 class="cs-feature__title">Agentic workflow orchestration</h3>
+      <div class="cs-feature__row">
+        <h4>Pain point</h4>
+        <p>Manual outreach and coordination — calls, emails, follow-ups — consume time and are hard to track.</p>
+      </div>
+      <div class="cs-feature__row">
+        <h4>Solution</h4>
+        <p>Nova attempts outreach, logs actions, and adapts next steps. It steps in with human support only when needed.</p>
+      </div>
+      <div class="cs-feature__metric">
+        ↓ Manual outreach effort · ↓ time tracking vendor responses · ↑ throughput (more vendors per TM)
+      </div>
+    </div>
+    <div class="cs-feature__media">
+      <div class="single"><img class="cs-img" src="https://assets.trishafeydesigns.com/nova/feature-agentic-orchestration.png" alt="Agentic orchestration" /></div>
+    </div>
+  </article>
+
+  <article class="cs-feature">
+    <div class="cs-feature__copy">
+      <div class="cs-feature__num">F · 11</div>
+      <h3 class="cs-feature__title">Approval &amp; cross-system aggregation</h3>
+      <div class="cs-feature__row">
+        <h4>Pain point</h4>
+        <p>Approvals (especially fees) are slow and disconnected from the workflow; data must be pulled from multiple systems to complete tasks.</p>
+      </div>
+      <div class="cs-feature__row">
+        <h4>Solution</h4>
+        <p>Nova initiates and tracks approvals directly within the flow, and integrates data from Atlas, Salesforce, and vendor systems into a single, unified view.</p>
+      </div>
+      <div class="cs-feature__metric">
+        ↓ Approval back-and-forth · ↓ external lookups · ↑ continuity in the flow
+      </div>
+    </div>
+    <div class="cs-feature__media">
+      <div class="single"><img class="cs-img" src="https://assets.trishafeydesigns.com/nova/feature-approval-aggregation.png" alt="Approval &amp; aggregation" /></div>
+    </div>
+  </article>
+</section>
+
+<!-- 9b. (Human–AI boundaries removed) -->
+
+<!-- 9c. IMPACT HIGHLIGHTS ====================================================== -->
+<div class="cs-break cs-break--tall cs-break--screenshot">
+  <img class="cs-img cs-img--contain" src="https://assets.trishafeydesigns.com/nova/break-discovery-lucid.png" alt="Nova AI architecture diagram in Lucid" />
+</div>
+
+<!-- 10. DESIGN & RESEARCH ====================================================== -->
+<section class="cs-section" id="research">
+  <header class="cs-section__head">
+    <div class="cs-section__num">04 · Design &amp; research</div>
+    <h2 class="cs-section__title">
+      A four-month <em>discovery</em> that redefined how work gets done.
+    </h2>
+  </header>
+
+  <div class="cs-process">
+    <div class="cs-process__step">
+      <h4>01 — Discovery</h4>
+      <p>Shadowed notary and appraisal schedulers across Nova, Atlas, and Salesforce; mapped decision workflows and edge cases. Explored early concepts through "vibe coded" prototypes to validate AI-led investigation.</p>
+    </div>
+    <div class="cs-process__step">
+      <h4>02 — Synthesis</h4>
+      <p>Identified core friction: decision-making was fragmented across systems. Reframed workflows into structured decision models and defined patterns for AI reasoning, thresholds, and fallback logic.</p>
+    </div>
+    <div class="cs-process__step">
+      <h4>03 — Prototyping</h4>
+      <p>Built high-fidelity Figma prototypes simulating AI behavior — scheduling flows, change handling, and ranked fallback. Iterated rapidly with another UX designer (Lauren) across notary and appraisal use cases.</p>
+    </div>
+    <div class="cs-process__step">
+      <h4>04 — Validation</h4>
+      <p>Tested with notary and appraisal schedulers through guided prototype sessions. Ran 3 months of daily cross-functional "war rooms" (UX, engineering, architecture) to validate feasibility, edge cases, and scalability.</p>
+    </div>
+  </div>
+
+  <div class="cs-detail-grid">
+    <div class="cs-detail">
+      <h4>Research &amp; discovery</h4>
+      <h3>We didn't start with a feature — we started by understanding how work actually happens.</h3>
+      <p>We conducted shadowing sessions with notary and appraisal schedulers, mapping how decisions were made across Atlas, Nova Workspaces, Salesforce, email, and vendor tools. A clear pattern emerged: team members were acting as coordinators of fragmented systems, manually gathering information before they could make a decision.</p>
+      <p>In parallel, we explored early concepts through rapid "vibe coded" prototypes — using lightweight builds to simulate AI behavior and validate whether shifting investigation to the system was even viable. These early experiments helped us quickly test the core idea: <em>what if the system did the work before the human?</em> This phase reframed the problem from a workflow inefficiency to a decision-structure problem.</p>
+    </div>
+    <div class="cs-detail">
+      <h4>Design &amp; prototyping</h4>
+      <h3>A decision-first workspace, not a traditional tool.</h3>
+      <p>Nova AI began as a 0→1 concept led by UX — initially defined by myself and the UX Director, Brandon — before expanding into a broader cross-functional effort. Using Figma, we created high-fidelity, end-to-end flows that simulated real-world behavior, including AI reasoning, change handling, and fallback scenarios.</p>
+      <p>As scope expanded, I partnered closely with another UX designer, Lauren, to iterate on scheduling and assignment flows across notary and appraisal workflows. To ensure feasibility and scalability, we ran three months of daily two-hour "war room" sessions with architects, developers, analysts, and partner teams — aligning system behavior, edge case handling, data dependencies, and long-term scalability across teams. The product was shaped collaboratively in real time.</p>
+    </div>
+    <div class="cs-detail">
+      <h4>User testing feedback</h4>
+      <h3>Users didn't just need automation — they needed clarity and structure in decision-making.</h3>
+      <p>We tested scheduling and assignment flows with two primary groups: notary schedulers and appraisal schedulers. Participants were guided through happy paths and complex edge cases, including vendor changes, threshold scenarios, and fallback decision-making.</p>
+      <p>Users quickly understood and trusted the guided flow model. The holding queue concept was intuitive and well received. Gaps in information surfaced early and were iteratively resolved. Users consistently expressed excitement and confidence in the system: <em>"This will make my life so much easier." · "I love this." · "This is so cool."</em></p>
+    </div>
+    <div class="cs-detail">
+      <h4>Tone &amp; voice work</h4>
+      <h3>Tone wasn't a layer — it was part of the system design.</h3>
+      <p>Because Nova AI operates in high-stakes, judgment-heavy workflows, we focused on creating a voice that was clear, direct, and neutral — supportive without being overly prescriptive, and transparent about uncertainty.</p>
+      <p>Rather than replacing human judgment, Nova AI communicates what it has already done, what it knows, and what it still needs from the user. Conversation design emphasized guided clarity over automation, helping users feel in control while still being supported.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 11. RESEARCH IMAGE BREAK ====================================================== -->
+<div class="cs-break cs-break--screenshot">
+  <img class="cs-img cs-img--contain" src="https://assets.trishafeydesigns.com/nova/break-figjam-discovery.png" alt="Nova AI assignment whiteboard FigJam research session" />
+</div>
+
+<!-- 12. KEY CHALLENGES ====================================================== -->
+<section class="cs-section cs-section--alt" id="challenges">
+  <header class="cs-section__head">
+    <div class="cs-section__num">05 · Challenges</div>
+    <h2 class="cs-section__title">
+      The <em>knots</em> we had to untangle.
+    </h2>
+  </header>
+
+  <div class="cs-challenges">
+    <div class="cs-challenge">
+      <div class="cs-challenge__num">CH · 01</div>
+      <h3 class="cs-challenge__title">Balancing automation with human judgment</h3>
+      <div class="cs-challenge__body">
+        <p>Many workflows involve edge cases, exceptions, and risk that cannot be fully automated. Over-automating could lead to incorrect decisions; under-automating keeps workflows inefficient.</p>
+        <span class="cs-challenge__solution">Bounded autonomy model: Nova completes investigation and guides decisions, but keeps the human in control at critical points.</span>
+      </div>
+    </div>
+    <div class="cs-challenge">
+      <div class="cs-challenge__num">CH · 02</div>
+      <h3 class="cs-challenge__title">Fragmented systems and data sources</h3>
+      <div class="cs-challenge__body">
+        <p>Team members rely on multiple systems (Atlas, Salesforce, vendor tools, email) to gather information, leading to context switching and incomplete visibility.</p>
+        <span class="cs-challenge__solution">Unified AI workspace: Nova aggregates data, surfaces key context, and enables action without leaving the system.</span>
+      </div>
+    </div>
+    <div class="cs-challenge">
+      <div class="cs-challenge__num">CH · 03</div>
+      <h3 class="cs-challenge__title">Capturing implicit workflows from legacy systems</h3>
+      <div class="cs-challenge__body">
+        <p>Many workflows weren't formally documented — decision-making lived in team members' heads, shaped by training and edge-case experience. This made it difficult to define consistent logic, identify patterns, or translate behavior into a scalable system.</p>
+        <span class="cs-challenge__solution">Collaborative workflow extraction: repeated shadowing, workshops, and 3 months of daily cross-functional "war rooms" to externalize decision logic, map edge cases, and translate tribal knowledge into structured, system-driven workflows.</span>
+      </div>
+    </div>
+    <div class="cs-challenge">
+      <div class="cs-challenge__num">CH · 04</div>
+      <h3 class="cs-challenge__title">Designing a system that scales across workflows</h3>
+      <div class="cs-challenge__body">
+        <p>Nova needed to support fundamentally different workflows — scheduling, title examination, document classification — each with unique logic, inputs, and outputs. Bespoke experiences for each wouldn't scale.</p>
+        <span class="cs-challenge__solution">Modular system framework: a consistent three-panel workspace (tasks, conversation, actions) adapts across use cases, while components, data, and logic shift based on the workflow.</span>
+      </div>
+    </div>
+    <div class="cs-challenge">
+      <div class="cs-challenge__num">CH · 05</div>
+      <h3 class="cs-challenge__title">Replacing documents as the primary interface</h3>
+      <div class="cs-challenge__body">
+        <p>Critical decisions were tied to reading and interpreting long, unstructured documents — slow, cognitively demanding, and difficult to scale.</p>
+        <span class="cs-challenge__solution">Decision-first interface: Nova removes the document as the starting point, presenting extracted, structured insights while preserving access to source material when needed.</span>
+      </div>
+    </div>
+    <div class="cs-challenge">
+      <div class="cs-challenge__num">CH · 06</div>
+      <h3 class="cs-challenge__title">Handling exceptions without breaking the workflow</h3>
+      <div class="cs-challenge__body">
+        <p>Most real-world scenarios don't follow the "happy path" — vendors request changes, don't respond, or require tradeoffs that are hard to track manually.</p>
+        <span class="cs-challenge__solution">Dynamic change handling and a holding queue: exceptions are captured, ranked by impact, and reintroduced as structured fallback decisions.</span>
+      </div>
+    </div>
+    <div class="cs-challenge">
+      <div class="cs-challenge__num">CH · 07</div>
+      <h3 class="cs-challenge__title">Building trust in AI recommendations</h3>
+      <div class="cs-challenge__body">
+        <p>In a regulated, high-stakes environment, users won't rely on AI unless they understand and trust its reasoning.</p>
+        <span class="cs-challenge__solution">Transparent reasoning: Nova shows what it checked, why it recommends an option, and where uncertainty exists.</span>
+      </div>
+    </div>
+    <div class="cs-challenge">
+      <div class="cs-challenge__num">CH · 08</div>
+      <h3 class="cs-challenge__title">Inconsistent decision-making across team members</h3>
+      <div class="cs-challenge__body">
+        <p>Scheduling decisions (fee, time, experience) varied widely depending on individual judgment, training, and experience.</p>
+        <span class="cs-challenge__solution">Structured decision framework: thresholds, guided flows, and ranked fallback options standardize how decisions are made.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 13. IMAGE BREAK ====================================================== -->
+<div class="cs-break cs-break--screenshot">
+  <img class="cs-img cs-img--contain" src="https://assets.trishafeydesigns.com/nova/break-research-userflow.png" alt="Nova AI scheduling and assignment user flow" />
+</div>
+
+<!-- 14. MVP / RESULTS ====================================================== -->
+<section class="cs-section" id="results">
+  <header class="cs-section__head">
+    <div class="cs-section__num">06 · Results &amp; impact</div>
+    <h2 class="cs-section__title">
+      Scheduling &amp; assignment, <em>reimagined.</em>
+    </h2>
+  </header>
+
+  <div class="cs-detail-grid" style="margin-bottom: 56px;">
+    <div class="cs-detail">
+      <h4>MVP scope</h4>
+      <h3>An AI-assisted scheduling workflow.</h3>
+      <p>We designed and prototyped a new AI-assisted scheduling workflow, including vendor recommendations, change handling (fee, time, experience), and a ranked holding queue for exception scenarios. The MVP focused on reducing manual coordination, surfacing decision-ready information, and enabling team members to complete tasks without leaving Nova.</p>
+    </div>
+    <div class="cs-detail">
+      <h4>Rollout</h4>
+      <h3>From concept to validated workflows.</h3>
+      <p>Rather than a traditional release, this work was validated through iterative prototypes, stakeholder reviews, and user testing with scheduling teams. Each iteration focused on clarity of decision-making, reduction of manual steps, and confidence in AI-supported workflows before moving forward.</p>
+    </div>
+  </div>
+
+  <div class="cs-metrics">
+    <div class="cs-metrics__item">
+      <div class="cs-metrics__num">↓ 30–50%</div>
+      <div class="cs-metrics__label">Time to assign a vendor (validated in user testing)</div>
+    </div>
+    <div class="cs-metrics__item">
+      <div class="cs-metrics__num">3–5 → 1</div>
+      <div class="cs-metrics__label">Tools per task → unified workspace</div>
+    </div>
+    <div class="cs-metrics__item">
+      <div class="cs-metrics__num">↓ 70–90%</div>
+      <div class="cs-metrics__label">Document scanning time</div>
+    </div>
+    <div class="cs-metrics__item">
+      <div class="cs-metrics__num">↑ Confidence</div>
+      <div class="cs-metrics__label">Clearer next steps · less ambiguity</div>
+    </div>
+  </div>
+</section>
+
+<!-- 15. IMAGE BREAK ====================================================== -->
+<div class="cs-break">
+  <img class="cs-img" src="https://assets.trishafeydesigns.com/nova/break-workspace-in-use.png" alt="Nova workspace in use" />
+</div>
+
+<!-- 16. LEARNINGS & NEXT STEPS ====================================================== -->
+<section class="cs-section cs-section--alt" id="learnings">
+  <header class="cs-section__head">
+    <div class="cs-section__num">07 · Learnings</div>
+    <h2 class="cs-section__title">
+      What I'm <em>taking</em> with me.
+    </h2>
+  </header>
+
+  <div class="cs-detail-grid">
+    <div class="cs-detail">
+      <h4>Learning · 01</h4>
+      <h3>AI should narrow decisions, not replace them.</h3>
+      <p>The most effective use of AI wasn't automation — it was structuring decisions. By framing tasks as clear questions with bounded actions, Nova helped users move faster without removing their judgment.</p>
+    </div>
+    <div class="cs-detail">
+      <h4>Learning · 02</h4>
+      <h3>Context is more valuable than control.</h3>
+      <p>Users didn't need more tools — they needed the right information at the right moment. When we surfaced key details (availability, constraints, impact), users could make decisions confidently without leaving the system.</p>
+    </div>
+    <div class="cs-detail">
+      <h4>Learning · 03</h4>
+      <h3>Exceptions are the real workflow.</h3>
+      <p>The "happy path" is rarely the reality. Designing for changes, no responses, and tradeoffs — and structuring them into a ranked holding queue — was critical to making the system feel usable and complete.</p>
+    </div>
+    <div class="cs-detail">
+      <h4>Learning · 04</h4>
+      <h3>Trust comes from transparency, not perfection.</h3>
+      <p>Users were more comfortable with AI when it showed what it checked, what it didn't know, and why it made a recommendation. Confidence increased when the system exposed its reasoning — even when it wasn't certain.</p>
+    </div>
+    <div class="cs-detail">
+      <h4>Next steps</h4>
+      <h3>Where Nova goes from here.</h3>
+      <p>Expand the scheduling framework to additional workflows (appraisals, title, post-close). Introduce automated outreach (SMS / email) to reduce manual vendor contact. Enable real-time approval flows for fee and time exceptions. Continue evolving toward a fully agentic system that can act, not just assist.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 17. FOOTER — OTHER PROJECTS ====================================================== -->
+<footer class="cs-foot">
+  <div class="cs-foot__head">
+    <h3 class="cs-foot__title">Keep <em>looking.</em></h3>
+    <a class="cs-foot__cta" href="work.html">
+      All projects
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M3 13L13 3M13 3H5M13 3V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </div>
+  <div class="cs-foot__grid">
+    <a class="cs-tile" href="case-clearsign.html" data-accent="clearsign">
+      <div class="cs-tile__media"><img src="https://assets.trishafeydesigns.com/tiles/clearsign.png" alt="Clear Sign — Check-In Complete preview" loading="lazy" /></div>
+      <div class="cs-tile__body">
+        <span class="cs-tile__title">Clear Sign</span>
+        <span class="cs-tile__year">2024</span>
+        <span class="cs-tile__sub">Document signing · Web app</span>
+      </div>
+    </a>
+    <a class="cs-tile" href="case-bgrs.html" data-accent="bgrs">
+      <div class="cs-tile__media"><img src="https://assets.trishafeydesigns.com/tiles/bgrs.png" alt="BGRS ReloAccess — relocation dashboard preview" loading="lazy" /></div>
+      <div class="cs-tile__body">
+        <span class="cs-tile__title">BGRS</span>
+        <span class="cs-tile__year">2020</span>
+        <span class="cs-tile__sub">Relocation · Enterprise dashboard</span>
+      </div>
+    </a>
+    <a class="cs-tile" href="case-promopages.html" data-accent="promopages">
+      <div class="cs-tile__media"><img src="https://assets.trishafeydesigns.com/tiles/promopages.png" alt="PromoPages — font selection wizard preview" loading="lazy" /></div>
+      <div class="cs-tile__body">
+        <span class="cs-tile__title">PromoPages</span>
+        <span class="cs-tile__year">2019</span>
+        <span class="cs-tile__sub">Marketing · Landing builder</span>
+      </div>
+    </a>
+  </div>
+  <div class="cs-foot__bottom">
+    <span>© 2026 Trisha Fey</span>
+    <span><a href="index.html" style="color:inherit;">↑ Back to top</a></span>
+  </div>
+</footer>
+<script>
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+</script>
+</body>
+</html>

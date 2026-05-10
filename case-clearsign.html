@@ -1,0 +1,1773 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-437LB5DVLY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-437LB5DVLY');
+</script>
+  
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Clear Sign — Trisha Fey</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&family=Newsreader:ital,wght@0,300;0,400;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/cs-shared.css" />
+<link rel="stylesheet" href="css/case-study.css" />
+<style>
+  body.cs { --accent: #7A5CFF; --accent-tint: #ece6ff; --accent-tint-2: #d3c4ff; }
+
+  /* Single-screen feature media (matches Nova) */
+  .cs-feature__media .single {
+    aspect-ratio: 16 / 10;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    background: var(--paper-2);
+  }
+  .cs-feature__media .single .ph { position: absolute; inset: 0; }
+  .cs-feature__media .single > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+  }
+
+  /* Mobile-frame variant for media */
+  .cs-feature__media .phone {
+    aspect-ratio: 9 / 16;
+    max-width: 280px;
+    margin: 0 auto;
+    border-radius: 32px;
+    overflow: hidden;
+    position: relative;
+    background: var(--paper-2);
+    border: 8px solid #111;
+    box-shadow: 0 30px 60px -20px rgba(0,0,0,0.25);
+  }
+  .cs-feature__media .phone .ph { position: absolute; inset: 0; }
+
+  /* ============================================================
+     BEFORE / AFTER CAROUSEL — feature media
+     Two stacked frames; "After" is shown by default, "Before" is
+     revealed via the toggle button. State driven by [data-state].
+  ============================================================ */
+  .ba-car { position: relative; isolation: isolate; }
+  .ba-car__frame {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+  }
+  .ba-car__frame--phone {
+    aspect-ratio: 9 / 16;
+    max-width: 280px;
+    margin: 0 auto;
+    border-radius: 32px;
+    border: 8px solid #111;
+    box-shadow: 0 30px 60px -20px rgba(0,0,0,0.25);
+  }
+  .ba-car__slide {
+    position: absolute;
+    inset: 0;
+    transition: opacity .45s ease, transform .55s cubic-bezier(.2,.7,.2,1);
+  }
+  .ba-car__slide .ph { position: absolute; inset: 0; }
+  .ba-car__slide > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+  }
+  .ba-car__slide--before { opacity: 0; transform: translateX(-6%); pointer-events: none; }
+  .ba-car__slide--after  { opacity: 1; transform: translateX(0); }
+  .ba-car[data-state="before"] .ba-car__slide--before { opacity: 1; transform: translateX(0); pointer-events: auto; }
+  .ba-car[data-state="before"] .ba-car__slide--after  { opacity: 0; transform: translateX(6%); pointer-events: none; }
+
+  /* Tag in upper-left of the visible frame */
+  .ba-car__tag {
+    position: absolute;
+    top: 14px; left: 14px;
+    z-index: 3;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--ink);
+    background: rgba(255,255,255,0.92);
+    border: 1px solid var(--line);
+    padding: 5px 10px;
+    border-radius: 4px;
+  }
+  .ba-car[data-state="before"] .ba-car__tag::before { content: "Before"; }
+  .ba-car:not([data-state="before"]) .ba-car__tag::before { content: "After"; }
+  /* Multi-mode tags are populated by JS — suppress the inherited After/Before pseudo */
+  .ba-car[data-mode="multi"] .ba-car__tag::before { content: none; }
+
+  /* Toggle row below the frame */
+  .ba-car__controls {
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .ba-car__toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 16px 9px 18px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--ink);
+    cursor: pointer;
+    transition: border-color .2s, background .2s, color .2s;
+  }
+  .ba-car__toggle:hover { border-color: var(--accent); color: var(--accent); }
+  .ba-car__toggle svg { width: 14px; height: 14px; transition: transform .35s ease; }
+  .ba-car[data-state="before"] .ba-car__toggle svg { transform: rotate(180deg); }
+  .ba-car__toggle .label-after,
+  .ba-car__toggle .label-before { display: none; }
+  .ba-car:not([data-state="before"]) .ba-car__toggle .label-after { display: inline; }
+  .ba-car[data-state="before"] .ba-car__toggle .label-before { display: inline; }
+  .ba-car__dots {
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+  }
+  .ba-car__dots span {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--line-2);
+    transition: background .25s, width .25s, border-radius .25s;
+  }
+  .ba-car[data-state="before"] .ba-car__dots span:first-child { background: var(--accent); width: 18px; border-radius: 3px; }
+  .ba-car:not([data-state="before"]) .ba-car__dots span:last-child { background: var(--accent); width: 18px; border-radius: 3px; }
+
+  /* ============================================================
+     METRIC / QUOTE STYLE — same system as Nova (underline default)
+  ============================================================ */
+  body[data-metric-style="underline"] .cs-feature__metric {
+    display: block;
+    margin-top: 18px;
+    padding: 0 0 0 18px;
+    background: none;
+    border: none;
+    border-radius: 0;
+    border-left: 2px solid var(--accent);
+    color: var(--ink-2);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+  body[data-metric-style="underline"] .cs-feature__metric strong {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: 0;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 1px;
+  }
+  body[data-metric-style="underline"] .cs-metrics {
+    grid-template-columns: 1fr;
+    gap: 0;
+    max-width: 900px;
+  }
+  body[data-metric-style="underline"] .cs-metrics__item {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.6fr) 1fr;
+    gap: 32px;
+    align-items: baseline;
+    padding: 28px 0;
+    border: none;
+    border-top: 1px solid var(--line);
+    border-radius: 0;
+    background: none;
+  }
+  body[data-metric-style="underline"] .cs-metrics__item:last-child { border-bottom: 1px solid var(--line); }
+  body[data-metric-style="underline"] .cs-metrics__num {
+    font-family: "Newsreader", Georgia, serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(40px, 5vw, 64px);
+    line-height: 1;
+    color: var(--ink);
+    letter-spacing: -0.03em;
+    margin: 0;
+  }
+  body[data-metric-style="underline"] .cs-metrics__label {
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--ink-2);
+    max-width: 36ch;
+    border-left: 2px solid var(--accent);
+    padding-left: 18px;
+  }
+  @media (max-width: 800px) {
+    body[data-metric-style="underline"] .cs-metrics__item { grid-template-columns: 1fr; gap: 12px; }
+  }
+
+  /* ============================================================
+     PROGRESSION — supports two modes via [data-mode] on .cs-progression
+     "horizontal" — long-image scroll with overlay descriptions (default)
+     "carousel"   — one panel at a time with prev/next buttons
+  ============================================================ */
+  .cs-progression {
+    padding: clamp(80px, 11vw, 130px) 0;
+    background: var(--paper-2);
+    overflow: hidden;
+  }
+  .cs-progression__head {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 60px;
+    margin-bottom: 60px;
+    align-items: end;
+    padding: 0 var(--gutter);
+  }
+  .cs-progression__num {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+  }
+  .cs-progression__title {
+    font-size: clamp(32px, 4.6vw, 60px);
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    font-weight: 400;
+    margin: 14px 0 0;
+    max-width: 18ch;
+  }
+  .cs-progression__title em {
+    font-style: italic;
+    font-family: "Newsreader", Georgia, serif;
+    font-weight: 300;
+    color: var(--accent);
+  }
+  .cs-progression__lede {
+    font-size: 18px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    max-width: 56ch;
+  }
+
+  /* ---------- Mode A: horizontal scroll long-image ---------- */
+  .cs-progression[data-mode="horizontal"] .cs-progression__horiz { display: block; }
+  .cs-progression[data-mode="horizontal"] .cs-progression__carousel { display: none; }
+  .cs-progression[data-mode="carousel"]  .cs-progression__horiz { display: none; }
+  .cs-progression[data-mode="carousel"]  .cs-progression__carousel { display: block; }
+
+  .cs-progression__horiz {
+    position: relative;
+  }
+  .cs-progression__hint {
+    padding: 0 var(--gutter);
+    margin: 0 0 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+  }
+  .cs-progression__hint svg {
+    width: 14px; height: 14px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  .cs-progression__scroller {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 0 var(--gutter) 36px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .cs-progression__scroller::-webkit-scrollbar { height: 6px; }
+  .cs-progression__scroller::-webkit-scrollbar-track { background: transparent; }
+  .cs-progression__scroller::-webkit-scrollbar-thumb { background: var(--line-2); border-radius: 3px; }
+  .cs-progression__scroller::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+
+  .cs-progression__strip {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(640px, 1fr));
+    gap: 24px;
+    padding-bottom: 4px;
+  }
+  .cs-prog-h {
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .cs-prog-h__media {
+    aspect-ratio: 16 / 10;
+    position: relative;
+    background: var(--paper-2);
+    border-bottom: 1px solid var(--line);
+  }
+  .cs-prog-h__media .ph { position: absolute; inset: 0; }
+  .cs-prog-h__media > img,
+  .cs-prog-c__media > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+  }
+  .cs-prog-h__connector {
+    display: none;
+  }
+  .cs-prog-h__body {
+    padding: 32px 36px 36px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 28px 36px;
+    align-items: start;
+  }
+  .cs-prog-h__step {
+    font-family: "Newsreader", Georgia, serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(54px, 5vw, 80px);
+    line-height: 0.9;
+    color: var(--accent);
+    letter-spacing: -0.04em;
+    grid-row: span 2;
+  }
+  .cs-prog-h__head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .cs-prog-h__version {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+  }
+  .cs-prog-h__year {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    padding-left: 12px;
+    border-left: 1px solid var(--line);
+  }
+  .cs-prog-h__title {
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    font-weight: 500;
+    margin: 8px 0 14px;
+  }
+  .cs-prog-h__copy {
+    grid-column: 2;
+    font-size: 15.5px;
+    color: var(--ink-2);
+    line-height: 1.6;
+    margin: 0;
+    max-width: 56ch;
+  }
+
+  /* ---------- Mode B: carousel ---------- */
+  .cs-progression__carousel {
+    padding: 0 var(--gutter);
+  }
+  .cs-progression__viewport {
+    position: relative;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--paper);
+    overflow: hidden;
+    min-height: 540px;
+  }
+  .cs-progression__track {
+    position: relative;
+    min-height: 540px;
+  }
+  .cs-prog-c {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity .5s ease, transform .55s cubic-bezier(.2,.7,.2,1);
+    pointer-events: none;
+  }
+  .cs-prog-c.is-active {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+  }
+  .cs-prog-c__media {
+    position: relative;
+    background: var(--paper-2);
+    border-right: 1px solid var(--line);
+  }
+  .cs-prog-c__media .ph { position: absolute; inset: 0; }
+  .cs-prog-c__copy {
+    padding: clamp(36px, 4.5vw, 56px);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    justify-content: center;
+  }
+  .cs-prog-c__step {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+  }
+  .cs-prog-c__step strong {
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .cs-prog-c__version {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-top: 4px;
+  }
+  .cs-prog-c__title {
+    font-size: clamp(28px, 3.4vw, 42px);
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    font-weight: 400;
+    margin: 6px 0 6px;
+  }
+  .cs-prog-c__title em {
+    font-style: italic;
+    font-family: "Newsreader", Georgia, serif;
+    font-weight: 300;
+    color: var(--accent);
+  }
+  .cs-prog-c__copy p {
+    font-size: 16px;
+    color: var(--ink-2);
+    line-height: 1.6;
+    margin: 0;
+    max-width: 50ch;
+  }
+
+  .cs-progression__nav {
+    margin-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .cs-progression__pager {
+    display: flex;
+    gap: 8px;
+  }
+  .cs-progression__pager button {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    background: var(--paper);
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    color: var(--ink);
+    transition: border-color .2s, background .2s, color .2s;
+  }
+  .cs-progression__pager button:hover:not(:disabled) {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .cs-progression__pager button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+  .cs-progression__pager svg { width: 16px; height: 16px; }
+  .cs-progression__count {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .cs-progression__count strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .cs-progression__dots {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  .cs-progression__dots button {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    border: none;
+    background: var(--line-2);
+    cursor: pointer;
+    padding: 0;
+    transition: background .25s, width .25s, border-radius .25s;
+  }
+  .cs-progression__dots button.is-active {
+    background: var(--accent);
+    width: 26px;
+    border-radius: 4px;
+  }
+
+  @media (max-width: 800px) {
+    .cs-progression__head { grid-template-columns: 1fr; gap: 28px; }
+    .cs-progression__strip { grid-template-columns: repeat(3, minmax(280px, 1fr)); }
+    .cs-prog-h__body { grid-template-columns: 1fr; gap: 14px; padding: 24px; }
+    .cs-prog-h__step { grid-row: auto; font-size: 60px; }
+    .cs-prog-h__copy { grid-column: 1; }
+    .cs-prog-c { grid-template-columns: 1fr; }
+    .cs-prog-c__media { aspect-ratio: 4 / 3; border-right: none; border-bottom: 1px solid var(--line); }
+    .cs-progression__viewport,
+    .cs-progression__track { min-height: 0; }
+  }
+
+  /* Hero image fill */
+  .cs-hero__media .cs-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  /* Full-width break image fill */
+  .cs-break > .cs-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* 12-up screen gallery (4 × 3) with click-to-expand */
+  .cs-gallery--grid12 .cs-gallery__grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .cs-shot {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 0;
+    margin: 0;
+    cursor: zoom-in;
+    display: block;
+    transition: transform .25s cubic-bezier(.2,.7,.2,1), box-shadow .25s;
+  }
+  .cs-shot:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 40px -22px rgba(0,0,0,0.25);
+  }
+  .cs-shot:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  .cs-shot img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+  }
+  .cs-shot--placeholder {
+    cursor: default;
+    background: var(--paper-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted-2);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+  }
+  .cs-shot--placeholder::before {
+    content: "";
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(135deg, transparent 49.5%, rgba(0,0,0,0.04) 49.5%, rgba(0,0,0,0.04) 50.5%, transparent 50.5%);
+    background-size: 14px 14px;
+    opacity: 0.6;
+  }
+  .cs-shot--placeholder span { position: relative; z-index: 1; }
+  @media (max-width: 1000px) {
+    .cs-gallery--grid12 .cs-gallery__grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 700px) {
+    .cs-gallery--grid12 .cs-gallery__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* Lightbox */
+  .cs-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: rgba(14, 14, 14, 0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(20px, 5vw, 60px);
+    opacity: 0;
+    transition: opacity .25s ease;
+  }
+  .cs-lightbox[hidden] { display: none; }
+  .cs-lightbox.is-open { opacity: 1; }
+  .cs-lightbox__img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 40px 80px -20px rgba(0,0,0,0.6);
+    display: block;
+  }
+  .cs-lightbox__close,
+  .cs-lightbox__nav {
+    position: absolute;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.18);
+    color: #f4f1ec;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background .2s, border-color .2s, transform .2s;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+  .cs-lightbox__close {
+    top: 24px; right: 24px;
+    width: 44px; height: 44px;
+    font-size: 28px;
+    line-height: 1;
+    display: grid; place-items: center;
+    padding: 0;
+  }
+  .cs-lightbox__nav {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 52px; height: 52px;
+    font-size: 28px;
+    line-height: 1;
+    display: grid; place-items: center;
+    padding: 0;
+    font-family: var(--font-sans);
+  }
+  .cs-lightbox__nav--prev { left: 24px; }
+  .cs-lightbox__nav--next { right: 24px; }
+  .cs-lightbox__close:hover,
+  .cs-lightbox__nav:hover {
+    background: rgba(255,255,255,0.18);
+    border-color: rgba(255,255,255,0.35);
+  }
+  .cs-lightbox__nav:hover { transform: translateY(-50%) scale(1.05); }
+  @media (max-width: 600px) {
+    .cs-lightbox__nav { width: 42px; height: 42px; font-size: 22px; }
+    .cs-lightbox__nav--prev { left: 12px; }
+    .cs-lightbox__nav--next { right: 12px; }
+    .cs-lightbox__close { top: 12px; right: 12px; width: 38px; height: 38px; font-size: 24px; }
+  }
+
+  /* Logo marquee — match Nova AI: square logo tiles, 40px gap, seamless loop */
+  .cs-logos .cs-logo {
+    width: 96px;
+    height: 96px;
+    min-width: 96px;
+    padding: 8px;
+    border-radius: 12px;
+  }
+  .cs-logo img {
+    height: 100%;
+    width: 100%;
+    display: block;
+    object-fit: contain;
+    opacity: 0.9;
+    transition: opacity .25s ease;
+  }
+  .cs-logo:hover img { opacity: 1; }
+  .cs-logos__track {
+    gap: 40px;
+    animation-name: logoScrollNova;
+  }
+  @keyframes logoScrollNova {
+    from { transform: translateX(0); }
+    to   { transform: translateX(calc(-50% - 20px)); }
+  }
+</style>
+<!-- Hotjar Tracking Code for http://trishafeydesigns.com/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:2054169,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+</head>
+<body class="cs" data-metric-style="underline">
+
+<nav class="nav" id="nav">
+  <a class="nav__logo" href="index.html"><img class="nav__logo-mark" src="assets/tf-logo.svg" alt="Trisha Fey" /></a>
+  <div class="nav__links">
+    <a href="index.html">Home</a>
+    <a href="work.html" class="active">Work</a>
+  <a href="mailto:trisha@trishafeydesigns.com">Contact</a>
+  </div>
+</nav>
+
+<!-- 1. HERO -->
+<header class="cs-hero" id="hero" data-variant="default">
+  <div class="cs-hero__crumbs">
+    <a href="work.html">Work</a>
+    <span>/</span>
+    <span>Clear Sign</span>
+  </div>
+  <h1 class="cs-hero__title">
+    Clear Sign closing,<br/>
+    <em>calmly.</em>
+  </h1>
+  <p class="cs-hero__sub">
+    A seamless remote closing experience that transforms complex, high-stakes workflows into intuitive, guided interactions for borrowers and notaries.
+  </p>
+  <div class="cs-hero__media">
+    <img class="cs-img" src="https://assets.trishafeydesigns.com/clearsign/hero.png" alt="Clear Sign — borrower welcome screen alongside mobile signing room" />
+  </div>
+</header>
+
+<!-- 2. INFO STRIP -->
+<section class="cs-info">
+  <div class="cs-info__grid">
+    <div class="cs-info__item">
+      <h4>Year</h4>
+      <p>2024</p>
+    </div>
+    <div class="cs-info__item">
+      <h4>Role</h4>
+      <p>Sr. UX Designer · End-to-end lead</p>
+    </div>
+    <div class="cs-info__item">
+      <h4>Client</h4>
+      <p>Rocket Close &amp; Rocket Mortgage</p>
+    </div>
+    <div class="cs-info__item">
+      <h4>Platform</h4>
+      <p>Mobile-first web app</p>
+    </div>
+    <div class="cs-info__item cs-info__item--wide">
+      <h4>About the client</h4>
+      <p>Rocket Close is a subsidiary of Rocket Companies that manages the title services and closing of the mortgage process.</p>
+    </div>
+    <div class="cs-info__item cs-info__item--wide">
+      <h4>Team</h4>
+      <p>Worked closely with product, engineering, legal, support, and notary operations to identify pain points, define solutions, and ensure feasibility and regulatory compliance across state-by-state requirements.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3. LOGOS STRIP -->
+<section class="cs-logos">
+  <div class="cs-logos__label">Rocket Companies ecosystem</div>
+  <div class="cs-logos__track-wrap">
+    <div class="cs-logos__track">
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket.jpg" alt="Rocket" /></div>
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket-mortgage.jpg" alt="Rocket Mortgage" /></div>
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket-close.jpg" alt="Rocket Close" /></div>
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket-homes.jpg" alt="Rocket Homes" /></div>
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket-money.jpg" alt="Rocket Money" /></div>
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket-pro.jpg" alt="Rocket Pro" /></div>
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket-loans.jpg" alt="Rocket Loans" /></div>
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket-redfin.jpg" alt="Redfin powered by Rocket" /></div>
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket-companies.jpg" alt="Rocket Companies" /></div>
+      <!-- duplicated for marquee -->
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket.jpg" alt="" /></div>
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket-mortgage.jpg" alt="" /></div>
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket-close.jpg" alt="" /></div>
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket-homes.jpg" alt="" /></div>
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket-money.jpg" alt="" /></div>
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket-pro.jpg" alt="" /></div>
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket-loans.jpg" alt="" /></div>
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket-redfin.jpg" alt="" /></div>
+      <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/nova/logos/rocket-companies.jpg" alt="" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. OVERVIEW -->
+<section class="cs-overview" id="overview">
+  <div class="cs-overview__inner">
+    <div class="cs-overview__label">Overview — 01</div>
+    <p class="cs-overview__body">
+      Clear Sign is a web-based application that enables remote online closings for Rocket Mortgage clients. It <em>brings borrowers and notaries together in a secure, guided digital environment</em>, allowing users to complete one of the most critical steps of the home buying process entirely online. The original experience was fragmented, confusing, and difficult to navigate — especially for first-time users. The redesign focused on transforming Clear Sign into a modern, mobile-first platform that simplifies onboarding, reduces friction, and builds confidence throughout the closing journey.
+    </p>
+  </div>
+</section>
+
+<!-- 5. SCREEN GALLERY -->
+<section class="cs-gallery cs-gallery--grid12" id="screens">
+  <div class="cs-gallery__head">
+    <h2 class="cs-gallery__title">Screens</h2>
+    <span class="cs-gallery__meta">12 selected</span>
+  </div>
+  <div class="cs-gallery__grid" id="csGrid">
+    <button class="cs-shot" type="button" data-src="https://assets.trishafeydesigns.com/clearsign/screen-01.png" aria-label="Expand screen 01">
+      <img src="https://assets.trishafeydesigns.com/clearsign/screen-01.png" alt="Clear Sign — welcome and participant selection" loading="lazy" />
+    </button>
+    <button class="cs-shot" type="button" data-src="https://assets.trishafeydesigns.com/clearsign/screen-02.png" aria-label="Expand screen 02">
+      <img src="https://assets.trishafeydesigns.com/clearsign/screen-02.png" alt="Clear Sign — notary check-in modal" loading="lazy" />
+    </button>
+    <button class="cs-shot" type="button" data-src="https://assets.trishafeydesigns.com/clearsign/screen-03.png" aria-label="Expand screen 03">
+      <img src="https://assets.trishafeydesigns.com/clearsign/screen-03.png" alt="Clear Sign — verification code entry with support chat" loading="lazy" />
+    </button>
+    <button class="cs-shot" type="button" data-src="https://assets.trishafeydesigns.com/clearsign/screen-04.png" aria-label="Expand screen 04">
+      <img src="https://assets.trishafeydesigns.com/clearsign/screen-04.png" alt="Clear Sign — Terms of Service consent" loading="lazy" />
+    </button>
+    <button class="cs-shot" type="button" data-src="https://assets.trishafeydesigns.com/clearsign/screen-05.png" aria-label="Expand screen 05">
+      <img src="https://assets.trishafeydesigns.com/clearsign/screen-05.png" alt="Clear Sign — KBA security question" loading="lazy" />
+    </button>
+    <button class="cs-shot" type="button" data-src="https://assets.trishafeydesigns.com/clearsign/screen-06.png" aria-label="Expand screen 06">
+      <img src="https://assets.trishafeydesigns.com/clearsign/screen-06.png" alt="Clear Sign — screen 06" loading="lazy" />
+    </button>
+    <button class="cs-shot" type="button" data-src="https://assets.trishafeydesigns.com/clearsign/screen-07.png" aria-label="Expand screen 07">
+      <img src="https://assets.trishafeydesigns.com/clearsign/screen-07.png" alt="Clear Sign — screen 07" loading="lazy" />
+    </button>
+    <button class="cs-shot" type="button" data-src="https://assets.trishafeydesigns.com/clearsign/screen-08.png" aria-label="Expand screen 08">
+      <img src="https://assets.trishafeydesigns.com/clearsign/screen-08.png" alt="Clear Sign — screen 08" loading="lazy" />
+    </button>
+    <button class="cs-shot" type="button" data-src="https://assets.trishafeydesigns.com/clearsign/screen-09.png" aria-label="Expand screen 09">
+      <img src="https://assets.trishafeydesigns.com/clearsign/screen-09.png" alt="Clear Sign — screen 09" loading="lazy" />
+    </button>
+    <button class="cs-shot" type="button" data-src="https://assets.trishafeydesigns.com/clearsign/screen-10.png" aria-label="Expand screen 10">
+      <img src="https://assets.trishafeydesigns.com/clearsign/screen-10.png" alt="Clear Sign — screen 10" loading="lazy" />
+    </button>
+    <button class="cs-shot" type="button" data-src="https://assets.trishafeydesigns.com/clearsign/screen-11.png" aria-label="Expand screen 11">
+      <img src="https://assets.trishafeydesigns.com/clearsign/screen-11.png" alt="Clear Sign — screen 11" loading="lazy" />
+    </button>
+    <button class="cs-shot" type="button" data-src="https://assets.trishafeydesigns.com/clearsign/screen-12.png" aria-label="Expand screen 12">
+      <img src="https://assets.trishafeydesigns.com/clearsign/screen-12.png" alt="Clear Sign — screen 12" loading="lazy" />
+    </button>
+  </div>
+</section>
+
+<!-- Lightbox for the screen gallery -->
+<div class="cs-lightbox" id="csLightbox" role="dialog" aria-modal="true" aria-label="Screen preview" hidden>
+  <button class="cs-lightbox__close" type="button" aria-label="Close">&times;</button>
+  <button class="cs-lightbox__nav cs-lightbox__nav--prev" type="button" aria-label="Previous screen">‹</button>
+  <img class="cs-lightbox__img" alt="" />
+  <button class="cs-lightbox__nav cs-lightbox__nav--next" type="button" aria-label="Next screen">›</button>
+</div>
+
+<!-- 6. SUMMARY -->
+<section class="cs-summary" id="summary">
+  <div class="cs-summary__inner">
+    <div class="cs-summary__label">Summary — 02</div>
+    <h2 class="h1" style="max-width: 18ch; letter-spacing: -0.03em; font-weight: 400;">
+      The <em style="font-family:Newsreader,Georgia,serif;font-style:italic;color:var(--accent);font-weight:300;">friction</em> we set out to remove.
+    </h2>
+    <div class="cs-summary__grid">
+      <div class="cs-summary__block">
+        <h3 data-num="2.1">Key pain points</h3>
+        <ul>
+          <li>Lengthy, confusing onboarding and check-in process</li>
+          <li>Limited mobile responsiveness</li>
+          <li>Lack of accessibility and inclusive design</li>
+          <li>High support call volume driven by usability issues</li>
+          <li>Confusing terminology and legal language</li>
+          <li>Poor progress visibility and unclear next steps</li>
+          <li>Complex authentication flows (KBA, ID verification)</li>
+          <li>Lack of personalization and humanization</li>
+        </ul>
+        <p style="margin-top:18px;font-style:italic;color:var(--muted);">Result: high friction at critical moments in the closing journey, leading to user frustration, increased support calls, and failed or canceled signings.</p>
+      </div>
+      <div class="cs-summary__block">
+        <h3 data-num="2.2">The problem</h3>
+        <p>The original Clear Sign experience required users to navigate a complex, unfamiliar process with little guidance. Borrowers often struggled with a cumbersome check-in, identity verification, an outdated signing room, legal language and unclear steps — resulting in confusion, drop-off, and heavy reliance on support.</p>
+      </div>
+      <div class="cs-summary__block">
+        <h3 data-num="2.3">My role</h3>
+        <p><strong>Lead UX Designer — end-to-end redesign.</strong> I owned the redesign of Clear Sign from research through execution. I led UX strategy, interaction design, and usability improvements across onboarding, check-in, and the signing room.</p>
+        <p>I worked closely with product, engineering, legal, and support teams to identify pain points, define solutions, and ensure feasibility and compliance.</p>
+      </div>
+      <div class="cs-summary__block">
+        <h3 data-num="2.4">Objective</h3>
+        <p>Redesign Clear Sign into a mobile-first, accessible, personalized, and intuitive experience that reduces friction, improves clarity, reduces user stress, and minimizes support dependency. We focused on: simplifying complex workflows, reducing cognitive load, improving accessibility and usability, and creating a more human, guided experience.</p>
+        <p style="margin-top:14px;font-style:italic;color:var(--ink);">Instead of asking <em style="font-family:Newsreader,Georgia,serif;color:var(--muted);">"how do we make users complete the process?"</em> we asked: <em style="font-family:Newsreader,Georgia,serif;color:var(--accent);">how do we make an intimidating process feel simple, guided, intuitive, and delightful?</em></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. FULL-WIDTH IMAGE BREAK -->
+<div class="cs-break">
+  <img class="cs-img" src="https://assets.trishafeydesigns.com/clearsign/break-1-stockphoto.png" alt="Clear Sign 2.0 launch — borrower welcome screen" />
+</div>
+
+<!-- 8. PROGRESSION (custom for Clear Sign) — supports two modes -->
+<section class="cs-progression" id="progression" data-mode="horizontal">
+  <header class="cs-progression__head">
+    <div>
+      <div class="cs-progression__num">Progression — 03</div>
+      <h2 class="cs-progression__title">A three-year <em>evolution.</em></h2>
+    </div>
+    <p class="cs-progression__lede">
+      Clear Sign didn't ship as a single redesign — it evolved across three distinct phases. Each version sharpened a different layer of the experience: usability, brand, then a complete rethink centered on personalization and humanization.
+    </p>
+  </header>
+
+  <!-- Mode A: horizontal long-image scroll -->
+  <div class="cs-progression__horiz">
+    <div class="cs-progression__hint">
+      <span>Scroll across &nbsp;→</span>
+      <span>3 phases · 2022 — 2024</span>
+    </div>
+    <div class="cs-progression__scroller" id="prog-scroller">
+      <div class="cs-progression__strip">
+        <article class="cs-prog-h">
+          <div class="cs-prog-h__media"><img src="https://assets.trishafeydesigns.com/clearsign/progression-01-triage.png" alt="Clear Sign V 0.0 and V 1.0 — NexSys legacy and the early Amrock-branded welcome" loading="lazy" /></div>
+          <div class="cs-prog-h__body">
+            <div class="cs-prog-h__step">01</div>
+            <div>
+              <div class="cs-prog-h__head">
+                <span class="cs-prog-h__version">CS 0.0 — 1.0</span>
+                <span class="cs-prog-h__year">Triage</span>
+              </div>
+              <h3 class="cs-prog-h__title">Emergency triage.</h3>
+            </div>
+            <p class="cs-prog-h__copy">The initial version was not mobile responsive and difficult to use. The design was cluttered and not aligned with our brand. We performed emergency triage to make it minimally usable.</p>
+          </div>
+        </article>
+        <article class="cs-prog-h">
+          <div class="cs-prog-h__media"><img src="https://assets.trishafeydesigns.com/clearsign/progression-02-refinement.png" alt="Clear Sign V 2.0 — Clear Sign branding with refined welcome and verify-identity modal" loading="lazy" /></div>
+          <div class="cs-prog-h__body">
+            <div class="cs-prog-h__step">02</div>
+            <div>
+              <div class="cs-prog-h__head">
+                <span class="cs-prog-h__version">CS 2.0</span>
+                <span class="cs-prog-h__year">Refinement</span>
+              </div>
+              <h3 class="cs-prog-h__title">Toward Rocket-grade UX.</h3>
+            </div>
+            <p class="cs-prog-h__copy">More significant UX and branding updates were implemented, making the app more user-friendly and bringing it closer to Rocket Mortgage's branding.</p>
+          </div>
+        </article>
+        <article class="cs-prog-h">
+          <div class="cs-prog-h__media"><img src="https://assets.trishafeydesigns.com/clearsign/progression-03-reimagined.png" alt="Clear Sign V 3.0 — fully reimagined welcome, signing room, and check-in complete" loading="lazy" /></div>
+          <div class="cs-prog-h__body">
+            <div class="cs-prog-h__step">03</div>
+            <div>
+              <div class="cs-prog-h__head">
+                <span class="cs-prog-h__version">CS 3.0</span>
+                <span class="cs-prog-h__year">Reimagined</span>
+              </div>
+              <h3 class="cs-prog-h__title">A reimagined experience.</h3>
+            </div>
+            <p class="cs-prog-h__copy">A completely redesigned app with major improvements — a more intuitive interface, a streamlined check-in process, and a reimagined signing room enhanced with personalization and humanization.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mode B: carousel -->
+  <div class="cs-progression__carousel" data-active="0">
+    <div class="cs-progression__viewport">
+      <div class="cs-progression__track">
+        <article class="cs-prog-c is-active" data-idx="0">
+          <div class="cs-prog-c__media"><img src="https://assets.trishafeydesigns.com/clearsign/progression-01-triage.png" alt="Clear Sign V 0.0 and V 1.0 — NexSys legacy and the early Amrock-branded welcome" loading="lazy" /></div>
+          <div class="cs-prog-c__copy">
+            <span class="cs-prog-c__step">Step <strong>01</strong> of 03 · 2022</span>
+            <span class="cs-prog-c__version">CS 0.0 — 1.0 · Triage</span>
+            <h3 class="cs-prog-c__title">Emergency <em>triage.</em></h3>
+            <p>The initial version was not mobile responsive and difficult to use. The design was cluttered and not aligned with our brand. We performed emergency triage to make it minimally usable.</p>
+          </div>
+        </article>
+        <article class="cs-prog-c" data-idx="1">
+          <div class="cs-prog-c__media"><img src="https://assets.trishafeydesigns.com/clearsign/progression-02-refinement.png" alt="Clear Sign V 2.0 — Clear Sign branding with refined welcome and verify-identity modal" loading="lazy" /></div>
+          <div class="cs-prog-c__copy">
+            <span class="cs-prog-c__step">Step <strong>02</strong> of 03 · 2023</span>
+            <span class="cs-prog-c__version">CS 2.0 · Refinement</span>
+            <h3 class="cs-prog-c__title">Toward <em>Rocket-grade</em> UX.</h3>
+            <p>More significant UX and branding updates were implemented, making the app more user-friendly and bringing it closer to Rocket Mortgage's branding.</p>
+          </div>
+        </article>
+        <article class="cs-prog-c" data-idx="2">
+          <div class="cs-prog-c__media"><img src="https://assets.trishafeydesigns.com/clearsign/progression-03-reimagined.png" alt="Clear Sign V 3.0 — fully reimagined welcome, signing room, and check-in complete" loading="lazy" /></div>
+          <div class="cs-prog-c__copy">
+            <span class="cs-prog-c__step">Step <strong>03</strong> of 03 · 2024</span>
+            <span class="cs-prog-c__version">CS 3.0 · Reimagined</span>
+            <h3 class="cs-prog-c__title">A <em>reimagined</em> experience.</h3>
+            <p>A completely redesigned app with major improvements — a more intuitive interface, a streamlined check-in process, and a reimagined signing room enhanced with personalization and humanization.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+    <div class="cs-progression__nav">
+      <div class="cs-progression__count"><strong id="prog-current">01</strong> &nbsp;/&nbsp; 03</div>
+      <div class="cs-progression__dots" id="prog-dots">
+        <button class="is-active" data-go="0" aria-label="Go to step 1"></button>
+        <button data-go="1" aria-label="Go to step 2"></button>
+        <button data-go="2" aria-label="Go to step 3"></button>
+      </div>
+      <div class="cs-progression__pager">
+        <button id="prog-prev" aria-label="Previous step" disabled>
+          <svg viewBox="0 0 16 16" fill="none"><path d="M10 13L5 8l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button id="prog-next" aria-label="Next step">
+          <svg viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. FEATURES -->
+<section class="cs-features" id="features">
+  <header class="cs-features__head">
+    <div class="cs-features__label">Features &amp; updates — 04</div>
+    <h2 class="cs-features__title">
+      Eight moves that made closing<br/>
+      <em>feel</em> human.
+    </h2>
+  </header>
+
+  <article class="cs-feature">
+    <div class="cs-feature__copy">
+      <div class="cs-feature__num">F · 01</div>
+      <h3 class="cs-feature__title">Mobile-first design</h3>
+      <div class="cs-feature__row">
+        <h4>Pain point</h4>
+        <p>The original experience was not optimized for mobile, despite most users accessing it on their phones.</p>
+      </div>
+      <div class="cs-feature__row">
+        <h4>Solution</h4>
+        <p>Implemented a mobile-first redesign — optimizing layouts, prioritizing essential features, and designing intuitive touch interactions. Users now enjoy improved readability, navigation, and usability, resulting in a more convenient and enjoyable remote closing experience.</p>
+      </div>
+      <div class="cs-feature__metric">
+        ↑ Mobile completion rate · ↓ drop-off during check-in on mobile · ↓ <strong>zoom/scroll behavior</strong> during critical steps (observed in testing)
+      </div>
+    </div>
+    <div class="cs-feature__media">
+      <div class="ba-car" data-mode="multi" data-active="0" data-current-tag="After">
+        <div class="ba-car__frame">
+          <span class="ba-car__tag"></span>
+          <div class="ba-car__slide is-active" data-tag="After">
+            <img src="https://assets.trishafeydesigns.com/clearsign/feature-1-mobile-first-after-1.jpg" alt="Clear Sign 3.0 — mobile-first welcome flow on a borrower's device" loading="lazy" />
+          </div>
+          <div class="ba-car__slide" data-tag="Before">
+            <img src="https://assets.trishafeydesigns.com/clearsign/feature-1-mobile-first-before-1.jpg" alt="Before — confirmation page extends off the mobile screen" loading="lazy" />
+          </div>
+          <div class="ba-car__slide" data-tag="Before">
+            <img src="https://assets.trishafeydesigns.com/clearsign/feature-1-mobile-first-before-2.jpg" alt="Before — navigation menu submenu offscreen on mobile" loading="lazy" />
+          </div>
+          <div class="ba-car__slide" data-tag="Before">
+            <img src="https://assets.trishafeydesigns.com/clearsign/feature-1-mobile-first-before-3.jpg" alt="Before — check-in screen with content overflow and confusing UI" loading="lazy" />
+          </div>
+        </div>
+        <div class="ba-car__controls">
+          <div class="ba-car__nav">
+            <button class="ba-car__prev" type="button" aria-label="Previous">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M10 13L5 8l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="ba-car__next" type="button" aria-label="Next">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+          <div class="ba-car__count"><strong class="ba-car__current">01</strong> / 04</div>
+          <div class="ba-car__dots">
+            <button class="is-active" data-go="0" aria-label="Slide 1"></button>
+            <button data-go="1" aria-label="Slide 2"></button>
+            <button data-go="2" aria-label="Slide 3"></button>
+            <button data-go="3" aria-label="Slide 4"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="cs-feature">
+    <div class="cs-feature__copy">
+      <div class="cs-feature__num">F · 02</div>
+      <h3 class="cs-feature__title">Clear and concise UX</h3>
+      <div class="cs-feature__row">
+        <h4>Pain point</h4>
+        <p>Legal and technical language created confusion for users unfamiliar with the process.</p>
+      </div>
+      <div class="cs-feature__row">
+        <h4>Solution</h4>
+        <p>Simplified content, restructured information architecture, and emphasized clarity through clean, minimal design.</p>
+      </div>
+      <div class="cs-feature__metric">
+        ↓ Support tickets ("what do I do next") · ↓ time to complete check-in · ↑ <strong>task success rate</strong> in usability testing
+      </div>
+    </div>
+    <div class="cs-feature__media">
+      <div class="ba-car" data-mode="multi" data-active="0" data-current-tag="After">
+        <div class="ba-car__frame">
+          <span class="ba-car__tag"></span>
+          <div class="ba-car__slide is-active" data-tag="After">
+            <img src="https://assets.trishafeydesigns.com/clearsign/feature-2-clear-and-concise-after-1.png" alt="After — clear, concise signature creation flow" loading="lazy" />
+          </div>
+          <div class="ba-car__slide" data-tag="Before">
+            <img src="https://assets.trishafeydesigns.com/clearsign/feature-2-clear-and-concise-before-1.png" alt="Before — signature selection across four separate steps" loading="lazy" />
+          </div>
+          <div class="ba-car__slide" data-tag="After">
+            <img src="https://assets.trishafeydesigns.com/clearsign/feature-2-clear-and-concise-after-2.png" alt="After — security questions step in the new check-in" loading="lazy" />
+          </div>
+          <div class="ba-car__slide" data-tag="Before">
+            <img src="https://assets.trishafeydesigns.com/clearsign/feature-2-clear-and-concise-before-2.png" alt="Before — security questions instructions on a separate full-screen step" loading="lazy" />
+          </div>
+          <div class="ba-car__slide" data-tag="After">
+            <img src="https://assets.trishafeydesigns.com/clearsign/feature-2-clear-and-concise-after-3.png" alt="After — combined Terms of Service consent in a single step" loading="lazy" />
+          </div>
+          <div class="ba-car__slide" data-tag="Before">
+            <img src="https://assets.trishafeydesigns.com/clearsign/feature-2-clear-and-concise-before-3.png" alt="Before — Terms of Service and Privacy Policy split across two long screens" loading="lazy" />
+          </div>
+        </div>
+        <div class="ba-car__controls">
+          <div class="ba-car__nav">
+            <button class="ba-car__prev" type="button" aria-label="Previous">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M10 13L5 8l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="ba-car__next" type="button" aria-label="Next">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+          <div class="ba-car__count"><strong class="ba-car__current">01</strong> / 06</div>
+          <div class="ba-car__dots">
+            <button class="is-active" data-go="0" aria-label="Slide 1"></button>
+            <button data-go="1" aria-label="Slide 2"></button>
+            <button data-go="2" aria-label="Slide 3"></button>
+            <button data-go="3" aria-label="Slide 4"></button>
+            <button data-go="4" aria-label="Slide 5"></button>
+            <button data-go="5" aria-label="Slide 6"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="cs-feature">
+    <div class="cs-feature__copy">
+      <div class="cs-feature__num">F · 03</div>
+      <h3 class="cs-feature__title">QR code replacement</h3>
+      <div class="cs-feature__row">
+        <h4>Pain point</h4>
+        <p>Users struggled to scan QR codes from desktop to mobile, driving high support volume.</p>
+      </div>
+      <div class="cs-feature__row">
+        <h4>Solution</h4>
+        <p>Introduced SMS-based link delivery for ID verification.</p>
+      </div>
+      <div class="cs-feature__metric">
+        ↓ QR-related support calls from <strong>~14% → &lt;1%</strong>
+      </div>
+    </div>
+    <div class="cs-feature__media">
+      <div class="ba-car" data-state="after">
+        <div class="ba-car__frame">
+          <span class="ba-car__tag"></span>
+          <div class="ba-car__slide ba-car__slide--after">
+            <img src="https://assets.trishafeydesigns.com/clearsign/feature-3-QRcode-after.jpg" alt="After — SMS link delivery for ID verification (Open link on phone)" loading="lazy" />
+          </div>
+          <div class="ba-car__slide ba-car__slide--before">
+            <img src="https://assets.trishafeydesigns.com/clearsign/feature-3-QRcode-before.jpg" alt="Before — QR code on the desktop scanning your ID screen" loading="lazy" />
+          </div>
+        </div>
+        <div class="ba-car__controls">
+          <button class="ba-car__toggle" type="button">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="label-after">See before</span>
+            <span class="label-before">See after</span>
+          </button>
+          <div class="ba-car__dots"><span></span><span></span></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="cs-feature">
+    <div class="cs-feature__copy">
+      <div class="cs-feature__num">F · 04</div>
+      <h3 class="cs-feature__title">Improved KBA experience</h3>
+      <div class="cs-feature__row">
+        <h4>Pain point</h4>
+        <p>Knowledge-Based Authentication questions were overwhelming and time-sensitive without clear feedback — resulting in frustration, failed attempts, and canceled signings.</p>
+      </div>
+      <div class="cs-feature__row">
+        <h4>Solution</h4>
+        <p>Presented questions one at a time with a visible timer to reduce stress and cognitive load while improving accessibility.</p>
+      </div>
+      <div class="cs-feature__metric">
+        ↑ KBA pass rate · ↓ <strong>abandoned signings</strong> · ↓ time on KBA · ↓ user stress (qualitative)
+      </div>
+    </div>
+    <div class="cs-feature__media">
+      <div class="ba-car" data-state="after">
+        <div class="ba-car__frame">
+          <span class="ba-car__tag"></span>
+          <div class="ba-car__slide ba-car__slide--after">
+            <img src="https://assets.trishafeydesigns.com/clearsign/feature-4-KBA-after.jpg" alt="After — KBA presented one question at a time with a visible timer" loading="lazy" />
+          </div>
+          <div class="ba-car__slide ba-car__slide--before">
+            <img src="https://assets.trishafeydesigns.com/clearsign/feature-4-KBA-before.jpg" alt="Before — all KBA security questions stacked on a single page" loading="lazy" />
+          </div>
+        </div>
+        <div class="ba-car__controls">
+          <button class="ba-car__toggle" type="button">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="label-after">See before</span>
+            <span class="label-before">See after</span>
+          </button>
+          <div class="ba-car__dots"><span></span><span></span></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="cs-feature">
+    <div class="cs-feature__copy">
+      <div class="cs-feature__num">F · 05</div>
+      <h3 class="cs-feature__title">Simplified Terms &amp; Conditions</h3>
+      <div class="cs-feature__row">
+        <h4>Pain point</h4>
+        <p>Separate Terms of Use and Privacy Policy pages caused cognitive overload and lengthened the check-in process.</p>
+      </div>
+      <div class="cs-feature__row">
+        <h4>Solution</h4>
+        <p>Condensed Terms of Use and Privacy Policy into a single experience with expandable content and a simplified agreement flow. Users now agree through two checkboxes and don't see the entire contract unless desired — reducing cognitive load and anxiety.</p>
+      </div>
+      <div class="cs-feature__metric">
+        ↓ Time on T&amp;C step · ↑ <strong>completion rate</strong> · ↓ drop-off at legal review · ↓ "what am I agreeing to" support
+      </div>
+    </div>
+    <div class="cs-feature__media">
+      <div class="ba-car" data-state="after">
+        <div class="ba-car__frame">
+          <span class="ba-car__tag"></span>
+          <div class="ba-car__slide ba-car__slide--after">
+            <img src="https://assets.trishafeydesigns.com/clearsign/feature-5-TSPolicy-after-1.jpg" alt="After — combined Terms of Service consent in a single step with two checkboxes" loading="lazy" />
+          </div>
+          <div class="ba-car__slide ba-car__slide--before">
+            <img src="https://assets.trishafeydesigns.com/clearsign/feature-5-TSPolicy-before-1.jpg" alt="Before — Terms of Service and Privacy Policy split across two long screens" loading="lazy" />
+          </div>
+        </div>
+        <div class="ba-car__controls">
+          <button class="ba-car__toggle" type="button">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="label-after">See before</span>
+            <span class="label-before">See after</span>
+          </button>
+          <div class="ba-car__dots"><span></span><span></span></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="cs-feature">
+    <div class="cs-feature__copy">
+      <div class="cs-feature__num">F · 06</div>
+      <h3 class="cs-feature__title">In-app chat</h3>
+      <div class="cs-feature__row">
+        <h4>Pain point</h4>
+        <p>Communication gaps between borrowers, notaries, and support caused delays and cancellations. Audio issues and unknown phone numbers from notaries calling borrowers further disrupted the process, resulting in canceled signings.</p>
+      </div>
+      <div class="cs-feature__row">
+        <h4>Solution</h4>
+        <p>Introduced a real-time chat feature enabling seamless communication between users and notaries, with a separate tab for support chat. This minimized disruptions and ensured a smoother remote closing experience.</p>
+      </div>
+      <div class="cs-feature__metric">
+        ↓ Call volume during sessions · ↓ <strong>cancellations</strong> from comms issues · ↑ resolution time · ↑ session completion rate
+      </div>
+    </div>
+    <div class="cs-feature__media">
+      <div class="single"><img class="cs-img" src="https://assets.trishafeydesigns.com/clearsign/feature-6-chat.jpg" alt="In-app chat — Group Chat and Support Chat side by side during a signing" loading="lazy" /></div>
+    </div>
+  </article>
+
+  <article class="cs-feature">
+    <div class="cs-feature__copy">
+      <div class="cs-feature__num">F · 07</div>
+      <h3 class="cs-feature__title">Signing room redesign</h3>
+      <div class="cs-feature__row">
+        <h4>Pain point</h4>
+        <p>Difficult document navigation and lack of usability during document signing.</p>
+      </div>
+      <div class="cs-feature__row">
+        <h4>Solution</h4>
+        <p>Redesigned the signing room with improved navigation, dark mode, and better collaboration tools.</p>
+      </div>
+      <div class="cs-feature__metric">
+        ↓ Time to complete signing · ↓ navigation errors · ↑ <strong>satisfaction</strong> · ↑ successful session completion
+      </div>
+    </div>
+    <div class="cs-feature__media">
+      <div class="ba-car" data-state="after">
+        <div class="ba-car__frame">
+          <span class="ba-car__tag"></span>
+          <div class="ba-car__slide ba-car__slide--after">
+            <img src="https://assets.trishafeydesigns.com/clearsign/feature-7-signing-room-after.jpg" alt="After — redesigned signing room with AI assistant participant and clear document view" loading="lazy" />
+          </div>
+          <div class="ba-car__slide ba-car__slide--before">
+            <img src="https://assets.trishafeydesigns.com/clearsign/feature-7-signing-room-before.jpg" alt="Before — older signing room with oversized participant videos and crowded action items" loading="lazy" />
+          </div>
+        </div>
+        <div class="ba-car__controls">
+          <button class="ba-car__toggle" type="button">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="label-after">See before</span>
+            <span class="label-before">See after</span>
+          </button>
+          <div class="ba-car__dots"><span></span><span></span></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="cs-feature">
+    <div class="cs-feature__copy">
+      <div class="cs-feature__num">F · 08</div>
+      <h3 class="cs-feature__title">"What's next" guidance</h3>
+      <div class="cs-feature__row">
+        <h4>Pain point</h4>
+        <p>Users didn't know what to do after completing the process, leading to confusion, stress, and an increase in support calls.</p>
+      </div>
+      <div class="cs-feature__row">
+        <h4>Solution</h4>
+        <p>Introduced a user-specific "What's Next" page with clear, concise information on subsequent actions and where to find their documents — ensuring a more seamless and informed post-signing experience.</p>
+      </div>
+      <div class="cs-feature__metric">
+        ↓ Post-signing support calls · ↑ <strong>confidence</strong> post-session · ↓ repeat inquiries · ↑ engagement with post-close steps
+      </div>
+    </div>
+    <div class="cs-feature__media">
+      <div class="ba-car" data-state="after">
+        <div class="ba-car__frame">
+          <span class="ba-car__tag"></span>
+          <div class="ba-car__slide ba-car__slide--after">
+            <img src="https://assets.trishafeydesigns.com/clearsign/feature-8-whats-next-after.jpg" alt="After — personalized Thank You for Attending screen with Where to find documents and mortgage payments cards" loading="lazy" />
+          </div>
+          <div class="ba-car__slide ba-car__slide--before">
+            <img src="https://assets.trishafeydesigns.com/clearsign/feature-8-whats-next-before.jpg" alt="Before — generic Congratulations confirmation with a single Download Documents button" loading="lazy" />
+          </div>
+        </div>
+        <div class="ba-car__controls">
+          <button class="ba-car__toggle" type="button">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="label-after">See before</span>
+            <span class="label-before">See after</span>
+          </button>
+          <div class="ba-car__dots"><span></span><span></span></div>
+        </div>
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- 10. IMAGE BREAK -->
+<div class="cs-break cs-break--tall">
+  <img class="cs-img" src="https://assets.trishafeydesigns.com/clearsign/break-2-stockphoto.png" alt="Clear Sign design system — full mobile flow on a single canvas" />
+</div>
+
+<!-- 11. DESIGN & RESEARCH -->
+<section class="cs-section" id="research">
+  <header class="cs-section__head">
+    <div class="cs-section__num">05 · Design &amp; research</div>
+    <h2 class="cs-section__title">
+      Three years of <em>iteration,</em> grounded in real users.
+    </h2>
+  </header>
+
+  <div class="cs-process">
+    <div class="cs-process__step">
+      <h4>01 — Discovery</h4>
+      <p>Conducted user interviews with borrowers, notaries, and support teams. Analyzed support call data to identify top pain points.</p>
+    </div>
+    <div class="cs-process__step">
+      <h4>02 — Synthesis</h4>
+      <p>Identified key friction areas and restructured the experience around clarity, accessibility, and guidance.</p>
+    </div>
+    <div class="cs-process__step">
+      <h4>03 — Prototyping</h4>
+      <p>Created wireframes and high-fidelity prototypes. Iterated through usability testing and stakeholder feedback.</p>
+    </div>
+    <div class="cs-process__step">
+      <h4>04 — Validation</h4>
+      <p>Tested with real users and refined flows to ensure clarity, usability, and reduced friction.</p>
+    </div>
+  </div>
+
+  <div class="cs-detail-grid">
+    <div class="cs-detail">
+      <h4>Research &amp; discovery</h4>
+      <h3>We started by listening — to borrowers, notaries, and the support team fielding their calls.</h3>
+      <p>I conducted user interviews with borrowers and notaries to understand their pain points and gather feedback on the existing app. I interviewed support agents and analyzed support call data to identify the most common issues, and ran a competitive analysis to benchmark against other remote closing solutions in the market. This research provided a clear direction for the redesign.</p>
+    </div>
+    <div class="cs-detail">
+      <h4>Design &amp; prototyping</h4>
+      <h3>Mobile-first, clarity-driven, and built in tight loops with engineering.</h3>
+      <p>I created wireframes and interactive prototypes for the new interface, focusing on a mobile-first design. Usability tests with target users were conducted to gather feedback and iterate on the designs. Throughout this phase I collaborated closely with the development team to ensure that the designs were feasible and aligned with technical constraints.</p>
+    </div>
+    <div class="cs-detail">
+      <h4>User testing feedback</h4>
+      <h3>Testing validated improvements in usability, clarity, and overall user confidence.</h3>
+      <p>I organized multiple rounds of user testing to validate design decisions and refine the experience. Feedback was incorporated to enhance clarity, accessibility, and overall usability. Regular review sessions with stakeholders and end-users ensured the design met both business and user needs.</p>
+    </div>
+    <div class="cs-detail">
+      <h4>Tone &amp; voice</h4>
+      <h3>Less legal, more human — without losing precision.</h3>
+      <p>Closing is a high-stakes, emotional moment. We rewrote system messages, error states, and progress copy to feel like a calm guide rather than a compliance document — preserving accuracy while removing intimidation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 12. RESEARCH IMAGE BREAK -->
+<div class="cs-break">
+  <img class="cs-img" src="https://assets.trishafeydesigns.com/clearsign/break-3-figma-research.png" alt="Clear Sign research synthesis — Figma board mapping ID verification pain points" />
+</div>
+
+<!-- 13. KEY CHALLENGES -->
+<section class="cs-section cs-section--alt" id="challenges">
+  <header class="cs-section__head">
+    <div class="cs-section__num">06 · Challenges</div>
+    <h2 class="cs-section__title">
+      The <em>knots</em> we had to untangle.
+    </h2>
+  </header>
+
+  <div class="cs-challenges">
+    <div class="cs-challenge">
+      <div class="cs-challenge__num">CH · 01</div>
+      <h3 class="cs-challenge__title">Multiple user roles &amp; closing types</h3>
+      <div class="cs-challenge__body">
+        <p>Ensuring a seamless experience for multiple user roles and closing types — notaries, single borrowers, multiple borrowers, witnesses, etc., across RON, hybrid, and other closing types.</p>
+        <span class="cs-challenge__solution">Created tailored user flows for each role and closing type, and tested extensively with real users to ensure a seamless experience for everyone.</span>
+      </div>
+    </div>
+    <div class="cs-challenge">
+      <div class="cs-challenge__num">CH · 02</div>
+      <h3 class="cs-challenge__title">Wide user demographic</h3>
+      <div class="cs-challenge__body">
+        <p>Our demographic was anyone purchasing a home or part of the closing — across a wide range of computer literacy, languages, ages, and devices.</p>
+        <span class="cs-challenge__solution">Designed the interface to accommodate varying levels of computer literacy and demographics. Implemented a user-centered design approach, incorporating feedback from diverse user groups to ensure inclusivity and accessibility.</span>
+      </div>
+    </div>
+    <div class="cs-challenge">
+      <div class="cs-challenge__num">CH · 03</div>
+      <h3 class="cs-challenge__title">Balancing compliance and usability</h3>
+      <div class="cs-challenge__body">
+        <p>Complex legal flows and regulatory requirements differing state to state. Some states don't allow fully remote closings, but allow hybrid closings and other constraints we had to work around.</p>
+        <span class="cs-challenge__solution">Worked closely with the legal team to ensure compliance while keeping the experience friendly — particularly in T&amp;C and Privacy Policy. Streamlined legal copy and integrated it into the UX in a more user-friendly manner, improving clarity and reducing cognitive load.</span>
+      </div>
+    </div>
+    <div class="cs-challenge">
+      <div class="cs-challenge__num">CH · 04</div>
+      <h3 class="cs-challenge__title">Complex authentication</h3>
+      <div class="cs-challenge__body">
+        <p>MISMO and other regulatory constraints are complex and rigid around identification.</p>
+        <span class="cs-challenge__solution">Addressed MISMO compliance and other regulatory constraints around security questions for ID verification. Despite limitations (e.g., inability to show a timer or feedback on wrong answers), we developed a compliant solution that balanced security and usability — and continued iterating within those boundaries.</span>
+      </div>
+    </div>
+    <div class="cs-challenge">
+      <div class="cs-challenge__num">CH · 05</div>
+      <h3 class="cs-challenge__title">Integration complexity</h3>
+      <div class="cs-challenge__body">
+        <p>Multiple complex back-end systems needed to work together for Clear Sign to function.</p>
+        <span class="cs-challenge__solution">Managed the integration of various systems and technologies to ensure smooth operation and data flow. Collaborated with cross-functional teams to address technical challenges and streamline the integration process.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 14. IMAGE BREAK -->
+<div class="cs-break">
+  <img class="cs-img" src="https://assets.trishafeydesigns.com/clearsign/break-4-figjam-research.png" alt="Closing day — paper wireframes and a phone on a designer's desk" />
+</div>
+
+<!-- 15. RESULTS & IMPACT -->
+<section class="cs-section" id="results">
+  <header class="cs-section__head">
+    <div class="cs-section__num">07 · Results &amp; impact</div>
+    <h2 class="cs-section__title">
+      A platform people <em>finished,</em><br/>
+      and stuck around for.
+    </h2>
+  </header>
+
+  <div class="cs-detail-grid" style="margin-bottom: 56px;">
+    <div class="cs-detail">
+      <h4>MVP scope</h4>
+      <h3>Four moves that mattered most.</h3>
+      <p>Simplified check-in · mobile-first design · in-app chat · improved signing room. The MVP focused on the steps that drove the most support volume and the highest drop-off, leaving room for personalization and "what's next" guidance to follow in CS 3.0.</p>
+    </div>
+    <div class="cs-detail">
+      <h4>Rollout</h4>
+      <h3>From triage → reimagined platform.</h3>
+      <p>The comprehensive redesign of Clear Sign successfully addressed user pain points, leading to a significant increase in user satisfaction, reduced support calls, and streamlined remote closings. Users now enjoy a more accessible, secure, and delightful experience — solidifying Clear Sign's position as a modern, user-centric platform under Rocket Companies.</p>
+    </div>
+  </div>
+
+  <div class="cs-metrics">
+    <div class="cs-metrics__item">
+      <div class="cs-metrics__num">+25%</div>
+      <div class="cs-metrics__label">User satisfaction (post-launch survey)</div>
+    </div>
+    <div class="cs-metrics__item">
+      <div class="cs-metrics__num">+15%</div>
+      <div class="cs-metrics__label">User retention rate post-redesign</div>
+    </div>
+    <div class="cs-metrics__item">
+      <div class="cs-metrics__num">~14% → &lt;1%</div>
+      <div class="cs-metrics__label">QR-related support call volume</div>
+    </div>
+    <div class="cs-metrics__item">
+      <div class="cs-metrics__num">↑ Completion</div>
+      <div class="cs-metrics__label">Improved completion rates for remote closings</div>
+    </div>
+  </div>
+</section>
+
+<!-- 16. IMAGE BREAK -->
+<div class="cs-break">
+  <img class="cs-img" src="https://assets.trishafeydesigns.com/clearsign/break-5-end.png" alt="Clear Sign in use — sketching the welcome screen layout" />
+</div>
+
+<!-- 17. LEARNINGS & NEXT STEPS -->
+<section class="cs-section cs-section--alt" id="learnings">
+  <header class="cs-section__head">
+    <div class="cs-section__num">08 · Learnings</div>
+    <h2 class="cs-section__title">
+      What I'm <em>taking</em> with me.
+    </h2>
+  </header>
+
+  <div class="cs-detail-grid">
+    <div class="cs-detail">
+      <h4>Learning · 01</h4>
+      <h3>User-centered design is critical.</h3>
+      <p>Engaging with users and stakeholders early and often was paramount. Continuous testing and iteration drove better outcomes — letting us identify pain points and ship solutions that genuinely met user needs.</p>
+    </div>
+    <div class="cs-detail">
+      <h4>Learning · 02</h4>
+      <h3>Clarity reduces friction.</h3>
+      <p>Simplifying language and flows had a major impact. The single biggest unlock — across check-in, KBA, and T&amp;C — was treating clarity as a compounding force rather than a polish step.</p>
+    </div>
+    <div class="cs-detail">
+      <h4>Learning · 03</h4>
+      <h3>Compliance and usability must work together.</h3>
+      <p>Working closely with legal and compliance teams was crucial. The best solutions came from treating regulatory constraints as design inputs, not obstacles — and finding the seam where the two could co-exist.</p>
+    </div>
+    <div class="cs-detail">
+      <h4>Learning · 04</h4>
+      <h3>Iterate, prioritize, protect trust.</h3>
+      <p>Three years of iteration taught me that resource constraints sharpen prioritization, and that security and privacy decisions are felt by users even when they're invisible. Continuous improvement — not big-bang launches — built lasting trust in the platform.</p>
+    </div>
+    <div class="cs-detail">
+      <h4>Next steps</h4>
+      <h3>Where Clear Sign goes from here.</h3>
+      <p>AI-assisted onboarding and guidance · enhanced personalization · continued accessibility improvements · expanded mobile capabilities — including an integrated AI assistant during check-in and an AI-supported notary in the signing room.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 18. FOOTER — OTHER PROJECTS -->
+<footer class="cs-foot">
+  <div class="cs-foot__head">
+    <h3 class="cs-foot__title">Keep <em>looking.</em></h3>
+    <a class="cs-foot__cta" href="work.html">
+      All projects
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M3 13L13 3M13 3H5M13 3V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </div>
+  <div class="cs-foot__grid">
+    <a class="cs-tile" href="case-nova.html" data-accent="nova">
+      <div class="cs-tile__media"><img src="https://assets.trishafeydesigns.com/tiles/nova.png" alt="Nova AI — Rocket Close order workspace preview" loading="lazy" /></div>
+      <div class="cs-tile__body">
+        <span class="cs-tile__title">Nova AI</span>
+        <span class="cs-tile__year">2026</span>
+        <span class="cs-tile__sub">Rocket Mortgage · AI-powered closing</span>
+      </div>
+    </a>
+    <a class="cs-tile" href="case-bgrs.html" data-accent="bgrs">
+      <div class="cs-tile__media"><img src="https://assets.trishafeydesigns.com/tiles/bgrs.png" alt="BGRS ReloAccess — relocation dashboard preview" loading="lazy" /></div>
+      <div class="cs-tile__body">
+        <span class="cs-tile__title">BGRS</span>
+        <span class="cs-tile__year">2020</span>
+        <span class="cs-tile__sub">Relocation · Enterprise dashboard</span>
+      </div>
+    </a>
+    <a class="cs-tile" href="case-promopages.html" data-accent="promopages">
+      <div class="cs-tile__media"><img src="https://assets.trishafeydesigns.com/tiles/promopages.png" alt="PromoPages — font selection wizard preview" loading="lazy" /></div>
+      <div class="cs-tile__body">
+        <span class="cs-tile__title">PromoPages</span>
+        <span class="cs-tile__year">2019</span>
+        <span class="cs-tile__sub">Marketing · Landing builder</span>
+      </div>
+    </a>
+  </div>
+  <div class="cs-foot__bottom">
+    <span>© 2026 Trisha Fey</span>
+    <span><a href="index.html" style="color:inherit;">↑ Back to top</a></span>
+  </div>
+</footer>
+<script>
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ===== Progression carousel ===== */
+  (function progressionCarousel() {
+    const carousel = document.querySelector('.cs-progression__carousel');
+    if (!carousel) return;
+    const slides = [...carousel.querySelectorAll('.cs-prog-c')];
+    const dots = [...carousel.querySelectorAll('.cs-progression__dots button')];
+    const prev = carousel.querySelector('#prog-prev');
+    const next = carousel.querySelector('#prog-next');
+    const counter = carousel.querySelector('#prog-current');
+    let active = 0;
+
+    function render() {
+      slides.forEach((s, i) => s.classList.toggle('is-active', i === active));
+      dots.forEach((d, i) => d.classList.toggle('is-active', i === active));
+      counter.textContent = String(active + 1).padStart(2, '0');
+      prev.disabled = active === 0;
+      next.disabled = active === slides.length - 1;
+      carousel.dataset.active = String(active);
+    }
+    prev.addEventListener('click', () => { if (active > 0) { active--; render(); } });
+    next.addEventListener('click', () => { if (active < slides.length - 1) { active++; render(); } });
+    dots.forEach(d => d.addEventListener('click', () => {
+      active = Number(d.dataset.go); render();
+    }));
+    render();
+  })();
+
+  /* ===== Before/After feature carousel toggle ===== */
+  document.querySelectorAll('.ba-car').forEach(car => {
+    const btn = car.querySelector('.ba-car__toggle');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      const showingBefore = car.getAttribute('data-state') === 'before';
+      car.setAttribute('data-state', showingBefore ? 'after' : 'before');
+    });
+  });
+
+  /* ===== Multi-slide feature carousels (prev / next / dots) ===== */
+  document.querySelectorAll('.ba-car[data-mode="multi"]').forEach((car) => {
+    const slides = [...car.querySelectorAll('.ba-car__slide')];
+    const dots = [...car.querySelectorAll('.ba-car__dots button')];
+    const tagEl = car.querySelector('.ba-car__tag');
+    const currentEl = car.querySelector('.ba-car__current');
+    const total = slides.length;
+    const pad = (n) => String(n + 1).padStart(2, '0');
+    let idx = 0;
+    const go = (i) => {
+      idx = ((i % total) + total) % total;
+      slides.forEach((s, k) => s.classList.toggle('is-active', k === idx));
+      dots.forEach((d, k) => d.classList.toggle('is-active', k === idx));
+      const tag = slides[idx].dataset.tag || '';
+      if (tagEl) tagEl.textContent = tag;
+      if (tag) car.dataset.currentTag = tag;
+      if (currentEl) currentEl.textContent = pad(idx);
+      car.dataset.active = idx;
+    };
+    car.querySelector('.ba-car__prev')?.addEventListener('click', () => go(idx - 1));
+    car.querySelector('.ba-car__next')?.addEventListener('click', () => go(idx + 1));
+    dots.forEach((d) => d.addEventListener('click', () => go(+d.dataset.go)));
+    go(0);
+  });
+
+  /* ===== Screen gallery lightbox ===== */
+  (function lightbox() {
+    const lb = document.getElementById('csLightbox');
+    if (!lb) return;
+    const lbImg = lb.querySelector('.cs-lightbox__img');
+    const closeBtn = lb.querySelector('.cs-lightbox__close');
+    const prevBtn = lb.querySelector('.cs-lightbox__nav--prev');
+    const nextBtn = lb.querySelector('.cs-lightbox__nav--next');
+    const shots = Array.from(document.querySelectorAll('.cs-shot[data-src]'));
+    let idx = 0;
+
+    function show(i) {
+      idx = (i + shots.length) % shots.length;
+      const shot = shots[idx];
+      lbImg.src = shot.dataset.src;
+      const inner = shot.querySelector('img');
+      lbImg.alt = inner ? inner.alt : '';
+    }
+    function open(i) {
+      show(i);
+      lb.hidden = false;
+      requestAnimationFrame(() => lb.classList.add('is-open'));
+      document.body.style.overflow = 'hidden';
+    }
+    function close() {
+      lb.classList.remove('is-open');
+      setTimeout(() => { lb.hidden = true; lbImg.src = ''; }, 200);
+      document.body.style.overflow = '';
+    }
+
+    shots.forEach((shot, i) => {
+      shot.addEventListener('click', () => open(i));
+    });
+    closeBtn.addEventListener('click', close);
+    prevBtn.addEventListener('click', () => show(idx - 1));
+    nextBtn.addEventListener('click', () => show(idx + 1));
+    lb.addEventListener('click', (e) => { if (e.target === lb) close(); });
+    document.addEventListener('keydown', (e) => {
+      if (lb.hidden) return;
+      if (e.key === 'Escape') close();
+      else if (e.key === 'ArrowLeft') show(idx - 1);
+      else if (e.key === 'ArrowRight') show(idx + 1);
+    });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-437LB5DVLY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-437LB5DVLY');
+</script>
+  
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Work — Trisha Fey</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&family=Newsreader:ital,wght@0,300;0,400;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/cs-shared.css" />
+<style>
+  .work-hero {
+    padding: clamp(60px, 9vw, 110px) var(--gutter) clamp(40px, 6vw, 64px);
+    border-bottom: 1px solid var(--line);
+  }
+  .work-hero__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .work-hero__title {
+    font-size: clamp(48px, 8vw, 120px);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-weight: 400;
+    max-width: 12ch;
+  }
+  .work-hero__title em {
+    font-family: "Newsreader", Georgia, serif;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--accent);
+  }
+  .work-hero__meta {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-align: right;
+    line-height: 1.8;
+    padding-bottom: 8px;
+  }
+  .work-hero__meta strong { color: var(--ink); font-weight: 500; }
+
+  /* Filter bar */
+  .filter-bar {
+    position: sticky;
+    top: 76px;
+    z-index: 40;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: saturate(140%) blur(10px);
+    -webkit-backdrop-filter: saturate(140%) blur(10px);
+    padding: 20px var(--gutter);
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .filter-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+    margin-right: 8px;
+  }
+  .filter-pills {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .pill {
+    padding: 9px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--paper);
+    font-size: 13.5px;
+    color: var(--ink-2);
+    cursor: pointer;
+    transition: background .15s, color .15s, border-color .15s, transform .12s;
+    user-select: none;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .pill:hover { border-color: var(--ink); color: var(--ink); }
+  .pill.active {
+    background: var(--ink);
+    color: #fff;
+    border-color: var(--ink);
+  }
+  .pill__count {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    opacity: 0.55;
+  }
+  .pill.active .pill__count { opacity: 0.8; }
+  .filter-clear {
+    background: transparent;
+    border: none;
+    color: var(--muted);
+    font-size: 13px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    padding: 4px 6px;
+    margin-left: auto;
+  }
+  .filter-clear:disabled { opacity: 0.3; cursor: default; text-decoration: none; }
+
+  .filter-results {
+    padding: 28px var(--gutter) 16px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .filter-results strong { color: var(--ink); font-weight: 500; }
+
+  /* Project grid */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px 32px;
+    padding: 16px var(--gutter) clamp(80px, 10vw, 120px);
+  }
+  .card {
+    display: block;
+    cursor: pointer;
+    transition: opacity .35s, transform .35s;
+  }
+  .card.hidden {
+    display: none;
+  }
+  .card.fade-in {
+    animation: cardIn .55s cubic-bezier(.2,.7,.2,1) both;
+  }
+  @keyframes cardIn {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: none; }
+  }
+  .card__media {
+    aspect-ratio: 4 / 3;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 22px;
+    position: relative;
+    transition: transform .35s cubic-bezier(.2,.7,.2,1);
+  }
+  .card:hover .card__media { transform: translateY(-6px); }
+  .card__media .ph { position: absolute; inset: 0; }
+  .card__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+  .card__brand {
+    position: absolute;
+    top: 18px; left: 18px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.94);
+    backdrop-filter: blur(8px);
+    font-size: 12px;
+    font-weight: 500;
+    z-index: 2;
+  }
+  .card__brand-dot { width: 8px; height: 8px; border-radius: 50%; }
+  .card__num {
+    position: absolute;
+    top: 18px; right: 18px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: rgba(0,0,0,0.55);
+    letter-spacing: 0.06em;
+    z-index: 2;
+  }
+  .card__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 10px;
+  }
+  .card__title {
+    font-size: clamp(22px, 2vw, 28px);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+  .card__year {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .card__sub {
+    color: var(--ink-2);
+    font-size: 16px;
+    margin-bottom: 14px;
+    max-width: 50ch;
+  }
+  .card__tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 5px 9px;
+    border-radius: 4px;
+    background: var(--line-2);
+    color: var(--ink-2);
+    transition: background .2s, color .2s;
+  }
+  .tag.matched {
+    background: var(--ink);
+    color: #fff;
+  }
+
+  /* Per-card tinting */
+  .card[data-accent="nova"] .card__media .ph,
+  .card[data-accent="nova"] .card__brand-dot { background: linear-gradient(135deg, #fde9e7, #f5beb6); }
+  .card[data-accent="nova"] .card__brand-dot { background: #E03C31; }
+
+  .card[data-accent="clearsign"] .card__media .ph { background: linear-gradient(135deg, #e3ebff, #cfdcff); }
+  .card[data-accent="clearsign"] .card__brand-dot { background: #2B5BD9; }
+
+  .card[data-accent="bgrs"] .card__media .ph { background: linear-gradient(135deg, #dff0ee, #b6dcd6); }
+  .card[data-accent="bgrs"] .card__brand-dot { background: #0D7B7B; }
+
+  .card[data-accent="promopages"] .card__media .ph { background: linear-gradient(135deg, #ece6ff, #d3c4ff); }
+  .card[data-accent="promopages"] .card__brand-dot { background: #7A5CFF; }
+
+  /* Empty state */
+  .empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 80px 20px;
+    color: var(--muted);
+  }
+  .empty h3 {
+    font-size: clamp(24px, 3vw, 36px);
+    color: var(--ink);
+    margin-bottom: 12px;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+  }
+  .empty em {
+    font-family: "Newsreader", Georgia, serif;
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  /* Footer */
+  .work-foot {
+    border-top: 1px solid var(--line);
+    padding: 60px var(--gutter) 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  @media (max-width: 800px) {
+    .grid { grid-template-columns: 1fr; gap: 40px; }
+    .filter-bar { gap: 14px; }
+    .work-hero__row { align-items: flex-start; }
+    .work-hero__meta { text-align: left; }
+  }
+</style>
+<!-- Hotjar Tracking Code for http://trishafeydesigns.com/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:2054169,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a class="nav__logo" href="index.html"><img class="nav__logo-mark" src="assets/tf-logo.svg" alt="Trisha Fey" /></a>
+  <div class="nav__links">
+    <a href="index.html">Home</a>
+    <a href="work.html" class="active">Work</a>
+  <a href="mailto:trisha@trishafeydesigns.com">Contact</a>
+  </div>
+</nav>
+
+<header class="work-hero">
+  <div class="work-hero__row">
+    <h1 class="work-hero__title">
+      Selected<br/>
+      <em>work.</em>
+    </h1>
+    <div class="work-hero__meta">
+      <div><strong>04 projects</strong></div>
+      <div>2022 — 2026</div>
+      <div>Filter by discipline</div>
+    </div>
+  </div>
+</header>
+
+<div class="filter-bar" id="filterBar">
+  <span class="filter-label">Filter</span>
+  <div class="filter-pills" id="pills">
+    <!-- injected -->
+  </div>
+  <button class="filter-clear" id="clearBtn" disabled>Clear</button>
+</div>
+
+<div class="filter-results">
+  <span><strong id="resultCount">4</strong> of 4 projects</span>
+  <span id="activeFilters">All disciplines</span>
+</div>
+
+<main class="grid" id="grid">
+
+  <a class="card" href="case-nova.html" data-accent="nova"
+     data-tags="UX,AI,Web App,Enterprise,Product"
+     data-year="2026">
+    <div class="card__media">
+      <img class="card__img" src="https://assets.trishafeydesigns.com/nova-work-hero.png" alt="Nova AI · Rocket Close order workspace" loading="lazy" />
+      <span class="card__brand"><span class="card__brand-dot"></span>Nova AI</span>
+      <span class="card__num">01 / 04</span>
+    </div>
+    <div class="card__row">
+      <span class="card__title">Nova AI</span>
+      <span class="card__year">2026</span>
+    </div>
+    <p class="card__sub">An AI-assisted workspace for Rocket Close that combines automation and human judgment.</p>
+    <div class="card__tags">
+      <span class="tag" data-tag="UX">UX</span>
+      <span class="tag" data-tag="AI">AI</span>
+      <span class="tag" data-tag="Web App">Web App</span>
+      <span class="tag" data-tag="Enterprise">Enterprise</span>
+      <span class="tag" data-tag="Product">Product</span>
+    </div>
+  </a>
+
+  <a class="card" href="case-clearsign.html" data-accent="clearsign"
+     data-tags="UX,Web App,Product"
+     data-year="2024">
+    <div class="card__media">
+      <img class="card__img" src="https://assets.trishafeydesigns.com/clearsign-hero.png" alt="Clear Sign — Check-In complete screen" loading="lazy" />
+      <span class="card__brand"><span class="card__brand-dot"></span>Clear Sign</span>
+      <span class="card__num">02 / 04</span>
+    </div>
+    <div class="card__row">
+      <span class="card__title">Clear Sign</span>
+      <span class="card__year">2024</span>
+    </div>
+    <p class="card__sub">A seamless remote closing experience that transforms complex, high-stakes workflows into intuitive, guided interactions.</p>
+    <div class="card__tags">
+      <span class="tag" data-tag="UX">UX</span>
+      <span class="tag" data-tag="Web App">Web App</span>
+      <span class="tag" data-tag="Product">Product</span>
+    </div>
+  </a>
+
+  <a class="card" href="case-bgrs.html" data-accent="bgrs"
+     data-tags="UX,Enterprise,Dashboard,Web App"
+     data-year="2020">
+    <div class="card__media">
+      <img class="card__img" src="https://assets.trishafeydesigns.com/bgrs-hero.png" alt="BGRS ReloAccess relocation dashboard" loading="lazy" />
+      <span class="card__brand"><span class="card__brand-dot"></span>BGRS</span>
+      <span class="card__num">03 / 04</span>
+    </div>
+    <div class="card__row">
+      <span class="card__title">BGRS</span>
+      <span class="card__year">2020</span>
+    </div>
+    <p class="card__sub">A relocation operations dashboard for global mobility consultants juggling thousands of in-flight moves at once.</p>
+    <div class="card__tags">
+      <span class="tag" data-tag="UX">UX</span>
+      <span class="tag" data-tag="Enterprise">Enterprise</span>
+      <span class="tag" data-tag="Dashboard">Dashboard</span>
+      <span class="tag" data-tag="Web App">Web App</span>
+    </div>
+  </a>
+
+  <a class="card" href="case-promopages.html" data-accent="promopages"
+     data-tags="UX,Marketing,Web App,Product"
+     data-year="2019">
+    <div class="card__media">
+      <img class="card__img" src="https://assets.trishafeydesigns.com/promopages-hero.png" alt="PromoPages font selection wizard" loading="lazy" />
+      <span class="card__brand"><span class="card__brand-dot"></span>PromoPages</span>
+      <span class="card__num">04 / 04</span>
+    </div>
+    <div class="card__row">
+      <span class="card__title">PromoPages</span>
+      <span class="card__year">2019</span>
+    </div>
+    <p class="card__sub">A lightweight, auto-provisioned landing page builder that helps small businesses promote themselves.</p>
+    <div class="card__tags">
+      <span class="tag" data-tag="UX">UX</span>
+      <span class="tag" data-tag="Marketing">Marketing</span>
+      <span class="tag" data-tag="Web App">Web App</span>
+      <span class="tag" data-tag="Product">Product</span>
+    </div>
+  </a>
+
+  <div class="empty" id="empty" style="display:none;">
+    <h3>No projects match those <em>filters.</em></h3>
+    <p>Try removing a tag or two — there might be a match next door.</p>
+  </div>
+</main>
+
+<footer class="work-foot">
+  <span>© 2026 Trisha Fey</span>
+  <span><a href="index.html">← Back to index</a></span>
+</footer>
+
+<script>
+  // ===== Filter logic =====
+  const TAGS = ['UX', 'AI', 'Web App', 'Enterprise', 'Dashboard', 'Product', 'Marketing'];
+  const FILTER_LOGIC = 'AND'; // match ALL selected tags
+
+  const pillsEl = document.getElementById('pills');
+  const cards = Array.from(document.querySelectorAll('.card'));
+  const clearBtn = document.getElementById('clearBtn');
+  const resultCount = document.getElementById('resultCount');
+  const activeFilters = document.getElementById('activeFilters');
+  const empty = document.getElementById('empty');
+
+  const active = new Set();
+
+  // Build pills with counts
+  TAGS.forEach(tag => {
+    const count = cards.filter(c => (c.dataset.tags || '').split(',').includes(tag)).length;
+    const btn = document.createElement('button');
+    btn.className = 'pill';
+    btn.dataset.tag = tag;
+    btn.innerHTML = `${tag} <span class="pill__count">${String(count).padStart(2, '0')}</span>`;
+    btn.addEventListener('click', () => toggle(tag, btn));
+    pillsEl.appendChild(btn);
+  });
+
+  function toggle(tag, btn) {
+    if (active.has(tag)) {
+      active.delete(tag);
+      btn.classList.remove('active');
+    } else {
+      active.add(tag);
+      btn.classList.add('active');
+    }
+    apply();
+  }
+
+  function apply() {
+    let visible = 0;
+    cards.forEach(card => {
+      const tags = (card.dataset.tags || '').split(',');
+      let match;
+      if (active.size === 0) {
+        match = true;
+      } else if (FILTER_LOGIC === 'AND') {
+        match = [...active].every(t => tags.includes(t));
+      } else {
+        match = [...active].some(t => tags.includes(t));
+      }
+
+      if (match) {
+        const wasHidden = card.classList.contains('hidden');
+        card.classList.remove('hidden');
+        if (wasHidden) {
+          card.classList.remove('fade-in');
+          // force reflow to restart animation
+          void card.offsetWidth;
+          card.classList.add('fade-in');
+        }
+        visible++;
+      } else {
+        card.classList.add('hidden');
+      }
+
+      // Highlight matched tags within visible cards
+      card.querySelectorAll('.tag').forEach(t => {
+        const tg = t.dataset.tag;
+        t.classList.toggle('matched', active.has(tg));
+      });
+    });
+
+    resultCount.textContent = String(visible).padStart(2, '0');
+    activeFilters.textContent = active.size === 0
+      ? 'All disciplines'
+      : [...active].join(' · ');
+    clearBtn.disabled = active.size === 0;
+    empty.style.display = visible === 0 ? 'block' : 'none';
+  }
+
+  clearBtn.addEventListener('click', () => {
+    active.clear();
+    document.querySelectorAll('.pill.active').forEach(p => p.classList.remove('active'));
+    apply();
+  });
+
+  // Initial fade-in
+  cards.forEach((c, i) => {
+    c.classList.add('fade-in');
+    c.style.animationDelay = `${i * 70}ms`;
+  });
+
+  // Nav border on scroll
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+</script>
+</body>
+</html>

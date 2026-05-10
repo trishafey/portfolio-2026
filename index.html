@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="en">
+<head>
+  
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-437LB5DVLY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-437LB5DVLY');
+</script>
+  
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Trisha Fey — UX & Product Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&family=Newsreader:ital,wght@0,300;0,400;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/cs-shared.css" />
+<style>
+  :root { --accent: #F26B5C; }
+  .accent-text { color: var(--accent); }
+
+  /* Hero */
+  .hero {
+    min-height: calc(100vh - 76px);
+    display: grid;
+    grid-template-rows: 1fr auto;
+    padding: clamp(40px, 7vw, 80px) var(--gutter) 40px;
+    position: relative;
+  }
+  .hero__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    padding-top: clamp(20px, 5vw, 60px);
+  }
+  .hero__lede {
+    max-width: 18ch;
+    font-size: clamp(36px, 5.4vw, 76px);
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+    font-weight: 400;
+    color: var(--ink);
+  }
+  .hero__lede em {
+    font-style: italic;
+    font-family: "Newsreader", "Source Serif Pro", Georgia, serif;
+    font-weight: 300;
+    color: var(--accent);
+  }
+  .hero__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    text-align: right;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding-top: 14px;
+  }
+  .hero__meta strong { color: var(--ink); font-weight: 500; }
+  .hero__meta .pulse {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: flex-end;
+    align-self: flex-end;
+  }
+  .hero__meta .pulse::before {
+    content: "";
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 0 var(--accent);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--accent) 50%, transparent); }
+    70% { box-shadow: 0 0 0 8px transparent; }
+    100% { box-shadow: 0 0 0 0 transparent; }
+  }
+
+  .hero__bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: end;
+    padding-top: 80px;
+    border-top: 1px solid var(--line);
+    margin-top: 60px;
+  }
+  .hero__intro h2 {
+    font-size: 14px;
+    font-family: var(--font-mono);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 18px;
+    font-weight: 500;
+  }
+  .hero__intro p {
+    font-size: clamp(16px, 1.3vw, 19px);
+    line-height: 1.55;
+    color: var(--ink-2);
+    margin: 0 0 28px;
+    max-width: 52ch;
+  }
+  .hero__cta { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+  .hero__scroll-hint {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 16px;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .scroll-line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, var(--line) 0%, var(--ink) 100%);
+    transform-origin: top;
+    animation: scrollPulse 2.4s ease-in-out infinite;
+  }
+  @keyframes scrollPulse {
+    0%, 100% { opacity: .3; transform: scaleY(.6); }
+    50% { opacity: 1; transform: scaleY(1); }
+  }
+
+  /* Marquee */
+  .marquee {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 24px 0;
+    overflow: hidden;
+  }
+  .marquee__track {
+    display: flex;
+    gap: 64px;
+    animation: marquee 40s linear infinite;
+    white-space: nowrap;
+    width: max-content;
+  }
+  .marquee__item {
+    font-family: "Newsreader", Georgia, serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(28px, 3.6vw, 44px);
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    gap: 64px;
+  }
+  .marquee__item::after {
+    content: "";
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: inline-block;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* Featured work */
+  .featured { padding: clamp(80px, 12vw, 140px) var(--gutter); }
+  .featured__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 56px;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .featured__title {
+    font-size: clamp(32px, 4.6vw, 60px);
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    font-weight: 400;
+    max-width: 16ch;
+  }
+  .featured__title em {
+    font-style: italic;
+    font-family: "Newsreader", Georgia, serif;
+    font-weight: 300;
+    color: var(--accent);
+  }
+  .featured__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px 32px;
+  }
+  .featured__grid .work-card__media {
+    aspect-ratio: 16 / 9;
+  }
+  .featured__grid .work-card__title { font-size: 28px; }
+  .work-card { display: block; cursor: pointer; transition: transform .3s cubic-bezier(.2,.7,.2,1); }
+  .work-card:hover { transform: translateY(-4px); }
+  .work-card__media {
+    aspect-ratio: 4 / 3;
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 18px;
+    position: relative;
+  }
+  .work-card__media .ph { position: absolute; inset: 0; }
+  .work-card__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+  .work-card__media .accent-bar {
+    position: absolute;
+    top: 14px; left: 14px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(6px);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink);
+    z-index: 2;
+  }
+  .work-card__row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
+  .work-card__title { font-size: 22px; font-weight: 500; letter-spacing: -0.015em; }
+  .work-card__year { font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+  .work-card__sub { color: var(--muted); font-size: 14px; margin-top: 4px; }
+
+  .work-card[data-accent="nova"] .work-card__media .ph { background: linear-gradient(135deg, #fde9e7, #f7d3cf); }
+  .work-card[data-accent="bgrs"] .work-card__media .ph { background: linear-gradient(135deg, #dff0ee, #c6e3df); }
+  .work-card[data-accent="clearsign"] .work-card__media .ph { background: linear-gradient(135deg, #e3ebff, #cfdcff); }
+  .work-card[data-accent="promopages"] .work-card__media .ph { background: linear-gradient(135deg, #ece6ff, #d9cfff); }
+
+  /* Audience-targeted strip (replaces about-strip) */
+  .focus-strip {
+    background: #0e0e0e;
+    color: #f4f1ec;
+    padding: clamp(80px, 11vw, 130px) var(--gutter);
+  }
+  .focus-strip__inner { max-width: 920px; margin: 0 auto; }
+  .focus-strip__eyebrow {
+    color: rgba(244,241,236,0.5);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .focus-strip__eyebrow .target {
+    color: var(--accent);
+    background: color-mix(in oklab, var(--accent) 15%, transparent);
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+  }
+  .focus-strip__title {
+    font-size: clamp(28px, 3.6vw, 46px);
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    font-weight: 300;
+  }
+  .focus-strip__title em {
+    font-family: "Newsreader", Georgia, serif;
+    font-style: italic;
+    color: var(--accent);
+  }
+  .focus-strip__why {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .focus-strip__why-item {
+    padding: 22px 24px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .focus-strip__why-num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--accent);
+    margin-bottom: 12px;
+    letter-spacing: 0.06em;
+  }
+  .focus-strip__why-item h4 {
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin: 0 0 8px;
+  }
+  .focus-strip__why-item p {
+    font-size: 14px;
+    color: rgba(244,241,236,0.65);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  /* Footer */
+  .home-foot {
+    border-top: 1px solid var(--line);
+    padding: 60px var(--gutter) 40px;
+  }
+  .home-foot__top {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+  }
+  .home-foot__big {
+    font-size: clamp(36px, 5vw, 64px);
+    letter-spacing: -0.03em;
+    line-height: 1.02;
+    font-weight: 400;
+  }
+  .home-foot__big em {
+    font-family: "Newsreader", Georgia, serif;
+    font-style: italic;
+    color: var(--accent);
+  }
+  .home-foot__col h4 {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+    margin-bottom: 14px;
+    font-weight: 500;
+  }
+  .home-foot__col a {
+    display: block;
+    color: var(--ink-2);
+    padding: 4px 0;
+    font-size: 15px;
+    transition: color .15s, transform .15s;
+  }
+  .home-foot__col a:hover { color: var(--ink); transform: translateX(3px); }
+  .home-foot__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    border-top: 1px solid var(--line);
+    padding-top: 24px;
+  }
+
+  @media (max-width: 880px) {
+    .hero__bottom { grid-template-columns: 1fr; gap: 40px; }
+    .featured__grid { grid-template-columns: 1fr; }
+    .home-foot__top { grid-template-columns: 1fr 1fr; }
+    .focus-strip__why { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 540px) {
+    .hero__top { flex-direction: column; }
+    .hero__meta { text-align: left; }
+    .home-foot__top { grid-template-columns: 1fr; }
+  }
+</style>
+<!-- Hotjar Tracking Code for http://trishafeydesigns.com/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:2054169,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a class="nav__logo" href="index.html"><img class="nav__logo-mark" src="assets/tf-logo.svg" alt="Trisha Fey" /></a>
+  <div class="nav__links">
+    <a href="index.html" class="active">Home</a>
+    <a href="work.html">Work</a>
+  <a href="mailto:trisha@trishafeydesigns.com">Contact</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div>
+    <div class="hero__top">
+      <h1 class="hero__lede fade-up" id="lede">
+        A UX product designer<br/>
+        working in the<br/>
+        <em>ever-changing</em> world<br/>
+        of technology.
+      </h1>
+      <div class="hero__meta fade-up d1">
+        <span>Portfolio · 2026</span>
+        <span><strong>New York City, NY</strong></span>
+        <span class="pulse" id="availability"><strong>Open to roles</strong></span>
+      </div>
+    </div>
+
+    <div class="hero__bottom">
+      <div class="hero__intro fade-up d2">
+        <h2 id="introEyebrow">Hello</h2>
+        <p id="introBody">
+          I'm Trisha Fey. I strive to create innovative and empathic designs for the best possible user experience. I've always had a love for art and culture, coupled with a natural curiosity for human behaviour and its interaction with technology. This marriage of <span class="accent-text">art, psychology, and technology</span> developed into my current passion for UX design.
+        </p>
+        <div class="hero__cta">
+          <a class="btn" href="work.html">
+            See work
+            <svg class="arrow" viewBox="0 0 16 16" fill="none">
+              <path d="M3 13L13 3M13 3H5M13 3V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a class="btn btn--ghost" href="assets/trish-fejdasz-resume-2026.pdf" download="trish-fejdasz-resume-2026.pdf" target="_blank" rel="noopener">Download CV</a>
+        </div>
+      </div>
+      <div class="hero__scroll-hint fade-up d3">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track" id="marqueeTrack">
+    <span class="marquee__item">User Research</span>
+    <span class="marquee__item">Interaction Design</span>
+    <span class="marquee__item">Prototyping</span>
+    <span class="marquee__item">Design Systems</span>
+    <span class="marquee__item">Enterprise UX</span>
+    <span class="marquee__item">AI Interfaces</span>
+    <span class="marquee__item">User Research</span>
+    <span class="marquee__item">Interaction Design</span>
+    <span class="marquee__item">Prototyping</span>
+    <span class="marquee__item">Design Systems</span>
+    <span class="marquee__item">Enterprise UX</span>
+    <span class="marquee__item">AI Interfaces</span>
+  </div>
+</div>
+
+<section class="featured">
+  <div class="featured__head">
+    <h2 class="featured__title reveal">Featured <em>work.</em></h2>
+    <a class="btn btn--ghost reveal" href="work.html">
+      All projects
+      <svg class="arrow" viewBox="0 0 16 16" fill="none">
+        <path d="M3 13L13 3M13 3H5M13 3V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </div>
+
+  <div class="featured__grid">
+    <a class="work-card reveal" href="case-nova.html" data-accent="nova">
+      <div class="work-card__media">
+        <span class="accent-bar">Nova AI</span>
+        <img class="work-card__img" src="assets/nova/hero.png" alt="Nova AI · Rocket Close workspace" loading="lazy" />
+      </div>
+      <div class="work-card__row">
+        <div>
+          <div class="work-card__title">Nova AI</div>
+          <div class="work-card__sub">Rocket Mortgage's, Rocket Close · AI-powered internal closing workspace</div>
+        </div>
+        <div class="work-card__year">2026</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- Hidden on the home page; preserved for re-use on a future /anthropic landing page. -->
+<section class="focus-strip" id="focusStrip" hidden>
+  <div class="focus-strip__inner">
+    <div class="focus-strip__eyebrow">
+      <span>Why <span id="targetCompanyEyebrow">Anthropic</span></span>
+      <span class="target" id="targetTag">Target · 2026</span>
+    </div>
+    <p class="focus-strip__title" id="focusTitle">
+      I'm looking for a role where research-led design meets <em>frontier</em> AI — building interfaces that make powerful systems feel honest, calm, and human.
+    </p>
+    <div class="focus-strip__why">
+      <div class="focus-strip__why-item">
+        <div class="focus-strip__why-num">01</div>
+        <h4 id="why1Title">AI tone is UX.</h4>
+        <p id="why1Body">On Nova AI, voice and behavior under uncertainty became the biggest trust lever — more than any visual decision.</p>
+      </div>
+      <div class="focus-strip__why-item">
+        <div class="focus-strip__why-num">02</div>
+        <h4 id="why2Title">Research-led, not opinion-led.</h4>
+        <p id="why2Body">Every project here started with field interviews and ended in measured outcomes. I bring receipts.</p>
+      </div>
+      <div class="focus-strip__why-item">
+        <div class="focus-strip__why-num">03</div>
+        <h4 id="why3Title">Comfort with complexity.</h4>
+        <p id="why3Body">Mortgages, relocations, signing — domains where small UX choices have real legal and emotional weight.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="home-foot">
+  <div class="home-foot__top">
+    <div class="home-foot__big" id="footTitle">
+      Looking for the <em>right</em> team.
+    </div>
+    <div class="home-foot__col">
+      <h4>Site</h4>
+      <a href="index.html">Home</a>
+      <a href="work.html">Work</a>
+    </div>
+    <div class="home-foot__col">
+      <h4>Elsewhere</h4>
+      <a href="https://www.linkedin.com/in/trishafey" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="assets/trish-fejdasz-resume-2026.pdf" download="trish-fejdasz-resume-2026.pdf" target="_blank" rel="noopener">Résumé / CV</a>
+    </div>
+    <div class="home-foot__col">
+      <h4 id="reachLabel">Reach me</h4>
+      <a href="mailto:trisha@trishafeydesigns.com">trisha@trishafeydesigns.com</a>
+    </div>
+  </div>
+  <div class="home-foot__bottom">
+    <span>© 2026 Trisha Fey</span>
+    <span>Last updated April 2026</span>
+  </div>
+</footer>
+<script>
+  // Reveal-on-scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Nav border on scroll
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+</script>
+</body>
+</html>
