@@ -137,6 +137,15 @@
     margin-bottom: 6px;
   }
 
+  /* ===== Summary ===== */
+  .res-summary {
+    font-size: clamp(16px, 1.4vw, 18px);
+    line-height: 1.65;
+    color: var(--ink-2);
+    max-width: 72ch;
+    margin: 0;
+  }
+
   /* ===== Job ===== */
   .res-job + .res-job {
     margin-top: clamp(36px, 4.5vw, 56px);
@@ -324,7 +333,7 @@
     <div class="res-head__lead">
       <span class="res-head__eyebrow">Resume · 2026</span>
       <h1 class="res-head__name">Trisha <em>Fey</em></h1>
-      <div class="res-head__title">Product Designer · UX / Product / AI</div>
+      <div class="res-head__title">Senior Product Designer · AI / UX / Platform</div>
       <div class="res-actions">
         <a class="btn" href="assets/trish-fejdasz-resume-2026.pdf" download="trish-fejdasz-resume-2026.pdf">
           Download PDF
@@ -342,6 +351,14 @@
     </dl>
   </header>
 
+  <!-- ============ SUMMARY ============ -->
+  <section class="res-sec">
+    <div class="res-sec__label"><span class="res-sec__label-num">00</span>Summary</div>
+    <p class="res-summary">
+      Senior Product Designer with 10+ years designing digital products, AI-powered enterprise platforms, agentic workflows, and complex internal tools. Specialize in translating ambiguous, high-stakes operational systems into scalable, human-centered products with deep experience in human-in-the-loop AI, conversational interfaces, and decision-support tooling validated with real users on assistive technology. Currently leading 0→1 AI platform at Rocket Close; seeking to bring innovation and systems thinking to frontier AI products.
+    </p>
+  </section>
+
   <!-- ============ EXPERIENCE ============ -->
   <section class="res-sec">
     <div class="res-sec__label"><span class="res-sec__label-num">01</span>Experience</div>
@@ -349,33 +366,34 @@
 
       <article class="res-job">
         <div class="res-job__head">
-          <h3 class="res-job__role">Senior UX Designer · <em>Rocket Companies</em></h3>
+          <h3 class="res-job__role">Senior UX Designer · <em>Rocket Close</em></h3>
           <div class="res-job__dates">Jul 2021 – Present</div>
         </div>
-        <p class="res-job__company"><strong>Rocket Mortgage &amp; Rocket Close</strong> · Detroit, MI (Remote)</p>
+        <p class="res-job__company"><strong>Rocket Close</strong> · Mortgage closing &amp; title services</p>
         <ul class="res-job__bullets">
           <li>Led <strong>0→1 design of Nova</strong>, an AI-assisted workspace combining agentic automation with human-in-the-loop decision support across title, notarization, and post-close workflows; consolidated 3–5 disconnected systems (Atlas, Salesforce, vendor tools) into one guided experience and earned a <strong>2024 Rockie Award nomination</strong> — selected from 15,000+ employees for Innovation in Technology.</li>
-          <li>Designed Nova's <strong>identity-matching workflow</strong> that replaces manual document scanning — reducing a 30–90 minute per-file task to an AI-led first pass with human verification, surfacing decision-ready summaries instead of raw documents.</li>
-          <li>Defined <strong>human–AI interaction principles</strong> for Nova: bounded autonomy, transparent reasoning, ranked fallback decisions, and clear next-step guidance — establishing patterns now used as visionary benchmarks shaping multi-year company AI direction.</li>
-          <li>Owned end-to-end <strong>redesign of Clear Sign</strong>, Rocket's Remote Online Notarization platform, across a 3-year, 3-phase evolution (2022–2024); delivered mobile-first, WCAG-aligned experience and reduced QR-related support calls from ~14% to under 1% by replacing scan flows with SMS-based ID verification.</li>
-          <li>Partnered cross-functionally with engineering, product, legal, data, and operations to define problem spaces, de-risk technical complexity through high-fidelity prototypes, and align stakeholders before engineering investment; secured executive buy-in on Nova as <strong>sole UX lead</strong> before PM/PO assignment.</li>
-          <li>Mentored junior and mid-level designers; led critique practice and championed UX research, accessibility, and systems thinking across the product organization.</li>
         </ul>
         <div class="res-job__recog">
           <span class="res-job__recog-label">Recognition</span>
           2024 Rockie Award Nominee — Innovation in Technology, selected from 15,000+ Rocket Companies employees for AI-driven platform and workflow design.
         </div>
+        <ul class="res-job__bullets">
+          <li>Designed Nova's <strong>identity-matching workflow</strong> that replaces manual document scanning — reducing a 30–90 minute per-file task to an AI-led first pass with human verification, surfacing decision-ready summaries instead of raw documents.</li>
+          <li>Defined <strong>human–AI interaction principles</strong> for Nova: bounded autonomy, transparent reasoning, ranked fallback decisions, and clear next-step guidance — establishing patterns now used as visionary benchmarks shaping multi-year company AI direction.</li>
+          <li>Partnered with applied AI engineers in <strong>daily working sessions</strong> to define model behavior, eval criteria, and failure-mode handling for Nova's identity-matching and decision-support features — translating between design intent and model capability, including confidence thresholds, fallback paths, and human-review escalation.</li>
+          <li>Owned end-to-end <strong>redesign of Clear Sign</strong>, Rocket's Remote Online Notarization platform, across a 4-phase evolution (2022–present); delivered mobile-first, WCAG-aligned experience and reduced QR-related support calls from ~14% to under 1% by replacing scan flows with SMS-based ID verification.</li>
+          <li>Designed Clear Sign's <strong>Phase 4 multimodal AI</strong>: an agent that replaces the human notary by observing screen state and signer audio in real time — guiding users through confusion via semantic cues ("why isn't my camera working?") and flagging security risks like signer duress through tone analysis.</li>
+          <li>Partnered cross-functionally with engineering, product, legal, data, and operations to de-risk technical complexity through high-fidelity prototypes; secured executive buy-in on Nova as <strong>sole UX lead</strong> before PM/PO assignment. Mentor designers and champion UX research and accessibility practice across the org.</li>
+        </ul>
       </article>
 
       <article class="res-job">
         <div class="res-job__head">
-          <h3 class="res-job__role">Senior UX Designer · <em>BGRS</em></h3>
+          <h3 class="res-job__role">Senior UX Designer · <em>BGRS (now SIRVA)</em></h3>
           <div class="res-job__dates">May 2020 – Jun 2021</div>
         </div>
-        <p class="res-job__company"><strong>BGRS (now SIRVA)</strong> · Global employee relocation</p>
         <ul class="res-job__bullets">
-          <li>Led end-to-end <strong>redesign of an enterprise relocation dashboard</strong> serving employees, consultants, and corporate clients globally; replaced fragmented email-based workflows with a centralized, task-driven workspace across navigation, home, and calendar/list views.</li>
-          <li>Partnered with <strong>Fable</strong> to design and validate a WCAG AA experience with real users on assistive technology — screen readers, voice control, switch devices — across 6 device + tool combinations, establishing accessibility as a foundational practice rather than a finish-line check.</li>
+          <li>Led end-to-end <strong>redesign of an enterprise relocation dashboard</strong> serving employees, consultants, and corporate clients globally; replaced fragmented email workflows with a centralized task-driven workspace. Partnered with <strong>Fable</strong> to validate WCAG AA experience with real users on assistive technology — screen readers, voice control, switch devices — across 6 device + tool combinations, embedding accessibility as foundational practice.</li>
         </ul>
       </article>
 
@@ -384,10 +402,8 @@
           <h3 class="res-job__role">Digital &amp; UX Designer · <em>Hostopia</em></h3>
           <div class="res-job__dates">Sept 2015 – May 2020</div>
         </div>
-        <p class="res-job__company"><strong>Hostopia</strong> · White-label SMB digital products</p>
         <ul class="res-job__bullets">
-          <li>Led <strong>end-to-end UX</strong> for white-label SMB products deployed across 5 telecom partners (TELUS, Rogers, Bell, Cogeco, Hostopia); designed <strong>PromoPages</strong>, an auto-provisioned guided landing page builder bundled with core services as a customer retention play.</li>
-          <li>Translated user research into flows, IA, and scalable interaction systems for responsive web platforms and SMB e-commerce products serving non-technical, multi-generational users.</li>
+          <li>Led <strong>end-to-end UX</strong> for white-label SMB products deployed across 5 telecom partners (TELUS, Rogers, Bell, Cogeco, Hostopia); designed <strong>PromoPages</strong>, an auto-provisioned guided landing page builder bundled as a retention play. Translated research into flows, IA, and scalable interaction systems serving non-technical users.</li>
         </ul>
       </article>
 
@@ -396,9 +412,8 @@
           <h3 class="res-job__role">Founder &amp; Designer · <em>Trisha Fey Designs</em></h3>
           <div class="res-job__dates">2012 – Present</div>
         </div>
-        <p class="res-job__company"><strong>Independent practice</strong> · Brand · Product · Web</p>
         <ul class="res-job__bullets">
-          <li>Independent practice spanning brand identity, product design, and web — including current work on <strong>Parlez</strong>, a structured relationship intelligence system combining emotional intelligence with analytical structure.</li>
+          <li>Independent practice spanning <strong>brand identity, design systems, and product design</strong>; recent work includes brand identity for <strong>Parlez</strong>, an AI relationship-intelligence startup. Designed and coded portfolio site end-to-end with Claude (deployed via GitHub + Cloudflare). Available for foundational UX, design system, and brand work for early-stage AI products.</li>
         </ul>
       </article>
 
@@ -423,63 +438,59 @@
     <div class="res-skills">
 
       <div class="res-skill__group">
-        <h4>Tools</h4>
+        <h4>AI &amp; emerging</h4>
         <ul class="res-skill__chips">
-          <li data-strong="true">Figma</li>
-          <li>Adobe XD</li>
-          <li>Photoshop</li>
-          <li>Illustrator</li>
-          <li>InDesign</li>
-          <li>Sketch</li>
-          <li>InVision</li>
-          <li>Jira</li>
-          <li>Confluence</li>
-          <li>Miro</li>
-          <li>Lucid</li>
-          <li>Pendo</li>
-          <li>Google Analytics</li>
-          <li>UserTesting</li>
-          <li>Atlassian</li>
+          <li data-strong="true">Agentic AI</li>
+          <li data-strong="true">Human-in-the-loop systems</li>
+          <li>AI copilots</li>
+          <li>Conversational &amp; multimodal UI</li>
+          <li>Voice + text interaction design</li>
+          <li>Generative AI prototyping</li>
+          <li>Natural language interaction</li>
+          <li>Model behavior &amp; eval criteria</li>
+          <li>AI trust &amp; transparency</li>
+          <li>Decision-support tooling</li>
+          <li>Failure-mode UX</li>
         </ul>
       </div>
 
       <div class="res-skill__group">
-        <h4>Core</h4>
+        <h4>Product &amp; design</h4>
         <ul class="res-skill__chips">
           <li data-strong="true">Product design</li>
           <li data-strong="true">Platform UX</li>
-          <li>Systems thinking</li>
+          <li>0→1 design</li>
+          <li>Foundational UX</li>
+          <li>Design systems</li>
+          <li>Brand identity</li>
           <li>Internal tools</li>
           <li>Dashboards</li>
-          <li>Design systems</li>
           <li>User research</li>
           <li>Journey mapping</li>
-          <li>Workflows</li>
           <li>Prototyping</li>
           <li>Interaction design</li>
-          <li>Accessibility</li>
+          <li>Accessibility (WCAG A/AA)</li>
           <li>Cross-functional leadership</li>
         </ul>
       </div>
 
       <div class="res-skill__group">
-        <h4>AI &amp; emerging</h4>
+        <h4>Tools</h4>
         <ul class="res-skill__chips">
-          <li data-strong="true">AI-powered workflows</li>
-          <li data-strong="true">Agentic AI concepts</li>
-          <li>Design for AI copilots</li>
-          <li>Conversational UI</li>
-          <li>Multimodal interfaces</li>
-          <li>Natural language interaction</li>
-          <li>Generative AI prototyping</li>
-          <li>Real-time AI assistance</li>
-          <li>Ethical AI &amp; user trust</li>
-          <li>AI-integrated user research</li>
-          <li>Prompt engineering</li>
-          <li>Chatbot UX</li>
-          <li>Voice &amp; text interface design</li>
-          <li>AI-driven personalization</li>
-          <li>Low-code / no-code prototyping</li>
+          <li data-strong="true">Figma</li>
+          <li>Figma Make</li>
+          <li>Claude (design + code)</li>
+          <li>ChatGPT</li>
+          <li>Codex</li>
+          <li>v0</li>
+          <li>Adobe Creative Suite</li>
+          <li>Sketch</li>
+          <li>Jira</li>
+          <li>Confluence</li>
+          <li>Miro</li>
+          <li>Lucid</li>
+          <li>Pendo</li>
+          <li>UserTesting</li>
         </ul>
       </div>
 
