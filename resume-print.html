@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Trisha Fey — Resume (PDF)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&family=Newsreader:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #111111;
+    --ink-2: #2a2a2a;
+    --muted: #5a5a5a;
+    --muted-2: #888;
+    --line: #d8d8d8;
+    --accent: #111111;
+    --font-sans: "Inter Tight", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #f4f4f0; }
+  body {
+    font-family: var(--font-sans);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "ss01", "cv11";
+  }
+  a { color: inherit; text-decoration: none; }
+
+  /* ============ Toolbar (screen only) ============ */
+  .pdf-toolbar {
+    position: fixed; top: 0; left: 0; right: 0;
+    background: #111;
+    color: #fff;
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    z-index: 100;
+    font-size: 13px;
+  }
+  .pdf-toolbar__title { font-family: var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; font-size: 11px; color: #aaa; }
+  .pdf-toolbar__title strong { color: #fff; font-weight: 500; }
+  .pdf-toolbar__actions { display: flex; gap: 8px; }
+  .pdf-btn {
+    background: #fff; color: #111;
+    border: none; cursor: pointer;
+    padding: 8px 16px; border-radius: 999px;
+    font-family: var(--font-sans);
+    font-size: 13px; font-weight: 500;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: transform .15s, background .15s;
+  }
+  .pdf-btn:hover { transform: translateY(-1px); }
+  .pdf-btn--ghost {
+    background: transparent; color: #fff;
+    border: 1px solid #333;
+  }
+  .pdf-btn--ghost:hover { background: #222; border-color: #555; }
+  .pdf-btn svg { width: 13px; height: 13px; }
+
+  /* ============ Page (one-pager) ============ */
+  .page-wrap {
+    padding: 80px 24px 48px;
+    display: flex;
+    justify-content: center;
+  }
+  .page {
+    width: 8.5in;
+    min-height: 11in;
+    background: #fff;
+    padding: 0.55in 0.6in 0.5in;
+    box-shadow: 0 30px 80px -30px rgba(0,0,0,0.25), 0 4px 14px -6px rgba(0,0,0,0.1);
+    font-size: 9.6pt;
+    line-height: 1.42;
+    color: var(--ink-2);
+    display: flex;
+    flex-direction: column;
+    gap: 16pt;
+  }
+
+  /* ============ Header ============ */
+  .pg-head {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 24pt;
+    padding-bottom: 12pt;
+    border-bottom: 0.75pt solid var(--line);
+  }
+  .pg-head__name {
+    font-size: 32pt;
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+    font-weight: 300;
+    color: var(--ink);
+  }
+  .pg-head__name em {
+    font-family: "Newsreader", Georgia, serif;
+    font-style: italic; font-weight: 400;
+    color: var(--accent);
+  }
+  .pg-head__title {
+    font-family: var(--font-mono);
+    font-size: 8pt;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-top: 6pt;
+  }
+  .pg-head__contact {
+    text-align: right;
+    font-size: 8.5pt;
+    line-height: 1.55;
+    color: var(--ink-2);
+  }
+  .pg-head__contact-label {
+    font-family: var(--font-mono);
+    font-size: 7.2pt;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted-2);
+    display: inline-block;
+    width: 50pt;
+  }
+
+  /* ============ Section ============ */
+  .pg-sec {
+    display: grid;
+    grid-template-columns: 76pt 1fr;
+    gap: 20pt;
+  }
+  .pg-sec__label {
+    font-family: var(--font-mono);
+    font-size: 7.5pt;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding-top: 1pt;
+  }
+  .pg-sec__label-num {
+    display: block;
+    color: var(--ink);
+    font-weight: 500;
+    margin-bottom: 3pt;
+  }
+
+  /* ============ Job ============ */
+  .pg-job + .pg-job { margin-top: 10pt; }
+  .pg-job__head {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12pt;
+    align-items: baseline;
+  }
+  .pg-job__role {
+    font-size: 11pt;
+    letter-spacing: -0.015em;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+  .pg-job__role em {
+    font-family: "Newsreader", Georgia, serif;
+    font-style: italic; font-weight: 400;
+    color: var(--accent);
+  }
+  .pg-job__dates {
+    font-family: var(--font-mono);
+    font-size: 7.5pt;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+  .pg-job__company {
+    font-size: 8.5pt;
+    color: var(--muted);
+    margin-bottom: 4pt;
+  }
+  .pg-job__company strong { color: var(--ink-2); font-weight: 500; }
+  .pg-job ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 3pt;
+  }
+  .pg-job li {
+    position: relative;
+    padding-left: 12pt;
+    font-size: 9.2pt;
+    line-height: 1.42;
+    color: var(--ink-2);
+  }
+  .pg-job li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0.65em;
+    width: 6pt; height: 0.5pt;
+    background: var(--ink);
+  }
+  .pg-job li strong { color: var(--ink); font-weight: 500; }
+
+  .pg-job__recog {
+    margin-top: 5pt;
+    padding: 4pt 8pt;
+    border-left: 1.2pt solid var(--ink);
+    font-size: 8.5pt;
+    line-height: 1.4;
+    color: var(--ink);
+    background: #f7f7f4;
+  }
+  .pg-job__recog strong {
+    font-family: var(--font-mono);
+    font-size: 7pt;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink);
+    display: inline-block;
+    margin-right: 6pt;
+  }
+
+  /* ============ Education + Skills (combined row) ============ */
+  .pg-row {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 20pt;
+    align-items: start;
+  }
+  .pg-edu__school {
+    font-size: 10pt;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .pg-edu__major {
+    font-size: 8.5pt;
+    color: var(--muted);
+    margin-top: 2pt;
+  }
+  .pg-edu__year {
+    font-family: var(--font-mono);
+    font-size: 7.5pt;
+    color: var(--muted);
+    margin-top: 3pt;
+  }
+
+  .pg-skill { margin-bottom: 6pt; }
+  .pg-skill:last-child { margin-bottom: 0; }
+  .pg-skill h4 {
+    font-family: var(--font-mono);
+    font-size: 7pt;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+    margin-bottom: 3pt;
+  }
+  .pg-skill p {
+    font-size: 8.6pt;
+    line-height: 1.45;
+    color: var(--ink-2);
+  }
+
+  /* ============ PRINT ============ */
+  @page {
+    size: Letter;
+    margin: 0;
+  }
+  @media print {
+    html, body { background: #fff; }
+    .pdf-toolbar { display: none !important; }
+    .page-wrap { padding: 0; }
+    .page {
+      width: 100%;
+      min-height: auto;
+      box-shadow: none;
+      padding: 0.5in 0.55in;
+      page-break-after: avoid;
+    }
+    a { color: inherit !important; }
+  }
+
+  /* ============ Mobile screen view ============ */
+  @media (max-width: 900px) {
+    .page-wrap { padding: 80px 0 24px; }
+    .page {
+      width: 100%;
+      min-height: auto;
+      padding: 28px 24px;
+      font-size: 11pt;
+    }
+    .pg-head { grid-template-columns: 1fr; gap: 14pt; }
+    .pg-head__contact { text-align: left; }
+    .pg-sec { grid-template-columns: 1fr; gap: 8pt; }
+    .pg-row { grid-template-columns: 1fr; gap: 14pt; }
+  }
+</style>
+</head>
+<body>
+
+<div class="pdf-toolbar">
+  <div class="pdf-toolbar__title">Resume · <strong>Trisha Fey</strong> · One-page PDF</div>
+  <div class="pdf-toolbar__actions">
+    <a class="pdf-btn pdf-btn--ghost" href="resume.html">← Full version</a>
+    <button class="pdf-btn" type="button" onclick="window.print()">
+      <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v9m0 0l3.5-3.5M8 11L4.5 7.5M3 13.5h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Save as PDF
+    </button>
+  </div>
+</div>
+
+<div class="page-wrap">
+  <article class="page">
+
+    <header class="pg-head">
+      <div>
+        <h1 class="pg-head__name">Trisha <em>Fey</em></h1>
+        <div class="pg-head__title">Product Designer · UX / Product / AI</div>
+      </div>
+      <div class="pg-head__contact">
+        <div><span class="pg-head__contact-label">Loc</span>New York City, NY</div>
+        <div><span class="pg-head__contact-label">Email</span><a href="mailto:trisha@trishafeydesigns.com">trisha@trishafeydesigns.com</a></div>
+        <div><span class="pg-head__contact-label">Phone</span>646-662-8344</div>
+        <div><span class="pg-head__contact-label">Web</span>trishafeydesigns.com</div>
+        <div><span class="pg-head__contact-label">Linked</span>linkedin.com/in/TrishaFey</div>
+      </div>
+    </header>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="pg-sec">
+      <div class="pg-sec__label"><span class="pg-sec__label-num">01</span>Experience</div>
+      <div>
+
+        <article class="pg-job">
+          <div class="pg-job__head">
+            <div class="pg-job__role">Sr. UX Designer · <em>Rocket Mortgage</em></div>
+            <div class="pg-job__dates">Jul 2021 – Present</div>
+          </div>
+          <div class="pg-job__company"><strong>Rocket Companies</strong> · Mortgage, title &amp; closing platforms</div>
+          <ul>
+            <li>Led <strong>0→1 and future-state AI platform concepts</strong> for complex multi-system workflows (title, notarization, post-close), incl. agentic AI prototypes adopted as visionary benchmarks for company direction.</li>
+            <li>Designed and shipped foundational <strong>internal tools and workflows</strong> across Nova, Salesforce, and Title — translating ambiguous, high-stakes processes into scalable platform experiences.</li>
+            <li>Owned end-to-end <strong>redesign of Clear Sign</strong>, a Remote Online Notarization platform — mobile-first, accessible, with reusable system-level patterns.</li>
+            <li>Partnered with engineering, product, and data to define problem spaces, map workflows, and identify automation opportunities before execution.</li>
+            <li>Built high-fidelity prototypes and technical proofs of concept to de-risk complexity and align cross-functional teams; mentored junior designers.</li>
+          </ul>
+          <div class="pg-job__recog"><strong>Recognition</strong>Nominated for the 2024 "Rockie" Award for Innovation in Technology — AI-driven platform &amp; workflow design.</div>
+        </article>
+
+        <article class="pg-job">
+          <div class="pg-job__head">
+            <div class="pg-job__role">UX Designer · <em>BGRS</em></div>
+            <div class="pg-job__dates">May 2020 – Jun 2021</div>
+          </div>
+          <div class="pg-job__company"><strong>BGRS (now SIRVA)</strong> · Global employee relocation</div>
+          <ul>
+            <li>Redesigned <strong>employee relocation dashboards</strong> for multiple user roles.</li>
+            <li>Conducted user research; contributed to personas, user flows, IA, and journey mapping.</li>
+            <li>Created a <strong>WCAG-compliant design system</strong> in partnership with external accessibility specialists.</li>
+            <li>Collaborated closely with Agile teams (BAs, PMs, Engineering).</li>
+          </ul>
+        </article>
+
+        <article class="pg-job">
+          <div class="pg-job__head">
+            <div class="pg-job__role">Digital &amp; UX Designer · <em>Hostopia</em></div>
+            <div class="pg-job__dates">Sept 2015 – May 2020</div>
+          </div>
+          <div class="pg-job__company"><strong>Hostopia</strong> · White-label SMB digital products</div>
+          <ul>
+            <li>Led <strong>end-to-end UX/UI</strong> for responsive web and product experiences.</li>
+            <li>Conducted user research and translated insights into flows, IA, and interaction design.</li>
+            <li>Delivered SMB e-commerce, platform tools, and <strong>white-label wholesale digital products</strong> for service providers.</li>
+          </ul>
+        </article>
+
+        <article class="pg-job">
+          <div class="pg-job__head">
+            <div class="pg-job__role">Graphic Designer · <em>The Look Company</em> &nbsp;/&nbsp; Designer · <em>Trisha Fey Designs</em></div>
+            <div class="pg-job__dates">2012 – Present</div>
+          </div>
+          <div class="pg-job__company"><strong>FIFA stadium branding</strong> across Canada · Independent practice in brand, web &amp; print</div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============ EDUCATION + SKILLS ============ -->
+    <section class="pg-sec">
+      <div class="pg-sec__label"><span class="pg-sec__label-num">02</span>Education &amp; skills</div>
+      <div class="pg-row">
+
+        <div>
+          <div class="pg-edu__school">Humber College</div>
+          <div class="pg-edu__major">Major · Advertising and Graphic Design</div>
+          <div class="pg-edu__year">2015</div>
+        </div>
+
+        <div>
+          <div class="pg-skill">
+            <h4>Tools</h4>
+            <p>Figma, Adobe XD, Photoshop, Illustrator, InDesign, Sketch, InVision, Jira, Confluence, Miro, Lucid, Pendo, Google Analytics, UserTesting, Atlassian.</p>
+          </div>
+          <div class="pg-skill">
+            <h4>Core</h4>
+            <p>Product design · platform UX · systems thinking · internal tools · dashboards · design systems · user research · journey mapping · workflows · prototyping · interaction design · accessibility · cross-functional leadership.</p>
+          </div>
+          <div class="pg-skill">
+            <h4>AI &amp; emerging</h4>
+            <p>AI-powered workflows · agentic AI concepts · AI copilots · conversational &amp; multimodal UI · natural language interaction · generative AI prototyping · real-time AI assistance · ethical AI &amp; user trust · AI-integrated user research · prompt engineering · chatbot UX · voice/text interface · AI-driven personalization.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </article>
+</div>
+
+<script>
+  if (location.hash === '#print') {
+    setTimeout(() => window.print(), 350);
+  }
+</script>
+
+</body>
+</html>
