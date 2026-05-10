@@ -1,8 +1,18 @@
 /* ============================================================
    Simple client-side password gate.
-   NOTE: Not real security — anyone can read this file. It only
-   discourages casual access to in-progress / confidential case
-   studies.
+
+   ⚠️  NOT REAL SECURITY — this is intentional friction only.
+   The password and the gated page content are both shipped to
+   the browser, so anyone can read them via View Source or
+   DevTools. Use this only to discourage casual access to
+   in-progress / confidential case studies.
+
+   TODO: Replace with proper server-side protection before
+   sharing externally. Options:
+     - Netlify / Vercel password protection (per-site)
+     - Cloudflare Access (per-route, SSO)
+     - Basic auth via reverse proxy
+     - Move gated case studies behind an authenticated route
    ============================================================ */
 (function () {
   var PASSWORD = 'trishafey';
