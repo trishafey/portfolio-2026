@@ -71,6 +71,32 @@
   }
   /* Multi-mode tags are populated by JS — suppress the inherited After/Before pseudo */
   .ba-car[data-mode="multi"] .ba-car__tag::before { content: none; }
+
+  /* Logo marquee — square image tiles, 40px gap, seamless loop */
+  .cs-logos .cs-logo {
+    width: 120px;
+    height: 120px;
+    min-width: 120px;
+    padding: 4px;
+    border-radius: 12px;
+  }
+  .cs-logo img {
+    height: 100%;
+    width: 100%;
+    display: block;
+    object-fit: contain;
+    opacity: 0.9;
+    transition: opacity .25s ease;
+  }
+  .cs-logo:hover img { opacity: 1; }
+  .cs-logos__track {
+    gap: 40px;
+    animation-name: logoScrollPromo;
+  }
+  @keyframes logoScrollPromo {
+    from { transform: translateX(0); }
+    to   { transform: translateX(calc(-50% - 20px)); }
+  }
 </style>
 <!-- Hotjar Tracking Code for http://trishafeydesigns.com/ -->
 <script>
@@ -117,16 +143,19 @@
 <section class="cs-logos">
   <div class="cs-logos__label">Telecom partners — bundled with core services</div>
   <div class="cs-logos__track-wrap"><div class="cs-logos__track">
-    <div class="cs-logo"><strong>TELUS</strong></div>
-    <div class="cs-logo"><strong>Rogers</strong></div>
-    <div class="cs-logo"><strong>Bell</strong></div>
-    <div class="cs-logo"><strong>Hostopia</strong></div>
-    <div class="cs-logo"><strong>Cogeco</strong></div>
-    <div class="cs-logo"><strong>TELUS</strong></div>
-    <div class="cs-logo"><strong>Rogers</strong></div>
-    <div class="cs-logo"><strong>Bell</strong></div>
-    <div class="cs-logo"><strong>Hostopia</strong></div>
-    <div class="cs-logo"><strong>Cogeco</strong></div>
+    <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/promopages/telus-logo.png" alt="TELUS" /></div>
+    <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/promopages/rogers-logo.png" alt="Rogers" /></div>
+    <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/promopages/bell-logo.png" alt="Bell" /></div>
+    <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/promopages/hostopia-logo.png" alt="Hostopia" /></div>
+    <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/promopages/at&amp;t-logo.png" alt="AT&amp;T" /></div>
+    <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/promopages/uberall-logo.png" alt="Uberall" /></div>
+    <!-- duplicated for marquee -->
+    <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/promopages/telus-logo.png" alt="" /></div>
+    <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/promopages/rogers-logo.png" alt="" /></div>
+    <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/promopages/bell-logo.png" alt="" /></div>
+    <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/promopages/hostopia-logo.png" alt="" /></div>
+    <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/promopages/at&amp;t-logo.png" alt="" /></div>
+    <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/promopages/uberall-logo.png" alt="" /></div>
   </div></div>
 </section>
 
