@@ -581,6 +581,32 @@
     .cs-lightbox__nav--next { right: 12px; }
     .cs-lightbox__close { top: 12px; right: 12px; width: 38px; height: 38px; font-size: 24px; }
   }
+
+  /* Logo marquee — square image tiles, 40px gap, seamless loop */
+  .cs-logos .cs-logo {
+    width: 120px;
+    height: 120px;
+    min-width: 120px;
+    padding: 4px;
+    border-radius: 12px;
+  }
+  .cs-logo img {
+    height: 100%;
+    width: 100%;
+    display: block;
+    object-fit: contain;
+    opacity: 0.9;
+    transition: opacity .25s ease;
+  }
+  .cs-logo:hover img { opacity: 1; }
+  .cs-logos__track {
+    gap: 40px;
+    animation-name: logoScrollBgrs;
+  }
+  @keyframes logoScrollBgrs {
+    from { transform: translateX(0); }
+    to   { transform: translateX(calc(-50% - 20px)); }
+  }
 </style>
 <!-- Hotjar Tracking Code for http://trishafeydesigns.com/ -->
 <script>
@@ -627,18 +653,19 @@
 <section class="cs-logos">
   <div class="cs-logos__label">Partners &amp; integrations</div>
   <div class="cs-logos__track-wrap"><div class="cs-logos__track">
-    <div class="cs-logo"><strong>BGRS</strong></div>
-    <div class="cs-logo"><strong>Fable</strong></div>
-    <div class="cs-logo"><strong>WCAG&nbsp;AA</strong></div>
-    <div class="cs-logo"><strong>SAP</strong></div>
-    <div class="cs-logo"><strong>Workday</strong></div>
-    <div class="cs-logo"><strong>SIRVA</strong></div>
-    <div class="cs-logo"><strong>BGRS</strong></div>
-    <div class="cs-logo"><strong>Fable</strong></div>
-    <div class="cs-logo"><strong>WCAG&nbsp;AA</strong></div>
-    <div class="cs-logo"><strong>SAP</strong></div>
-    <div class="cs-logo"><strong>Workday</strong></div>
-    <div class="cs-logo"><strong>SIRVA</strong></div>
+    <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/bgrs/bgrs-logo.png" alt="BGRS" /></div>
+    <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/bgrs/sirva-logo.png" alt="SIRVA" /></div>
+    <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/bgrs/fable-logo.png" alt="Fable" /></div>
+    <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/bgrs/wcag-logo.png" alt="WCAG AA" /></div>
+    <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/bgrs/sap-logo.png" alt="SAP" /></div>
+    <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/bgrs/workday-logo.png" alt="Workday" /></div>
+    <!-- duplicated for marquee -->
+    <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/bgrs/bgrs-logo.png" alt="" /></div>
+    <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/bgrs/sirva-logo.png" alt="" /></div>
+    <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/bgrs/fable-logo.png" alt="" /></div>
+    <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/bgrs/wcag-logo.png" alt="" /></div>
+    <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/bgrs/sap-logo.png" alt="" /></div>
+    <div class="cs-logo"><img src="https://assets.trishafeydesigns.com/bgrs/workday-logo.png" alt="" /></div>
   </div></div>
 </section>
 
